@@ -12,4 +12,13 @@ public class PlayerDeck : MonoBehaviour
         Debug.Log("Card Added: " + card.id + " , " + card.CardName);
     }
 
+    public void RemoveCard (Card card)
+    {
+        if (deck.Contains(card))
+        {
+            deck.Remove(card);
+            Debug.Log("Card Removed: " + card.id + ", " + card.CardName);
+        }
+    }
+
 }

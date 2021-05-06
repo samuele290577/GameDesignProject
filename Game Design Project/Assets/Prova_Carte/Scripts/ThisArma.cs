@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ThisCard : MonoBehaviour
+public class ThisArma: MonoBehaviour
 {
-    public List<Card> thisCard = new List<Card>();
+    public List<Arma> thisCard = new List<Arma>();
     public int thisId;
 
-    public Card card;
+    public Arma card;
     
 
     public Text nameText;
@@ -19,7 +19,7 @@ public class ThisCard : MonoBehaviour
     public Text explosionText;
     void Start()
     {
-        thisCard[0] = CardDatabase.cardList[thisId];
+        thisCard[0] = (Arma)CardDatabase.cardList[thisId];
     }
 
     // Update is called once per frame
@@ -33,9 +33,9 @@ public class ThisCard : MonoBehaviour
         card.explosion = thisCard[0].explosion;
 
         nameText.text = "" + card.CardName;
-        RangeText.text = "" + card.range;
-        LimitText.text = "" + card.limit;
-        PowerText.text = "" + card.power;
-        explosionText.text = "" + card.explosion;
+        RangeText.text = "Range: " + card.range;
+        LimitText.text = "Limit: " + card.limit;
+        PowerText.text = "Power: " + card.power;
+        explosionText.text = "Explosion: " + card.explosion;
     }
 }
