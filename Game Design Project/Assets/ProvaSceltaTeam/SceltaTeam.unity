@@ -944,6 +944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 659851655}
   - component: {fileID: 659851654}
+  - component: {fileID: 659851656}
   m_Layer: 0
   m_Name: Team1
   m_TagString: Untagged
@@ -965,7 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button_plants: {fileID: 1743806478}
   button_humans: {fileID: 590905848}
-  chosenTeam: 
+  team: {fileID: 659851656}
 --- !u!4 &659851655
 Transform:
   m_ObjectHideFlags: 0
@@ -980,6 +981,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &659851656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659851653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ebf549ea99f0549be19c38880414e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team_name: 
+  isReady: 0
 --- !u!1 &818807072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,8 +1600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf805f20884348d4bbeb834c5044c7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team1: {fileID: 659851653}
-  team2: {fileID: 2138459638}
+  team1: {fileID: 659851656}
+  team2: {fileID: 2138459641}
   button: {fileID: 151895932}
 --- !u!1 &2138459638
 GameObject:
@@ -1598,6 +1613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138459639}
   - component: {fileID: 2138459640}
+  - component: {fileID: 2138459641}
   m_Layer: 0
   m_Name: Team2
   m_TagString: Untagged
@@ -1633,4 +1649,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button_plants: {fileID: 328380383}
   button_humans: {fileID: 818807074}
-  chosenTeam: 
+  team: {fileID: 2138459641}
+--- !u!114 &2138459641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138459638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ebf549ea99f0549be19c38880414e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team_name: 
+  isReady: 0

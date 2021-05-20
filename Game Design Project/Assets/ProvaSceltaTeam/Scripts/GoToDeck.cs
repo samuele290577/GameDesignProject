@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class GoToDeck : MonoBehaviour
 {
-    public GameObject team1;
-    public string team1_name;
-    public string team2_name;
-    public GameObject team2;
+    public Team team1;
+    public Team team2;
   
     
     public Button button; 
@@ -17,15 +15,21 @@ public class GoToDeck : MonoBehaviour
     void Start()
     {
         button.interactable = false;
-        team1_name = team1.GetComponent<TeamPickerManager>().chosenTeam;
-        team2_name = team2.GetComponent<TeamPickerManager>().chosenTeam;
-        Debug.Log(team1_name + " " + team2_name);
+       
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(team1_name + "ao" + team2_name);
+       if (team1.isReady&& team2.isReady && !(team1.team_name.Equals(team2.team_name)))
+        {
+            button.interactable = true;
+        }
+        if (team1.team_name.Equals(team2.team_name))
+        {
+            button.interactable = false;
+        }
+
     }
 }

@@ -7,21 +7,25 @@ public class TeamPickerManager : MonoBehaviour
 {
     public Button button_plants;
     public Button button_humans;
-    
-    public string chosenTeam;
+
+    public Team team;
+    public void Start()
+    {
+        team.isReady = false;
+    }
 
     public void ChosenPlants()
     {
-        chosenTeam = "Plants";
-        Debug.Log(chosenTeam);
+        team.team_name = "Plants";
         button_plants.image.color = Color.green;
         button_humans.image.color = Color.white;
+        team.isReady = true;
     }
     public void ChosenHumans()
     {
-        chosenTeam = "Humans";
-        Debug.Log(chosenTeam);
+        team.team_name = "Humans";
         button_humans.image.color = Color.red;
         button_plants.image.color = Color.white;
+        team.isReady = true;
     }
 }
