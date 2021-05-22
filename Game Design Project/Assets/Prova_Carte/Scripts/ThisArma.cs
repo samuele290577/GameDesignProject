@@ -33,9 +33,9 @@ public class ThisArma: MonoBehaviour
         card.explosion = thisCard[0].explosion;
 
         nameText.text = "" + card.CardName;
-        RangeText.text = "Range: " + card.range;
-        LimitText.text = "Limit: " + card.limit;
-        PowerText.text = "Power: " + card.power;
-        explosionText.text = "Explosion: " + card.explosion;
+        RangeText.text = "" + card.range;
+        LimitText.text = "" + card.limit;
+        PowerText.text = "" + card.power;
+        explosionText.text = "" + card.explosion;
     }
 }

@@ -36,10 +36,10 @@ public class ThisOstruzione : MonoBehaviour
         card.volume = thisCard[0].volume;
 
         nameText.text = "" + card.CardName;
-        RangeText.text = "Range: " + card.range;
-        LimitText.text = "Limit: " + card.limit;
-        VolumeText.text = "Volume: " + card.volume;
-        LifeText.text = "Vita: " + card.vita;
+        RangeText.text = "" + card.range;
+        LimitText.text = "" + card.limit;
+        VolumeText.text =  "" + card.volume;
+        LifeText.text = "" + card.vita;
         DescrizioneText.text = "" + card.descrizione;
     }
 }
