@@ -5769,7 +5769,7 @@ GameObject:
   - component: {fileID: 1224419063}
   - component: {fileID: 1224419062}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button_Next_Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5837,7 +5837,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1224419063}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2058101019}
+        m_MethodName: SceneSwitcher
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1224419063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8284,16 +8295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7199e42eb09fd2543983395a9d158fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck: []
-  size: 0
-  sizeText: {fileID: 2126648600}
-  image: {fileID: 1765284050}
-  warButton: {fileID: 1224419062}
-  bananacounter: 0
-  pinapplecounter: 0
-  coconutcounter: 0
-  watermeloncounter: 0
-  sabbiacounter: 0
 --- !u!1 &2052242214
 GameObject:
   m_ObjectHideFlags: 0
@@ -8372,6 +8373,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052242214}
   m_CullTransparentMesh: 0
+--- !u!1 &2058101018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058101020}
+  - component: {fileID: 2058101019}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2058101019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058101018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415a0b6726e782d45bac1de2f46b3331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2058101020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058101018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.485924, y: 3.0862417, z: -22.770632}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2065001568
 GameObject:
   m_ObjectHideFlags: 0
@@ -8539,6 +8583,7 @@ GameObject:
   - component: {fileID: 2126648602}
   - component: {fileID: 2126648601}
   - component: {fileID: 2126648600}
+  - component: {fileID: 2126648603}
   m_Layer: 5
   m_Name: Deck grandezza
   m_TagString: Untagged
@@ -8606,6 +8651,22 @@ RectTransform:
   m_AnchoredPosition: {x: 328, y: -116}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2126648603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126648599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342bdfdbe377f17478f830ed327d5564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeText: {fileID: 2126648600}
+  deck: {fileID: 2048466038}
+  warButton: {fileID: 1224419062}
+  image: {fileID: 1765284050}
 --- !u!1 &2136190551
 GameObject:
   m_ObjectHideFlags: 0
