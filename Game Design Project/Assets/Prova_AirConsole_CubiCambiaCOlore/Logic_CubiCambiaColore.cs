@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 
-public class Logic: MonoBehaviour {
+public class Logic_CubiCambiaColore: MonoBehaviour {
 
 	public GameObject Cube;
 
