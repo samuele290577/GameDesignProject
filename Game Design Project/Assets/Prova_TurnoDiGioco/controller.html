@@ -51,6 +51,41 @@
 
   </style>
  
+  <script type="text/javascript">
+    //the view manager finds all div containers with the "view" class and lets me show one view while hiding all others
+    //see also: https://github.com/AirConsole/airconsole-view-manager
+    var ViewManager = {
+      views: {},
+      current_view_id: null,
+
+      init: function() {
+        var views = document.querySelectorAll('.view');
+        for (var i = 0; i < views.length; i++) {
+          this.views[views[i].id] = views[i];
+        }
+        return this;
+      },
+
+      show: function(id) {
+        var view = this.views[id];
+        if (view) {
+          this.current_view_id = id;
+          this.hideAll();
+          view.style.display = "block";
+        } else {
+          console.warn("Could not find view with ID:", id);
+        }
+        return this;
+      },
+
+      hideAll: function() {
+        for (var key in this.views) {
+          this.views[key].style.display = "none";
+        }
+      }
+    };
+  </script>
+
    <script type="text/javascript">
 
     var airconsole;
@@ -62,17 +97,24 @@
      */
     function App() {
       var me = this;
-
       me.airconsole = new AirConsole({"orientation": "portrait", "synchronize_time" : "true"});
-      checkButtonState();
+
+      //initialize the view manager and set the first view
+      ViewManager.init();
+  	  ViewManager.show("ChooseCard");
 
       me.airconsole.onMessage = function(from, data) {
         console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
-        myCards = data;
-        updateCardsView();
+        if(data["action"]!=null && data["action"]=="cards") {
+            myCards = data.content;
+            updateCardsView();
+        }
+        else if (data["action"]!=null && data["action"]=="showLaunchItem") {
+            ViewManager.show("LaunchItem");
+        }
       };
       
-      
+
       /**
        * Here we are adding support for mouse events manually.
        * WE STRONGLY ENCOURAGE YOU TO USE THE AIRCONSOLE CONTROLS LIBRARY
@@ -98,14 +140,10 @@
       }
     }
     
-    App.prototype.sendMessageToScreen = function(msg) {
-        console.log("Button pressed!");
-        this.airconsole.message(AirConsole.SCREEN, {"action": msg});
+     App.prototype.sendMessageToScreen = function(msg) {
+        console.log("Button Pressed");
+       this.airconsole.message(AirConsole.SCREEN, msg);
     };
-
-    function checkButtonState() {
-        //fare il check dell'indice per disabilitare i bottoni
-    }
 
     function leftCard() {
         if (cardIndex==0) return;
@@ -130,7 +168,8 @@
     }
 
     function enterCard() {
-
+        console.log("Enter");
+        window.app.sendMessageToScreen({"action": "confirm_card", "cardIndex": cardIndex});
     }
   </script>
   
@@ -140,16 +179,20 @@
  </head>
 
 <body onload="window.app = new App()">
-    <div class="button" ontouchstart="window.app.sendMessageToScreen('alive')">Hey I'm Alive</div>
-    <div style="position: relative; height: 250px;">
-        <div class="card card_before"><p class="card_content" id="before_card_content"></p></div>
-        <div class="card card_active"><p class="card_content" id="active_card_content"></p></div>
-        <div class="card card_after"><p class="card_content" id="after_card_content"></p></div>
+    <div class="view" id="ChooseCard">
+        <div style="position: relative; height: 250px;">
+            <div class="card card_before"><p class="card_content" id="before_card_content"></p></div>
+            <div class="card card_active"><p class="card_content" id="active_card_content"></p></div>
+            <div class="card card_after"><p class="card_content" id="after_card_content"></p></div>
+        </div>
+        <div>
+            <div class="button" id="button_left" ontouchstart="leftCard()">LEFT</div>
+            <div class="button" id="button_right" ontouchstart="rightCard()">RIGHT</div>
+            <div class="button" id="button_confirm" ontouchstart="enterCard()">PLAY CARD</div>
+        </div>
     </div>
-    <div>
-        <div class="button" id="button_left" ontouchstart="leftCard()">LEFT</div>
-        <div class="button" id="button_right" ontouchstart="rightCard()">RIGHT</div>
-        <div class="button" id="button_right" ontouchstart="enterCard()">PLAY CARD</div>
-    <div>
+    <div class="view" id="LaunchItem">
+        <div class="button">Launch Item!</div>
+    </div>
 </body>
 </html>

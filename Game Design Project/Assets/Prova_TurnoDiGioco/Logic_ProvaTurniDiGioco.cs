@@ -35,8 +35,8 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 	void OnConnect(int device)
 	{
 		AddNewPlayer(device);
-
-		AirConsole.instance.Message(device, getPlayer(device).getCards());
+		var message = new { action = "cards", content = getPlayer(device).getCards()};
+		AirConsole.instance.Message(device, message);
 	}
 
 	private void AddNewPlayer(int deviceID)
@@ -75,11 +75,11 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 		//Log to on-screen Console
 		Debug.Log("Incoming message from device: " + fromDeviceID + ": " + data + " \n \n");
 
-		// Send Alive message
-		if (data["action"] != null && data["action"].ToString() == "alive")
-		{
-			getPlayer(fromDeviceID).Noitify();
-		}
+		if (data["action"] != null && data["action"].ToString() == "confirm_card")
+        {
+			Debug.Log("Carta scelta con indice: " + data["cardIndex"]);
+			AirConsole.instance.Message(fromDeviceID, new { action = "showLaunchItem" });
+        }
 	}
 
 	void OnDestroy()
