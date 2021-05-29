@@ -8,12 +8,22 @@ public class CardCoroutine : MonoBehaviour
     //public List<Card> deck = new List<Card>();
     //public List<Card> container = new List<Card>();
 
+    public static PlayerDeck deck;
+    public List<Card> cardList = new List<Card>();
     private float timer = 60f;
     private string nameScene;
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Cardcoroutine());
+        cardList.Add(new Arma(0, "Apple", 10, 25, 12, 5));
+        cardList.Add(new Arma(1, "Banana", 2, 15, 18, 25));
+        cardList.Add(new Arma(2, "Pinapple", 2, 35, 8, 4));
+        cardList.Add(new Arma(3, "Coconut", 1, 20, 20, 9));
+        cardList.Add(new Arma(4, "Watermelon", 1, 20, 18, 4));
+        cardList.Add(new Arma(5, "Oranges", 10, 30, 5, 1));
+        cardList.Add(new Ostruzione(6, "Roccia", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));
+        cardList.Add(new Ostruzione(7, "Pietre", 10, 10, 15, 4, "Se colpita, moltiplica di 1.5 il danno d'attacco"));
+        cardList.Add(new Ostruzione(8, "Sabbia Mobile", 15, 1, 10, 9, "Se colpisce l'avversario, egli salterà un turno di movimento"));
     }
 
     bool DeleagetForWait()
@@ -31,19 +41,20 @@ public class CardCoroutine : MonoBehaviour
     IEnumerator Cardcoroutine()
     {
         yield return new WaitUntil(DeleagetForWait);
-        //bool isEmpty = !deck.Any();
-        /*if (isEmpty)
+        
+
+        if (deck.getSize() != 10)
         {
-            for(i=0; i<11; i++)
+            for(int i=0; i<11; i++)
             {
-                int randomIndex = Random.Range(0, container.Count);
-                deck[i].Insert(container[randomIndex]);
+                int randomIndex = Random.Range(0, cardList.Count);
+                deck.AddCard(cardList[randomIndex]);
             }
             SceneManager.LoadScene(nameScene);
         }
         else
         {
             SceneManager.LoadScene(nameScene);
-        }*/
+        }
     }
 }
