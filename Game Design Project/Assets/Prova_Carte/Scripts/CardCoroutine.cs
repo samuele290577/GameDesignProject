@@ -11,7 +11,6 @@ public class CardCoroutine : MonoBehaviour
     public static PlayerDeck deck;
     public List<Card> cardList = new List<Card>();
     private float timer = 60f;
-    private string nameScene;
     void Start()
     {
         StartCoroutine(Cardcoroutine());
@@ -43,18 +42,18 @@ public class CardCoroutine : MonoBehaviour
         yield return new WaitUntil(DeleagetForWait);
         
 
-        if (deck.getSize() != 10)
+        if (deck.getSize() <10)
         {
-            for(int i=0; i<11; i++)
+            for(int i=0; i<10-deck.getSize(); i++)
             {
                 int randomIndex = Random.Range(0, cardList.Count);
                 deck.AddCard(cardList[randomIndex]);
             }
-            SceneManager.LoadScene(nameScene);
+            SceneManager.LoadScene("Scena_test");
         }
         else
         {
-            SceneManager.LoadScene(nameScene);
+            SceneManager.LoadScene("Scena_test");
         }
     }
 }
