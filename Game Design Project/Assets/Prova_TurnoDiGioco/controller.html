@@ -49,8 +49,36 @@
         font-size: 64pt;
       }
 
+      #touch_area_launch {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        margin: auto;
+        background-color: #1f1f1f;
+        border: 2px solid green;
+      }
+
+      .circle {
+        height: 30px;
+        width: 30px;
+        border-radius:50%;
+        background-color: green;
+        display: none;
+        position: absolute;
+      }
+
+      #line_svg {
+        width:100%;
+        height: 100%;
+        position: absolute;
+        display:none;
+      }
+
   </style>
  
+  <script type="text/javascript" src="touch-area.js"></script>
+  <script type="text/javascript" src="rate-limiter.js"></script>
+
   <script type="text/javascript">
     //the view manager finds all div containers with the "view" class and lets me show one view while hiding all others
     //see also: https://github.com/AirConsole/airconsole-view-manager
@@ -114,6 +142,53 @@
         }
       };
       
+      var rateLimiter = new RateLimiter(me.airconsole);
+
+      var touch_area_launch = new TouchArea("touch_area_launch", {
+        "touchstart": function(position) {
+          var startCircle = document.getElementById("start_circle");
+          startCircle.style.display= "block";
+          startCircle.style.left = "calc(" + position.x*100 + "% - 15px";
+          startCircle.style.top = "calc(" + position.y*100 + "% - 15px";
+          var line = document.getElementById("line");
+          line.setAttribute("x1", position.x*100);
+          line.setAttribute("y1", position.y*100);
+          rateLimiter.message(AirConsole.SCREEN, {
+            "touch_area_launch": {
+              "action": "start",
+              "position": position
+            }
+          });
+        },
+        "touchmove": function(position) {
+          var endCircle = document.getElementById("end_circle");
+          endCircle.style.display= "block";
+          endCircle.style.left = "calc(" + position.x*100 + "% - 15px";
+          endCircle.style.top = "calc(" + position.y*100 + "% - 15px";
+          var line = document.getElementById("line");
+          line.setAttribute("x2", position.x*100);
+          line.setAttribute("y2", position.y*100);
+          document.getElementById("line_svg").style.display = "block";
+          rateLimiter.message(AirConsole.SCREEN, {
+            "touch_area_launch": {
+              "action": "move",
+              "position": position
+            }
+          });
+        },
+        "touchend": function(position) {
+          document.getElementById("start_circle").style.display = "none";
+          document.getElementById("end_circle").style.display = "none";
+          document.getElementById("line_svg").style.display = "none";
+          rateLimiter.message(AirConsole.SCREEN, {
+            "touch_area_launch": {
+              "action": "end",
+              "position": position
+            }
+          });
+        }
+      });
+
 
       /**
        * Here we are adding support for mouse events manually.
@@ -193,6 +268,14 @@
     </div>
     <div class="view" id="LaunchItem">
         <div class="button">Launch Item!</div>
+        <div id="touch_area_launch">
+            <div class="circle" id="start_circle"></div>
+            <div class="circle" id="end_circle"></div>
+            <svg preserveAspectRatio="none" viewBox="0 0 100 100" id="line_svg">
+              <line id="line" x1="0" y1="0" x2="100" y2="100" stroke="green" />
+            </svg>
+        </div>
+      </div>
     </div>
 </body>
 </html>
