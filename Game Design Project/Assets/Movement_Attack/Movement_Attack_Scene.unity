@@ -865,7 +865,7 @@ MonoBehaviour:
   PlayerCharacter: {fileID: 1185528707}
   Player: {fileID: 1718739955479446380, guid: a843c2200859da147b44fb3b177ac13b, type: 3}
   ControlLine: {fileID: 1185457824531666100}
-  distanceScaleFactor: 0.03
+  distanceScaleFactor: 0.05
 --- !u!1001 &4315795737056065444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -882,6 +882,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BaseOffset
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315795737388409032, guid: 4b863bdb918fa2245b95cab6175b614d,
+        type: 3}
+      propertyPath: targetPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315795737388409032, guid: 4b863bdb918fa2245b95cab6175b614d,
+        type: 3}
+      propertyPath: targetPosition.y
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315795737388409032, guid: 4b863bdb918fa2245b95cab6175b614d,
+        type: 3}
+      propertyPath: targetPosition.z
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4315795737388409036, guid: 4b863bdb918fa2245b95cab6175b614d,
         type: 3}
@@ -901,7 +916,7 @@ PrefabInstance:
     - target: {fileID: 4315795737388409039, guid: 4b863bdb918fa2245b95cab6175b614d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -8.94
       objectReference: {fileID: 0}
     - target: {fileID: 4315795737388409039, guid: 4b863bdb918fa2245b95cab6175b614d,
         type: 3}

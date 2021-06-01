@@ -19,6 +19,8 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 
 	private int startPointX = 0;
 	private int startPointY = 0;
+	double angle = 0;
+	double distance = 0;
 	private int areaWidth = 0;
 	private int areaHeight = 0;
 
@@ -118,22 +120,26 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 			int y = (int)((float)data["position"]["y"] * areaHeight);
 			int deltaX = (startPointX - x);
 			int deltaY = (startPointY - y);
-			double angle = Math.Atan2(deltaY,deltaX);
-			double distance = (int) Math.Sqrt(Math.Pow(deltaX,2) + Math.Pow(deltaY,2));
-			testRender(angle, distance * distanceScaleFactor);
+			angle = Math.Atan2(deltaY,deltaX);
+			distance = Math.Sqrt(Math.Pow(deltaX,2) + Math.Pow(deltaY,2)) * distanceScaleFactor;
+			testRender();
 		}
 
 		else if (data["action"] != null && data["action"].ToString() == "touch_end")
 		{
-			//lancio / spostamento
+			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
+			var targetPosition = PlayerCharacter.transform.position + q * Vector3.right * (float)distance;
+			PlayerCharacter.GetComponent<Movement>().targetPosition = targetPosition;
+			Debug.Log("Target: " + targetPosition);
+
 		}
 
 	}
 
-	void testRender(double angle, double distance)
+	void testRender()
     {
 		var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
-		var targetPos = Vector3.zero + q * Vector3.right * (float) distance;
+		var targetPos = PlayerCharacter.transform.position + q * Vector3.right * (float) distance;
 		ControlLine.GetComponent<LineRenderer>().SetPosition(1, targetPos);
 
     }
