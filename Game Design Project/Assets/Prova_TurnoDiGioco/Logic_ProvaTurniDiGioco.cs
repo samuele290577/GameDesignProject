@@ -8,6 +8,8 @@ using Newtonsoft.Json.Linq;
 
 public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 
+	public GameObject PlayerCharacter;
+
 	public GameObject Player;
 	public GameObject ControlLine;
 	public float distanceScaleFactor;
@@ -28,7 +30,13 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 		AirConsole.instance.onConnect += OnConnect;
 	}
 
-	void OnReady(string code)
+
+    private void Update()
+    {
+		ControlLine.GetComponent<LineRenderer>().SetPosition(0, PlayerCharacter.transform.position);
+	}
+
+    void OnReady(string code)
 	{
 		//Since people might be coming to the game from the AirConsole store once the game is live, 
 		//I have to check for already connected devices here and cannot rely only on the OnConnect event 
@@ -96,6 +104,8 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 			areaHeight = (int)data["height"];
 
 			//set startPointX e startPointY to calc angle and distance
+
+
 			startPointX = (int) ((float)data["position"]["x"] * areaWidth);
 			startPointY = (int) ((float)data["position"]["y"] * areaHeight);
 			Debug.Log("X: " + startPointX + "; Y: " + startPointY);

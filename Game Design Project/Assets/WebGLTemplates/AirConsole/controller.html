@@ -22,25 +22,31 @@
        box-sizing: border-box;
       }
   
-      .button-half{
-       width: 49%;
-       display: inline-block;  
+      .card {
+        position: absolute;
+        width:150px;
+        height:200px;
       }
-  
-      #content{
-       position:absolute;
-       font-family: Arial;
-       color: white;
-       bottom: 5%;
+
+      .card_active {
+        border: 2px solid red;
+        left:90px;
+       }
+
+      .card_before {
+        border: 2px solid blue;
+        left:-75px;
       }
-  
-      #profile-pic{
-       position:absolute;
-       background-size: cover;
-       width: 50px;
-       height: 50px;
-       right: 5%;
-       bottom: 5%;
+
+      .card_after {
+        border: 2px solid blue;
+        left:255px;
+      }
+
+      .card_content {
+        width: fit-content;
+        margin: auto;
+        font-size: 64pt;
       }
 
       #touch_area_launch {
@@ -111,6 +117,9 @@
    <script type="text/javascript">
 
     var airconsole;
+    var myCards;
+    var cardIndex = 0;
+    
     /**
      * Sets up the communication to the screen.
      */
@@ -239,6 +248,9 @@
     }
   </script>
   
+
+
+
  </head>
 
 <body onload="window.app = new App()">
