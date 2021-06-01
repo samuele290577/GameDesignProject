@@ -2208,12 +2208,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606817358}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 628.125, y: -360.82, z: -1048.0623}
+  m_LocalRotation: {x: 0.044227067, y: 0.94765633, z: 0.15080364, w: -0.27793854}
+  m_LocalPosition: {x: 11.5877, y: -3.4057128, z: 16.564686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!45 &606817361
 Skybox:
@@ -4295,15 +4295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7199e42eb09fd2543983395a9d158fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0
-  sizeText: {fileID: 0}
-  image: {fileID: 0}
-  warButton: {fileID: 0}
-  bananacounter: 0
-  pinapplecounter: 0
-  coconutcounter: 0
-  watermeloncounter: 0
-  sabbiacounter: 0
 --- !u!4 &1291121279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 980971292674770136, guid: a440cdc05a9e2f04bba676a4efd17005,
@@ -7571,7 +7562,7 @@ PrefabInstance:
     - target: {fileID: 3322118183816524234, guid: caa6f6ede804455438b8c81f9e2be07f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3322118183816524234, guid: caa6f6ede804455438b8c81f9e2be07f,
         type: 3}

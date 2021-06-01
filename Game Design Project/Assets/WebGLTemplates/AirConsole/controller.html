@@ -22,56 +22,49 @@
        box-sizing: border-box;
       }
   
-      .card {
-        position: absolute;
-        width:150px;
-        height:200px;
+      .button-half{
+       width: 49%;
+       display: inline-block;  
       }
-
-      .card_active {
-        border: 2px solid red;
-        left:90px;
-       }
-
-      .card_before {
-        border: 2px solid blue;
-        left:-75px;
+  
+      #content{
+       position:absolute;
+       font-family: Arial;
+       color: white;
+       bottom: 5%;
       }
-
-      .card_after {
-        border: 2px solid blue;
-        left:255px;
+  
+      #profile-pic{
+       position:absolute;
+       background-size: cover;
+       width: 50px;
+       height: 50px;
+       right: 5%;
+       bottom: 5%;
       }
-
-      .card_content {
-        width: fit-content;
-        margin: auto;
-        font-size: 64pt;
-      }
-
   </style>
- 
-   <script type="text/javascript">
+  
+  <script type="text/javascript">
 
     var airconsole;
-    var myCards;
-    var cardIndex = 0;
-    
     /**
      * Sets up the communication to the screen.
      */
     function App() {
       var me = this;
-
       me.airconsole = new AirConsole({"orientation": "portrait", "synchronize_time" : "true"});
-      checkButtonState();
-
       me.airconsole.onMessage = function(from, data) {
-        console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
-        myCards = data;
-        updateCardsView();
+        console.log("onMessage", from, data);
+        document.getElementById("content").innerHTML = "device " + from + " says: " + data;
       };
       
+      me.airconsole.onReady = function(code) {
+        console.log("onReady", code);
+      };
+      
+      me.airconsole.onDeviceStateChange = function(device_id, device_data) {
+        console.log("onDeviceStateChange", device_id, device_data);
+      };
       
       /**
        * Here we are adding support for mouse events manually.
@@ -103,53 +96,16 @@
         this.airconsole.message(AirConsole.SCREEN, {"action": msg});
     };
 
-    function checkButtonState() {
-        //fare il check dell'indice per disabilitare i bottoni
-    }
-
-    function leftCard() {
-        if (cardIndex==0) return;
-        else {
-            cardIndex--;
-            updateCardsView();
-        }
-    }
-
-    function rightCard() {
-        if (cardIndex==9) return;
-        else {
-            cardIndex++;
-            updateCardsView();
-        }
-    }
-
-    function updateCardsView() {
-        cardIndex > 0 ? document.getElementById("before_card_content").innerHTML = myCards[cardIndex-1] : document.getElementById("before_card_content").innerHTML = "";
-        document.getElementById("active_card_content").innerHTML = myCards[cardIndex];
-        cardIndex < 9 ? document.getElementById("after_card_content").innerHTML = myCards[cardIndex+1] : document.getElementById("after_card_content").innerHTML = "";
-    }
-
-    function enterCard() {
-
-    }
   </script>
   
-
-
-
  </head>
 
 <body onload="window.app = new App()">
-    <div class="button" ontouchstart="window.app.sendMessageToScreen('alive')">Hey I'm Alive</div>
-    <div style="position: relative; height: 250px;">
-        <div class="card card_before"><p class="card_content" id="before_card_content"></p></div>
-        <div class="card card_active"><p class="card_content" id="active_card_content"></p></div>
-        <div class="card card_after"><p class="card_content" id="after_card_content"></p></div>
+    <div style="margin-top:50px">
+         <div class="button" ontouchstart="window.app.sendMessageToScreen('color')">Change Color</div>
     </div>
-    <div>
-        <div class="button" id="button_left" ontouchstart="leftCard()">LEFT</div>
-        <div class="button" id="button_right" ontouchstart="rightCard()">RIGHT</div>
-        <div class="button" id="button_right" ontouchstart="enterCard()">PLAY CARD</div>
-    <div>
+    <div id ="profile-pic"></div>
+    <div id="content"><!--Incoming messages get displayed in this container--></div>
+
 </body>
 </html>
