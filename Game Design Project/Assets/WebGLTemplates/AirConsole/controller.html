@@ -49,7 +49,7 @@
         font-size: 64pt;
       }
 
-      #touch_area_launch {
+      #touch_area_move {
         position: absolute;
         width: 90%;
         height: 80%;
@@ -58,7 +58,7 @@
         border: 2px solid green;
       }
 
-      .circle {
+      .circle_move {
         height: 30px;
         width: 30px;
         border-radius:50%;
@@ -67,7 +67,32 @@
         position: absolute;
       }
 
-      #line_svg {
+      #line_svg_move {
+        width:100%;
+        height: 100%;
+        position: absolute;
+        display:none;
+      }
+
+      #touch_area_launch {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        margin: auto;
+        background-color: #1f1f1f;
+        border: 2px solid red;
+      }
+
+      .circle_launch {
+        height: 30px;
+        width: 30px;
+        border-radius:50%;
+        background-color: red;
+        display: none;
+        position: absolute;
+      }
+
+      #line_svg_launch {
         width:100%;
         height: 100%;
         position: absolute;
@@ -129,7 +154,7 @@
 
       //initialize the view manager and set the first view
       ViewManager.init();
-  	  ViewManager.show("ChooseCard");
+  	  ViewManager.show("Move");
 
       me.airconsole.onMessage = function(from, data) {
         console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
@@ -137,51 +162,108 @@
             myCards = data.content;
             updateCardsView();
         }
-        else if (data["action"]!=null && data["action"]=="showLaunchItem") {
+        else if (data["action"]!=null && data["action"]=="showChooseCard") {
+            ViewManager.show("ChooseCard");
+        }
+        else if(data["action"]!=null && data["action"]=="showLaunchItem") {
             ViewManager.show("LaunchItem");
         }
       };
       
       var rateLimiter = new RateLimiter(me.airconsole);
 
-      var touch_area_launch = new TouchArea("touch_area_launch", {
+
+
+      /**
+      * Tutto ciò che riguarda la touch area per la FASE DI MOVIMENTO
+      */
+      var touch_area_move = new TouchArea("touch_area_move", {
         "touchstart": function(position) {
-          var startCircle = document.getElementById("start_circle");
+          var startCircle = document.getElementById("start_circle_move");
           startCircle.style.display= "block";
           startCircle.style.left = "calc(" + position.x*100 + "% - 15px";
           startCircle.style.top = "calc(" + position.y*100 + "% - 15px";
-          var line = document.getElementById("line");
+          var line = document.getElementById("line_move");
           line.setAttribute("x1", position.x*100);
           line.setAttribute("y1", position.y*100);
           rateLimiter.message(AirConsole.SCREEN, {
-            "action": "touch_start",
+            "action": "touch_move_start",
+            "position": position,
+            "width": document.getElementById("touch_area_move").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_move").getBoundingClientRect().height
+          });
+        },
+        "touchmove": function(position) {
+          var endCircle = document.getElementById("end_circle_move");
+          endCircle.style.display= "block";
+          endCircle.style.left = "calc(" + position.x*100 + "% - 15px";
+          endCircle.style.top = "calc(" + position.y*100 + "% - 15px";
+          var line = document.getElementById("line_move");
+          line.setAttribute("x2", position.x*100);
+          line.setAttribute("y2", position.y*100);
+          document.getElementById("line_svg_move").style.display = "block";
+          rateLimiter.message(AirConsole.SCREEN, {
+            "action": "touch_move_move",
+            "position": position,
+            "width": document.getElementById("touch_area_move").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_move").getBoundingClientRect().height
+          });
+        },
+        "touchend": function(position) {
+          document.getElementById("start_circle_move").style.display = "none";
+          document.getElementById("end_circle_move").style.display = "none";
+          document.getElementById("line_svg_move").style.display = "none";
+          rateLimiter.message(AirConsole.SCREEN, {
+            "action": "touch_move_end",
+            "position": position,
+            "width": document.getElementById("touch_area_move").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_move").getBoundingClientRect().height
+          });
+        }
+      });
+
+
+      /**
+      * Tutto ciò che riguarda la touch area per la FASE DI LANCIO
+      */
+      var touch_area_launch = new TouchArea("touch_area_launch", {
+        "touchstart": function(position) {
+          var startCircle = document.getElementById("start_circle_launch");
+          startCircle.style.display= "block";
+          startCircle.style.left = "calc(" + position.x*100 + "% - 15px";
+          startCircle.style.top = "calc(" + position.y*100 + "% - 15px";
+          var line = document.getElementById("line_launch");
+          line.setAttribute("x1", position.x*100);
+          line.setAttribute("y1", position.y*100);
+          rateLimiter.message(AirConsole.SCREEN, {
+            "action": "touch_launch_start",
             "position": position,
             "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
             "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
           });
         },
         "touchmove": function(position) {
-          var endCircle = document.getElementById("end_circle");
+          var endCircle = document.getElementById("end_circle_launch");
           endCircle.style.display= "block";
           endCircle.style.left = "calc(" + position.x*100 + "% - 15px";
           endCircle.style.top = "calc(" + position.y*100 + "% - 15px";
-          var line = document.getElementById("line");
+          var line = document.getElementById("line_launch");
           line.setAttribute("x2", position.x*100);
           line.setAttribute("y2", position.y*100);
-          document.getElementById("line_svg").style.display = "block";
+          document.getElementById("line_svg_launch").style.display = "block";
           rateLimiter.message(AirConsole.SCREEN, {
-            "action": "touch_move",
+            "action": "touch_launch_move",
             "position": position,
             "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
             "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
           });
         },
         "touchend": function(position) {
-          document.getElementById("start_circle").style.display = "none";
-          document.getElementById("end_circle").style.display = "none";
-          document.getElementById("line_svg").style.display = "none";
+          document.getElementById("start_circle_launch").style.display = "none";
+          document.getElementById("end_circle_launch").style.display = "none";
+          document.getElementById("line_svg_launch").style.display = "none";
           rateLimiter.message(AirConsole.SCREEN, {
-            "action": "touch_end",
+            "action": "touch_launch_end",
             "position": position,
             "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
             "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
@@ -243,8 +325,11 @@
     }
 
     function enterCard() {
-        console.log("Enter");
         window.app.sendMessageToScreen({"action": "confirm_card", "cardIndex": cardIndex});
+    }
+
+    function skipMovement() {
+        window.app.sendMessageToScreen({"action": "skip_movement"});
     }
   </script>
   
@@ -254,6 +339,16 @@
  </head>
 
 <body onload="window.app = new App()">
+    <div class="view" id="Move">
+        <div id="touch_area_move">
+            <div class="circle_move" id="start_circle_move"></div>
+            <div class="circle_move" id="end_circle_move"></div>
+            <svg preserveAspectRatio="none" viewBox="0 0 100 100" id="line_svg_move">
+                <line id="line_move" x1="0" y1="0" x2="100" y2="100" stroke="green" />
+            </svg>
+        </div>
+        <div class="button" style="position:absolute; bottom:5%" id="button_skip_movement" ontouchstart="skipMovement()">Skip movement</div>
+    </div>
     <div class="view" id="ChooseCard">
         <div style="position: relative; height: 250px;">
             <div class="card card_before"><p class="card_content" id="before_card_content"></p></div>
@@ -267,15 +362,13 @@
         </div>
     </div>
     <div class="view" id="LaunchItem">
-        <div class="button">Launch Item!</div>
         <div id="touch_area_launch">
-            <div class="circle" id="start_circle"></div>
-            <div class="circle" id="end_circle"></div>
-            <svg preserveAspectRatio="none" viewBox="0 0 100 100" id="line_svg">
-              <line id="line" x1="0" y1="0" x2="100" y2="100" stroke="green" />
+            <div class="circle_launch" id="start_circle_launch"></div>
+            <div class="circle_launch" id="end_circle_launch"></div>
+            <svg preserveAspectRatio="none" viewBox="0 0 100 100" id="line_svg_launch">
+                <line id="line_launch" x1="0" y1="0" x2="100" y2="100" stroke="red" />
             </svg>
         </div>
-      </div>
-    </div>
+    </div
 </body>
 </html>

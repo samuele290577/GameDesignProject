@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
+        targetPosition = transform.position;
     }
 
     void Update()

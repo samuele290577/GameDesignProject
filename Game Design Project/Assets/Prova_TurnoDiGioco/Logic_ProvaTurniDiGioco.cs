@@ -11,7 +11,7 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 	public GameObject PlayerCharacter;
 
 	public GameObject Player;
-	public GameObject ControlLine;
+	public GameObject MovementLine;
 	public float distanceScaleFactor;
 
 	private Player_ProvaTurniDiGioco PlayerA = null;
@@ -32,12 +32,6 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 		AirConsole.instance.onConnect += OnConnect;
 	}
 
-
-    private void Update()
-    {
-		ControlLine.GetComponent<LineRenderer>().SetPosition(0, PlayerCharacter.transform.position);
-	}
-
     void OnReady(string code)
 	{
 		//Since people might be coming to the game from the AirConsole store once the game is live, 
@@ -53,8 +47,6 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 	void OnConnect(int device)
 	{
 		AddNewPlayer(device);
-		var message = new { action = "cards", content = getPlayer(device).getCards()};
-		AirConsole.instance.Message(device, message);
 	}
 
 	private void AddNewPlayer(int deviceID)
@@ -99,21 +91,31 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 			AirConsole.instance.Message(fromDeviceID, new { action = "showLaunchItem" });
         }
 
-		else if(data["action"] != null && data["action"].ToString() == "touch_start")
+		else if (data["action"] != null && data["action"].ToString() == "skip_movement")
+		{
+			var message = new { action = "cards", content = getPlayer(fromDeviceID).getCards() };
+			AirConsole.instance.Message(fromDeviceID, message);
+			AirConsole.instance.Message(fromDeviceID, new { action = "showChooseCard" });
+		}
+
+
+		else if (data["action"] != null && data["action"].ToString() == "touch_move_start")
         {
+			//Activate Line and set starting point
+			MovementLine.SetActive(true);
+			MovementLine.GetComponent<LineRenderer>().SetPosition(0, PlayerCharacter.transform.position);
+
 			//set areaWidth and areaHeight, useful to calc angle and distance
 			areaWidth = (int)data["width"];
 			areaHeight = (int)data["height"];
 
 			//set startPointX e startPointY to calc angle and distance
-
-
 			startPointX = (int) ((float)data["position"]["x"] * areaWidth);
 			startPointY = (int) ((float)data["position"]["y"] * areaHeight);
-			Debug.Log("X: " + startPointX + "; Y: " + startPointY);
+			//Debug.Log("X: " + startPointX + "; Y: " + startPointY);
         }
 
-		else if (data["action"] != null && data["action"].ToString() == "touch_move")
+		else if (data["action"] != null && data["action"].ToString() == "touch_move_move")
 		{
 			//calcolo della posizione del cursore
 			int x = (int)((float)data["position"]["x"] * areaWidth);
@@ -125,13 +127,13 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 			testRender();
 		}
 
-		else if (data["action"] != null && data["action"].ToString() == "touch_end")
+		else if (data["action"] != null && data["action"].ToString() == "touch_move_end")
 		{
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
 			var targetPosition = PlayerCharacter.transform.position + q * Vector3.right * (float)distance;
 			PlayerCharacter.GetComponent<Movement>().targetPosition = targetPosition;
-			Debug.Log("Target: " + targetPosition);
-
+			MovementLine.SetActive(false);
+			//Debug.Log("Target: " + targetPosition);
 		}
 
 	}
@@ -140,7 +142,7 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
     {
 		var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
 		var targetPos = PlayerCharacter.transform.position + q * Vector3.right * (float) distance;
-		ControlLine.GetComponent<LineRenderer>().SetPosition(1, targetPos);
+		MovementLine.GetComponent<LineRenderer>().SetPosition(1, targetPos);
 
     }
 
