@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GoToDeck : MonoBehaviour
 {
     public Team team1;
@@ -31,5 +31,9 @@ public class GoToDeck : MonoBehaviour
             button.interactable = false;
         }
 
+    }
+    public void SceneSwitcher()
+    {
+        SceneManager.LoadScene("carte_codice");
     }
 }

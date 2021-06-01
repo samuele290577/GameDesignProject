@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerDeck : MonoBehaviour
 {
     static public List<Card> deck = new List<Card>();
+    static public Team team;
     private int bananacounter = 0;
     private int pinapplecounter = 0;
     private int coconutcounter = 0;
@@ -102,6 +103,13 @@ public class PlayerDeck : MonoBehaviour
         }
 
 
+    }
+    public void setTeam (Team team_scelto){
+        team = team_scelto; 
+    }
+    public string getTeam()
+    {
+        return team.team_name;
     }
     public int getSize()
     {

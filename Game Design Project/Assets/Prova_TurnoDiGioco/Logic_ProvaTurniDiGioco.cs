@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
@@ -8,9 +9,16 @@ using Newtonsoft.Json.Linq;
 public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 
 	public GameObject Player;
+	public GameObject ControlLine;
+	public float distanceScaleFactor;
 
 	private Player_ProvaTurniDiGioco PlayerA = null;
 	private Player_ProvaTurniDiGioco PlayerB = null;
+
+	private int startPointX = 0;
+	private int startPointY = 0;
+	private int areaWidth = 0;
+	private int areaHeight = 0;
 
 #if !DISABLE_AIRCONSOLE
 	void Awake()
@@ -35,8 +43,8 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 	void OnConnect(int device)
 	{
 		AddNewPlayer(device);
-
-		AirConsole.instance.Message(device, getPlayer(device).getCards());
+		var message = new { action = "cards", content = getPlayer(device).getCards()};
+		AirConsole.instance.Message(device, message);
 	}
 
 	private void AddNewPlayer(int deviceID)
@@ -73,14 +81,52 @@ public class Logic_ProvaTurniDiGioco: MonoBehaviour {
 	void OnMessage(int fromDeviceID, JToken data)
 	{
 		//Log to on-screen Console
-		Debug.Log("Incoming message from device: " + fromDeviceID + ": " + data + " \n \n");
+		//Debug.Log("Incoming message from device: " + fromDeviceID + ": " + data + " \n \n");
 
-		// Send Alive message
-		if (data["action"] != null && data["action"].ToString() == "alive")
+		if (data["action"] != null && data["action"].ToString() == "confirm_card")
+        {
+			Debug.Log("Carta scelta con indice: " + data["cardIndex"]);
+			AirConsole.instance.Message(fromDeviceID, new { action = "showLaunchItem" });
+        }
+
+		else if(data["action"] != null && data["action"].ToString() == "touch_start")
+        {
+			//set areaWidth and areaHeight, useful to calc angle and distance
+			areaWidth = (int)data["width"];
+			areaHeight = (int)data["height"];
+
+			//set startPointX e startPointY to calc angle and distance
+			startPointX = (int) ((float)data["position"]["x"] * areaWidth);
+			startPointY = (int) ((float)data["position"]["y"] * areaHeight);
+			Debug.Log("X: " + startPointX + "; Y: " + startPointY);
+        }
+
+		else if (data["action"] != null && data["action"].ToString() == "touch_move")
 		{
-			getPlayer(fromDeviceID).Noitify();
+			//calcolo della posizione del cursore
+			int x = (int)((float)data["position"]["x"] * areaWidth);
+			int y = (int)((float)data["position"]["y"] * areaHeight);
+			int deltaX = (startPointX - x);
+			int deltaY = (startPointY - y);
+			double angle = Math.Atan2(deltaY,deltaX);
+			double distance = (int) Math.Sqrt(Math.Pow(deltaX,2) + Math.Pow(deltaY,2));
+			testRender(angle, distance * distanceScaleFactor);
 		}
+
+		else if (data["action"] != null && data["action"].ToString() == "touch_end")
+		{
+			//lancio / spostamento
+		}
+
 	}
+
+	void testRender(double angle, double distance)
+    {
+		var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
+		var targetPos = Vector3.zero + q * Vector3.right * (float) distance;
+		ControlLine.GetComponent<LineRenderer>().SetPosition(1, targetPos);
+
+    }
 
 	void OnDestroy()
 	{

@@ -42,9 +42,73 @@
        right: 5%;
        bottom: 5%;
       }
+
+      #touch_area_launch {
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        margin: auto;
+        background-color: #1f1f1f;
+        border: 2px solid green;
+      }
+
+      .circle {
+        height: 30px;
+        width: 30px;
+        border-radius:50%;
+        background-color: green;
+        display: none;
+        position: absolute;
+      }
+
+      #line_svg {
+        width:100%;
+        height: 100%;
+        position: absolute;
+        display:none;
+      }
+
   </style>
-  
+ 
+  <script type="text/javascript" src="touch-area.js"></script>
+  <script type="text/javascript" src="rate-limiter.js"></script>
+
   <script type="text/javascript">
+    //the view manager finds all div containers with the "view" class and lets me show one view while hiding all others
+    //see also: https://github.com/AirConsole/airconsole-view-manager
+    var ViewManager = {
+      views: {},
+      current_view_id: null,
+
+      init: function() {
+        var views = document.querySelectorAll('.view');
+        for (var i = 0; i < views.length; i++) {
+          this.views[views[i].id] = views[i];
+        }
+        return this;
+      },
+
+      show: function(id) {
+        var view = this.views[id];
+        if (view) {
+          this.current_view_id = id;
+          this.hideAll();
+          view.style.display = "block";
+        } else {
+          console.warn("Could not find view with ID:", id);
+        }
+        return this;
+      },
+
+      hideAll: function() {
+        for (var key in this.views) {
+          this.views[key].style.display = "none";
+        }
+      }
+    };
+  </script>
+
+   <script type="text/javascript">
 
     var airconsole;
     /**
@@ -53,19 +117,70 @@
     function App() {
       var me = this;
       me.airconsole = new AirConsole({"orientation": "portrait", "synchronize_time" : "true"});
+
+      //initialize the view manager and set the first view
+      ViewManager.init();
+  	  ViewManager.show("ChooseCard");
+
       me.airconsole.onMessage = function(from, data) {
-        console.log("onMessage", from, data);
-        document.getElementById("content").innerHTML = "device " + from + " says: " + data;
+        console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
+        if(data["action"]!=null && data["action"]=="cards") {
+            myCards = data.content;
+            updateCardsView();
+        }
+        else if (data["action"]!=null && data["action"]=="showLaunchItem") {
+            ViewManager.show("LaunchItem");
+        }
       };
       
-      me.airconsole.onReady = function(code) {
-        console.log("onReady", code);
-      };
-      
-      me.airconsole.onDeviceStateChange = function(device_id, device_data) {
-        console.log("onDeviceStateChange", device_id, device_data);
-      };
-      
+      var rateLimiter = new RateLimiter(me.airconsole);
+
+      var touch_area_launch = new TouchArea("touch_area_launch", {
+        "touchstart": function(position) {
+          var startCircle = document.getElementById("start_circle");
+          startCircle.style.display= "block";
+          startCircle.style.left = "calc(" + position.x*100 + "% - 15px";
+          startCircle.style.top = "calc(" + position.y*100 + "% - 15px";
+          var line = document.getElementById("line");
+          line.setAttribute("x1", position.x*100);
+          line.setAttribute("y1", position.y*100);
+          rateLimiter.message(AirConsole.SCREEN, {
+            "action": "touch_start",
+            "position": position,
+            "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
+          });
+        },
+        "touchmove": function(position) {
+          var endCircle = document.getElementById("end_circle");
+          endCircle.style.display= "block";
+          endCircle.style.left = "calc(" + position.x*100 + "% - 15px";
+          endCircle.style.top = "calc(" + position.y*100 + "% - 15px";
+          var line = document.getElementById("line");
+          line.setAttribute("x2", position.x*100);
+          line.setAttribute("y2", position.y*100);
+          document.getElementById("line_svg").style.display = "block";
+          rateLimiter.message(AirConsole.SCREEN, {
+            "action": "touch_move",
+            "position": position,
+            "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
+          });
+        },
+        "touchend": function(position) {
+          document.getElementById("start_circle").style.display = "none";
+          document.getElementById("end_circle").style.display = "none";
+          document.getElementById("line_svg").style.display = "none";
+          rateLimiter.message(AirConsole.SCREEN, {
+            "action": "touch_end",
+            "position": position,
+            "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
+          });
+        }
+      });
+
+
       /**
        * Here we are adding support for mouse events manually.
        * WE STRONGLY ENCOURAGE YOU TO USE THE AIRCONSOLE CONTROLS LIBRARY
@@ -91,21 +206,64 @@
       }
     }
     
-    App.prototype.sendMessageToScreen = function(msg) {
-        console.log("Button pressed!");
-        this.airconsole.message(AirConsole.SCREEN, {"action": msg});
+     App.prototype.sendMessageToScreen = function(msg) {
+        console.log("Button Pressed");
+       this.airconsole.message(AirConsole.SCREEN, msg);
     };
 
+    function leftCard() {
+        if (cardIndex==0) return;
+        else {
+            cardIndex--;
+            updateCardsView();
+        }
+    }
+
+    function rightCard() {
+        if (cardIndex==9) return;
+        else {
+            cardIndex++;
+            updateCardsView();
+        }
+    }
+
+    function updateCardsView() {
+        cardIndex > 0 ? document.getElementById("before_card_content").innerHTML = myCards[cardIndex-1] : document.getElementById("before_card_content").innerHTML = "";
+        document.getElementById("active_card_content").innerHTML = myCards[cardIndex];
+        cardIndex < 9 ? document.getElementById("after_card_content").innerHTML = myCards[cardIndex+1] : document.getElementById("after_card_content").innerHTML = "";
+    }
+
+    function enterCard() {
+        console.log("Enter");
+        window.app.sendMessageToScreen({"action": "confirm_card", "cardIndex": cardIndex});
+    }
   </script>
   
  </head>
 
 <body onload="window.app = new App()">
-    <div style="margin-top:50px">
-         <div class="button" ontouchstart="window.app.sendMessageToScreen('color')">Change Color</div>
+    <div class="view" id="ChooseCard">
+        <div style="position: relative; height: 250px;">
+            <div class="card card_before"><p class="card_content" id="before_card_content"></p></div>
+            <div class="card card_active"><p class="card_content" id="active_card_content"></p></div>
+            <div class="card card_after"><p class="card_content" id="after_card_content"></p></div>
+        </div>
+        <div>
+            <div class="button" id="button_left" ontouchstart="leftCard()">LEFT</div>
+            <div class="button" id="button_right" ontouchstart="rightCard()">RIGHT</div>
+            <div class="button" id="button_confirm" ontouchstart="enterCard()">PLAY CARD</div>
+        </div>
     </div>
-    <div id ="profile-pic"></div>
-    <div id="content"><!--Incoming messages get displayed in this container--></div>
-
+    <div class="view" id="LaunchItem">
+        <div class="button">Launch Item!</div>
+        <div id="touch_area_launch">
+            <div class="circle" id="start_circle"></div>
+            <div class="circle" id="end_circle"></div>
+            <svg preserveAspectRatio="none" viewBox="0 0 100 100" id="line_svg">
+              <line id="line" x1="0" y1="0" x2="100" y2="100" stroke="green" />
+            </svg>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
