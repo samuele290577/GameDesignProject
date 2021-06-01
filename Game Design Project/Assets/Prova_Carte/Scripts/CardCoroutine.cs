@@ -8,7 +8,7 @@ public class CardCoroutine : MonoBehaviour
     //public List<Card> deck = new List<Card>();
     //public List<Card> container = new List<Card>();
 
-    public static PlayerDeck deck;
+    public PlayerDeck deck;
     public List<Card> cardList = new List<Card>();
     private float timer = 60f;
     void Start()

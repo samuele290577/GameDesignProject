@@ -5915,6 +5915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86fb6ecd300bb449ad21d29aef74b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: {fileID: 2048466038}
   cardList:
   - {fileID: 1191240536}
   - {fileID: 1830183669}
