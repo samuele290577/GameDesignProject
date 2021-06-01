@@ -23,6 +23,7 @@ public class CardCoroutine : MonoBehaviour
         cardList.Add(new Ostruzione(6, "Roccia", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));
         cardList.Add(new Ostruzione(7, "Pietre", 10, 10, 15, 4, "Se colpita, moltiplica di 1.5 il danno d'attacco"));
         cardList.Add(new Ostruzione(8, "Sabbia Mobile", 15, 1, 10, 9, "Se colpisce l'avversario, egli salterà un turno di movimento"));
+        Debug.Log(deck.getTeam());
     }
 
     bool DeleagetForWait()

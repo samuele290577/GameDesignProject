@@ -7,6 +7,7 @@ public class TeamPickerManager : MonoBehaviour
 {
     public Button button_plants;
     public Button button_humans;
+    public PlayerDeck player;
 
     public Team team;
     public void Start()
@@ -20,6 +21,8 @@ public class TeamPickerManager : MonoBehaviour
         button_plants.image.color = Color.green;
         button_humans.image.color = Color.white;
         team.isReady = true;
+        player.setTeam(team);
+        Debug.Log("" + team.team_name + "scelto");
     }
     public void ChosenHumans()
     {
@@ -27,5 +30,7 @@ public class TeamPickerManager : MonoBehaviour
         button_humans.image.color = Color.red;
         button_plants.image.color = Color.white;
         team.isReady = true;
+        player.setTeam(team);
+        Debug.Log("" + team.team_name + "scelto");
     }
 }
