@@ -47,7 +47,7 @@ public class CardCoroutine : MonoBehaviour
         {
             for(int i=0; i<10-deck.getSize(); i++)
             {
-                int randomIndex = Random.Range(0, cardList.Count);
+                int randomIndex = Random.Range(1, cardList.Count);
                 deck.AddCard(cardList[randomIndex]);
             }
             SceneManager.LoadScene("Scena_test");
