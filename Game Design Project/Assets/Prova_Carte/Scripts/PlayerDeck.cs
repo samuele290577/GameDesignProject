@@ -12,6 +12,7 @@ public class PlayerDeck : MonoBehaviour
     private int coconutcounter = 0;
     private int watermeloncounter = 0;
     private int sabbiacounter = 0;
+    public bool overload = false;
 
 
     public void AddCard(Card card)
@@ -34,11 +35,12 @@ public class PlayerDeck : MonoBehaviour
                         deck.Add(card);
                         Debug.Log("Card Added: " + card.id + " , " + card.CardName + " Banana Counter: " + bananacounter);
                         bananacounter++;
-
+                        
                     }
                     else
                     {
                         Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                        overload = true;
                     }
                     break;
                 case ("Pinapple"):
@@ -48,11 +50,12 @@ public class PlayerDeck : MonoBehaviour
                         deck.Add(card);
                         Debug.Log("Card Added: " + card.id + " , " + card.CardName);
                         pinapplecounter++;
-
+                        
                     }
                     else
                     {
                         Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                        overload = true;
                     }
                     break;
                 case ("Coconut"):
@@ -62,11 +65,12 @@ public class PlayerDeck : MonoBehaviour
                         deck.Add(card);
                         Debug.Log("Card Added: " + card.id + " , " + card.CardName);
                         coconutcounter++;
-
+                        
                     }
                     else
                     {
                         Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                        overload = true;
                     }
                     break;
                 case ("Watermelon"):
@@ -76,11 +80,12 @@ public class PlayerDeck : MonoBehaviour
                         deck.Add(card);
                         Debug.Log("Card Added: " + card.id + " , " + card.CardName);
                         watermeloncounter++;
-
+                        
                     }
                     else
                     {
                         Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                        overload = true;
                     }
                     break;
                 case ("Sabbia Mobile"):
@@ -90,11 +95,12 @@ public class PlayerDeck : MonoBehaviour
                         deck.Add(card);
                         Debug.Log("Card Added: " + card.id + " , " + card.CardName);
                         sabbiacounter++;
-
+                        
                     }
                     else
                     {
                         Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                        overload = true;
                     }
                     break;
 

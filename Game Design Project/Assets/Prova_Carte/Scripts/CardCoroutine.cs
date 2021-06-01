@@ -10,7 +10,7 @@ public class CardCoroutine : MonoBehaviour
 
     public PlayerDeck deck;
     public List<Card> cardList = new List<Card>();
-    private float timer = 60f;
+    private float timer = 15f;
     void Start()
     {
         StartCoroutine(Cardcoroutine());
@@ -45,11 +45,18 @@ public class CardCoroutine : MonoBehaviour
 
         if (deck.getSize() <10)
         {
-            for(int i=0; i<10-deck.getSize(); i++)
+            for(int i=deck.getSize(); i<10; i++)
             {
                 int randomIndex = Random.Range(1, cardList.Count);
                 deck.AddCard(cardList[randomIndex]);
+                while (deck.overload == true)
+                {
+                    deck.overload = false;
+                    randomIndex = Random.Range(1, cardList.Count);
+                    deck.AddCard(cardList[randomIndex]);
+                }
             }
+            Debug.Log(deck.getSize());
             SceneManager.LoadScene("Scena_test");
         }
         else
