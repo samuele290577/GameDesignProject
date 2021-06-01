@@ -154,10 +154,10 @@
           line.setAttribute("x1", position.x*100);
           line.setAttribute("y1", position.y*100);
           rateLimiter.message(AirConsole.SCREEN, {
-            "touch_area_launch": {
-              "action": "start",
-              "position": position
-            }
+            "action": "touch_start",
+            "position": position,
+            "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
           });
         },
         "touchmove": function(position) {
@@ -170,10 +170,10 @@
           line.setAttribute("y2", position.y*100);
           document.getElementById("line_svg").style.display = "block";
           rateLimiter.message(AirConsole.SCREEN, {
-            "touch_area_launch": {
-              "action": "move",
-              "position": position
-            }
+            "action": "touch_move",
+            "position": position,
+            "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
           });
         },
         "touchend": function(position) {
@@ -181,10 +181,10 @@
           document.getElementById("end_circle").style.display = "none";
           document.getElementById("line_svg").style.display = "none";
           rateLimiter.message(AirConsole.SCREEN, {
-            "touch_area_launch": {
-              "action": "end",
-              "position": position
-            }
+            "action": "touch_end",
+            "position": position,
+            "width": document.getElementById("touch_area_launch").getBoundingClientRect().width,
+            "height": document.getElementById("touch_area_launch").getBoundingClientRect().height
           });
         }
       });
