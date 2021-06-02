@@ -21,13 +21,16 @@ public class Movement : MonoBehaviour
     {
         agent.SetDestination(targetPosition);
 
-        Quaternion rotationToLookAt = Quaternion.LookRotation(targetPosition - transform.position);
-        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y,
-            rotationToLookAt.eulerAngles.y,
-            ref rotateVelocity,
-            rotateSpeedMovement * (Time.deltaTime * 5));
+        if (targetPosition - transform.position != Vector3.zero)
+        {
+            Quaternion rotationToLookAt = Quaternion.LookRotation(targetPosition - transform.position);
+            float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y,
+                rotationToLookAt.eulerAngles.y,
+                ref rotateVelocity,
+                rotateSpeedMovement * (Time.deltaTime * 5));
 
-        transform.eulerAngles = new Vector3(0, rotationY, 0);
+            transform.eulerAngles = new Vector3(0, rotationY, 0);
+        }
 
         /*
         if (Input.GetMouseButtonDown(1))
