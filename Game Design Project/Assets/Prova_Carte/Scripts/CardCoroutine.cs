@@ -10,7 +10,7 @@ public class CardCoroutine : MonoBehaviour
 
     public PlayerDeck deck;
     public List<Card> cardList = new List<Card>();
-    private float timer = 15f;
+    private float timer = 60f;
     void Start()
     {
         StartCoroutine(Cardcoroutine());
