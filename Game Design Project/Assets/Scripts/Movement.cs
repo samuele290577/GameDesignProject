@@ -20,8 +20,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         agent.SetDestination(targetPosition);
-
-        if (targetPosition - transform.position != Vector3.zero)
+        if (targetPosition.x - transform.position.x != 0 && targetPosition.z - transform.position.z != 0)
         {
             Quaternion rotationToLookAt = Quaternion.LookRotation(targetPosition - transform.position);
             float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y,

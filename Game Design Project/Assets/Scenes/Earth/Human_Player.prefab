@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5551624139265600117}
   - component: {fileID: 5551624139265600126}
   - component: {fileID: 8570242231090811300}
-  - component: {fileID: -4446336625552298356}
+  - component: {fileID: 3066440093399867574}
   m_Layer: 0
   m_Name: Human_Player
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5551624139265600116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -36.6, y: 9, z: -6.3}
-  m_LocalScale: {x: 2.556, y: 2.556, z: 2.556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.9918157, z: 1}
-  m_Center: {x: 0, y: 0.004091733, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &5551624139265600117
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-4446336625552298356
+--- !u!114 &3066440093399867574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +158,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5551624139265600116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db678895b9541e84b9482f58a0e47e42, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d0a8ee3a01464a4a818ba4ceb3e6719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
