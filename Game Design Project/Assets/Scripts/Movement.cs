@@ -6,9 +6,10 @@ using UnityEngine.AI;
 public class Movement : MonoBehaviour
 {
     NavMeshAgent agent;
-    public float rotateSpeedMovement = 0.1f;
-    float rotateVelocity;
+    public float rotateSpeedMovement = 10;
+    float rotateVelocity = 0;
     public Vector3 targetPosition;
+    public GameObject enemy;
 
 
     void Start()
@@ -20,18 +21,22 @@ public class Movement : MonoBehaviour
     void Update()
     {
         agent.SetDestination(targetPosition);
-        if (targetPosition.x - transform.position.x != 0 && targetPosition.z - transform.position.z != 0)
+
+        if (Vector3.Distance(targetPosition, transform.position) > 1)
         {
             Quaternion rotationToLookAt = Quaternion.LookRotation(targetPosition - transform.position);
-            float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y,
-                rotationToLookAt.eulerAngles.y,
-                ref rotateVelocity,
-                rotateSpeedMovement * (Time.deltaTime * 5));
-
+            float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * Time.deltaTime * 10);
+            transform.eulerAngles = new Vector3(0, rotationY, 0);
+        }
+        else if (Vector3.Angle(enemy.transform.position, transform.position) > 1)
+        {
+            Quaternion rotationToLookAt = Quaternion.LookRotation(enemy.transform.position - transform.position);
+            float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * Time.deltaTime * 10);
             transform.eulerAngles = new Vector3(0, rotationY, 0);
         }
 
         /*
+
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;

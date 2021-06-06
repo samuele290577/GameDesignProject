@@ -12,6 +12,7 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject PlantPlayer;
 
 	public GameObject MovementLine;
+	public GameObject MovementTarget;
 	public GameObject ThrowLine;
 	public float distanceScaleFactor;
 
@@ -22,7 +23,8 @@ public class Logic_Earth: MonoBehaviour {
 	private int startPointY = 0;
 	double angle = 0;
 	double distance = 0;
-	Vector3 targetPosition; 
+	Vector3 targetPosition;
+	Vector3 targetSquare;
 	private int areaWidth = 0;
 	private int areaHeight = 0;
 
@@ -144,19 +146,25 @@ public class Logic_Earth: MonoBehaviour {
 			angle = Math.Atan2(deltaY,deltaX);
 			distance = Math.Sqrt(Math.Pow(deltaX,2) + Math.Pow(deltaY,2)) * distanceScaleFactor;
 
-			//calcolo della target position
+			//calcolo della target position e targetSquare
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
 			targetPosition = Player.transform.position + q * Vector3.forward * (float)distance;
+			targetSquare = new Vector3((float)(Math.Floor(targetPosition.x) + 0.5), (float)0.11, (float)(Math.Floor(targetPosition.z) + 0.5));
 
 			//Render del secondo estremo della linea e show line
 			MovementLine.GetComponent<LineRenderer>().SetPosition(1, targetPosition);
 			MovementLine.SetActive(true);
+
+			//Render del quadrato target
+			MovementTarget.transform.position = targetSquare;
+			MovementTarget.SetActive(true);
 		}
 
 		else if (data["action"] != null && data["action"].ToString() == "touch_move_end")
 		{
-			Player.GetComponent<Movement>().targetPosition = targetPosition;
+			Player.GetComponent<Movement>().targetPosition = targetSquare;
 			MovementLine.SetActive(false);
+			MovementTarget.SetActive(false);
 			//Debug.Log("Target: " + targetPosition);
 		}
 
