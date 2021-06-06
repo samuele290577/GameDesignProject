@@ -9,13 +9,13 @@ public class GoToDeck : MonoBehaviour
     public Team team2;
   
     
-    public Button button; 
+    public Button button;
+
     
     // Start is called before the first frame update
     void Start()
     {
         button.interactable = false;
-       
 
     }
 
@@ -25,6 +25,7 @@ public class GoToDeck : MonoBehaviour
        if (team1.isReady&& team2.isReady && !(team1.team_name.Equals(team2.team_name)))
         {
             button.interactable = true;
+            SceneSwitcher();
         }
         if (team1.team_name.Equals(team2.team_name))
         {

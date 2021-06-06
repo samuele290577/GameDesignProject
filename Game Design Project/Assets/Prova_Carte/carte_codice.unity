@@ -16712,7 +16712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sizeText: {fileID: 2061622200}
-  deck: {fileID: 2048466038}
+  deck: {fileID: 230198275}
   warButton: {fileID: 1895937387}
   image: {fileID: 799673165}
 --- !u!114 &2061622200
