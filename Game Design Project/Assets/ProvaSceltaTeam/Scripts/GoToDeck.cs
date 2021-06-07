@@ -5,32 +5,36 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GoToDeck : MonoBehaviour
 {
-    public Team team1;
-    public Team team2;
-  
-    
-    public Button button;
+    public PlayerDeck player1;
+    public PlayerDeck player2;
+    public bool diversi;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        button.interactable = false;
+        // button.interactable = false;
+        player1.setTeam("Player 1");
+        player2.setTeam("Player 2");
+        diversi = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (team1.isReady&& team2.isReady && !(team1.team_name.Equals(team2.team_name)))
+        diversi = !(player1.getTeam().Equals(player2.getTeam()));
+        Debug.Log(diversi + "" + player1.getTeam() + "" + player2.getTeam());
+        
+        if (player1.isReady&& player2.isReady && diversi)
         {
-            button.interactable = true;
+           //  button.interactable = true;
             SceneSwitcher();
         }
-        if (team1.team_name.Equals(team2.team_name))
+        /*if (player1.getTeam().Equals(player2.getTeam())) 
         {
             button.interactable = false;
-        }
+        }*/
 
     }
     public void SceneSwitcher()

@@ -14,30 +14,32 @@ public class TeamPickerManager : MonoBehaviour
 
    
 
-    public Team team;
+    //public Team team;
     public void Start()
     {
-        team.isReady = false;
+        player.isReady = false;
     }
 
     public void ChosenPlants()
     {
        
-            team.team_name = "Plants";
+            player.setTeam("Plants");
+            player.setId(1);
             button_plants.image.color = Color.green;
             button_humans.image.color = Color.white;
-            player.setTeam(team);
-            Debug.Log("" + team.team_name + "scelto");
+          //  player.setTeam(team);
+            Debug.Log("Player"+ player.getId() + " ha scelto"  + player.getTeam());
 
     }
     public void ChosenHumans()
     {
-        
-            team.team_name = "Humans";
+
+            player.setTeam("Humans");
+            player.setId(2);
             button_humans.image.color = Color.red;
             button_plants.image.color = Color.white;
-            player.setTeam(team);
-            Debug.Log("" + team.team_name + "scelto"); 
+        // player.setTeam(team);
+             Debug.Log("Player" + player.getId() + " ha scelto" + player.getTeam());
 
     }
     private void Update()
@@ -52,7 +54,7 @@ public class TeamPickerManager : MonoBehaviour
         }
         if (Input.GetKey(ready))
         {
-            team.isReady = true;
+            player.isReady = true;
         }
     }
 }
