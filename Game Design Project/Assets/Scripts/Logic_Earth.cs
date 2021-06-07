@@ -14,7 +14,6 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject MovementLine;
 	public GameObject MovementTarget;
 	public GameObject ThrowLine;
-	public float distanceScaleFactor;
 
 	private Player_Earth HumanLogic = null;
 	private Player_Earth PlantLogic = null;
@@ -144,11 +143,21 @@ public class Logic_Earth: MonoBehaviour {
 
 			//calcolo dell'angolo e distanza associati
 			angle = Math.Atan2(deltaY,deltaX);
-			distance = Math.Sqrt(Math.Pow(deltaX,2) + Math.Pow(deltaY,2)) * distanceScaleFactor;
+			distance = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+			distance = distance / areaWidth; // percentuale su area.
+			distance = distance * 100 / 35; // il 35% è settato come massimo drag
+			if (distance > 1) distance = 1;
+			distance = distance * 4.8; //movimento massimo è di 5 unità, diminuito a 4.8 perché mi sembra meglio (punti troppo lontani in diagonale)
 
-			//calcolo della target position e targetSquare
+			//calcolo della target position
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
 			targetPosition = Player.transform.position + q * Vector3.forward * (float)distance;
+			//vincoli per non uscire dalla scacchiera
+			if (targetPosition.x < 0) targetPosition.x = 0;
+			if (targetPosition.x >= 20) targetPosition.x = 19.99F;
+			if (targetPosition.z < 0) targetPosition.z = 0;
+			if (targetPosition.z >= 30) targetPosition.z = 29.99F;
+			//calcolo target square
 			targetSquare = new Vector3((float)(Math.Floor(targetPosition.x) + 0.5), (float)0.11, (float)(Math.Floor(targetPosition.z) + 0.5));
 
 			//Render del secondo estremo della linea e show line
@@ -199,7 +208,7 @@ public class Logic_Earth: MonoBehaviour {
 
 			//calcolo dell'angolo e distanza associati
 			angle = Math.Atan2(deltaY, deltaX);
-			distance = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2)) * distanceScaleFactor;
+			distance = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2)) * 0.05;
 
 			//calcolo della target position
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
