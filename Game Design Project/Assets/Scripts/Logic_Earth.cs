@@ -14,6 +14,9 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject MovementLine;
 	public GameObject MovementTarget;
 	public GameObject ThrowLine;
+	public GameObject ThrowTarget;
+
+	int maxDrag = 40;
 
 	private Player_Earth HumanLogic = null;
 	private Player_Earth PlantLogic = null;
@@ -118,7 +121,7 @@ public class Logic_Earth: MonoBehaviour {
 		 * Touch area MOVIMENTO
 		 */
 
-		else if (data["action"] != null && data["action"].ToString() == "touch_move_start")
+		if (data["action"] != null && data["action"].ToString() == "touch_move_start")
         {
 			//Set line starting point
 			MovementLine.GetComponent<LineRenderer>().SetPosition(0, Player.transform.position);
@@ -145,7 +148,7 @@ public class Logic_Earth: MonoBehaviour {
 			angle = Math.Atan2(deltaY,deltaX);
 			distance = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
 			distance = distance / areaWidth; // percentuale su area.
-			distance = distance * 100 / 35; // il 35% è settato come massimo drag
+			distance = distance * 100 / maxDrag;
 			if (distance > 1) distance = 1;
 			distance = distance * 4.8; //movimento massimo è di 5 unità, diminuito a 4.8 perché mi sembra meglio (punti troppo lontani in diagonale)
 
@@ -183,11 +186,14 @@ public class Logic_Earth: MonoBehaviour {
 		 * Touch area LANCIO
 		 */
 
-		else if (data["action"] != null && data["action"].ToString() == "touch_throw_start")
-		{
-			//Set line starting point
-			ThrowLine.GetComponent<LineRenderer>().SetPosition(0, Player.transform.position);
+		//Cose che poi andranno messe da qualche altra parte
+		int maxThrow = 20;
+		float throwAngle = 45F;
+		float N = 9;
 
+
+		if (data["action"] != null && data["action"].ToString() == "touch_throw_start")
+		{
 			//set areaWidth and areaHeight, useful to calc angle and distance
 			areaWidth = (int)data["width"];
 			areaHeight = (int)data["height"];
@@ -208,15 +214,41 @@ public class Logic_Earth: MonoBehaviour {
 
 			//calcolo dell'angolo e distanza associati
 			angle = Math.Atan2(deltaY, deltaX);
-			distance = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2)) * 0.05;
+			distance = Math.Sqrt(Math.Pow(deltaX, 2) + Math.Pow(deltaY, 2));
+			distance = distance / areaWidth; // percentuale su area.
+			distance = distance * 100 / maxDrag;
+			if (distance > 1) distance = 1;
+			distance = distance * maxThrow;
 
 			//calcolo della target position
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
 			targetPosition = Player.transform.position + q * Vector3.forward * (float)distance;
+			//calcolo target square
+			targetSquare = new Vector3((float)(Math.Floor(targetPosition.x) + 0.5), (float)0.11, (float)(Math.Floor(targetPosition.z) + 0.5));
 
-			//calcolo del secondo estremo della linea
-			ThrowLine.GetComponent<LineRenderer>().SetPosition(1, targetPosition);
+			//calcolo dei punti della linea
+			LineRenderer line = ThrowLine.GetComponent<LineRenderer>();
+			double tangent = Math.Tan(Mathf.Deg2Rad * throwAngle);
+			Debug.Log(tangent);
+			for (int i = 0; i <= N; i++)
+            {
+				float x0 = Player.transform.position.x;
+				float xN = targetSquare.x;
+				float z0 = Player.transform.position.z;
+				float zN = targetSquare.z;
+				//Debug.Log(x0 + "; "+ xN + "; "+ z0 + "; " + zN);
+				double XPos = (i / N) * xN + ((N - i) / N) * x0;
+				double ZPos = (i / N) * zN + ((N - i) / N) * z0;
+				double c = Math.Pow(XPos - ((x0 + xN) / 2), 2) + Math.Pow(ZPos - ((z0 + zN) / 2), 2);
+				double YPos = (-tangent / distance * c + tangent * distance / 4);
+				//Debug.Log(XPos + "; " + YPos + "; " + ZPos);
+				line.SetPosition(i, new Vector3((float)XPos, (float)YPos, (float)ZPos));
+            }
 			ThrowLine.SetActive(true);
+
+			//Render del quadrato target
+			ThrowTarget.transform.position = targetSquare;
+			ThrowTarget.SetActive(true);
 		}
 
 		else if (data["action"] != null && data["action"].ToString() == "touch_thorw_end")
