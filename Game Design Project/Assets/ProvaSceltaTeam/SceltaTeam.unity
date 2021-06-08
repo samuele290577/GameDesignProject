@@ -640,6 +640,7 @@ MonoBehaviour:
   button_plants: {fileID: 328380383}
   button_humans: {fileID: 818807074}
   player: {fileID: 360300948}
+  controller: {fileID: 1969935749}
   plants: 273
   humans: 274
   ready: 32
@@ -1705,6 +1706,7 @@ MonoBehaviour:
   button_plants: {fileID: 1743806478}
   button_humans: {fileID: 590905848}
   player: {fileID: 2053010547}
+  controller: {fileID: 1969935749}
   plants: 119
   humans: 115
   ready: 9

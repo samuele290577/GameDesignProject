@@ -9,7 +9,7 @@ public class ControllerManager : MonoBehaviour
     public static PlayerDeck player2;
 
 
-    public static  PlayerDeck GetPlayerData(int playerID)
+    public  PlayerDeck GetPlayerData(int playerID)
     {
         switch (playerID)
         {
@@ -23,7 +23,7 @@ public class ControllerManager : MonoBehaviour
         }
     }
 
-    public static void SetPlayerData(PlayerDeck playerData, int playerID)
+    public void SetPlayerData(PlayerDeck playerData, int playerID)
     {
 
 
@@ -39,5 +39,22 @@ public class ControllerManager : MonoBehaviour
                 UnityEngine.Debug.LogError("Invalid player ID!!!!");
                 break;
         }
+    }
+
+    public PlayerDeck GetPlantDeck()
+    {
+        if (player1.getTeam().Equals("Plants"))
+        {
+            return player1;
+        }
+        else return player2; 
+    }
+    public PlayerDeck GetHumanDeck()
+    {
+        if (player1.getTeam().Equals("Humans"))
+        {
+            return player1;
+        }
+        else return player2;
     }
 }

@@ -9,6 +9,7 @@ public class GoToDeck : MonoBehaviour
     public PlayerDeck player2;
     public bool diversi;
 
+
     
     // Start is called before the first frame update
     void Start()

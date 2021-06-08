@@ -8,6 +8,7 @@ public class TeamPickerManager : MonoBehaviour
     public Button button_plants;
     public Button button_humans;
     public PlayerDeck player;
+    public ControllerManager controller;
     public KeyCode plants;
     public KeyCode humans;
     public KeyCode ready; 
@@ -26,6 +27,7 @@ public class TeamPickerManager : MonoBehaviour
             player.setTeam("Plants");
             button_plants.image.color = Color.green;
             button_humans.image.color = Color.white;
+            controller.SetPlayerData(player, player.id);
           //  player.setTeam(team);
             Debug.Log("Player"+ player.getId() + " ha scelto"  + player.getTeam());
 
@@ -33,11 +35,12 @@ public class TeamPickerManager : MonoBehaviour
     public void ChosenHumans()
     {
 
-        player.setTeam("Humans");
+            player.setTeam("Humans");
             button_humans.image.color = Color.red;
             button_plants.image.color = Color.white;
+            controller.SetPlayerData(player, player.id);
         // player.setTeam(team);
-             Debug.Log("Player" + player.getId() + " ha scelto" + player.getTeam());
+        Debug.Log("Player" + player.getId() + " ha scelto" + player.getTeam());
 
     }
     private void Update()
