@@ -22,9 +22,8 @@ public class TeamPickerManager : MonoBehaviour
 
     public void ChosenPlants()
     {
-       
+
             player.setTeam("Plants");
-            player.setId(1);
             button_plants.image.color = Color.green;
             button_humans.image.color = Color.white;
           //  player.setTeam(team);
@@ -34,8 +33,7 @@ public class TeamPickerManager : MonoBehaviour
     public void ChosenHumans()
     {
 
-            player.setTeam("Humans");
-            player.setId(2);
+        player.setTeam("Humans");
             button_humans.image.color = Color.red;
             button_plants.image.color = Color.white;
         // player.setTeam(team);

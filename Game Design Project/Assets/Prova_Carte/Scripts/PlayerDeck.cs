@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerDeck : MonoBehaviour
 {
-    static public List<Card> deck = new List<Card>();
+    public List<Card> deck = new List<Card>();
     // static public Team team;
     public bool isReady;
-    static public string team;
-    static public int id; 
+    public string team;
+    public int id; 
     private int bananacounter = 0;
     private int pinapplecounter = 0;
     private int coconutcounter = 0;

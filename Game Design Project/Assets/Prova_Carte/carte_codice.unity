@@ -2199,7 +2199,7 @@ GameObject:
   - component: {fileID: 230198276}
   - component: {fileID: 230198275}
   m_Layer: 0
-  m_Name: PlayerDeck2
+  m_Name: PlayerHumans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,6 +2217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7199e42eb09fd2543983395a9d158fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: []
+  isReady: 0
+  team: 
+  id: 0
   overload: 0
 --- !u!4 &230198276
 Transform:
@@ -13973,6 +13977,49 @@ RectTransform:
   m_AnchoredPosition: {x: 59.999977, y: -99.338036}
   m_SizeDelta: {x: 58.347626, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1828386710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828386712}
+  - component: {fileID: 1828386711}
+  m_Layer: 0
+  m_Name: ControllerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1828386711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828386710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1242fc1bad9fdad44bec71e9b7a8f577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1828386712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828386710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 550.6466, y: 489.54742, z: -261.06628}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830183664
 GameObject:
   m_ObjectHideFlags: 0
@@ -16223,7 +16270,7 @@ GameObject:
   - component: {fileID: 2048466037}
   - component: {fileID: 2048466038}
   m_Layer: 0
-  m_Name: PlayerDeck1
+  m_Name: PlayerPlants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16236,7 +16283,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048466036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 437.74796, y: 330.78955, z: 11.378859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16256,6 +16303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7199e42eb09fd2543983395a9d158fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: []
+  isReady: 0
+  team: 
+  id: 0
   overload: 0
 --- !u!1 &2052242214
 GameObject:
