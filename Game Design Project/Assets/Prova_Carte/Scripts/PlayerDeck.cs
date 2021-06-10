@@ -15,104 +15,208 @@ public class PlayerDeck : MonoBehaviour
     private int coconutcounter = 0;
     private int watermeloncounter = 0;
     private int sabbiacounter = 0;
+    private int riflecounter = 0;
+    private int shotguncounter = 0;
+    private int dynamitecounter = 0;
+    private int molotovcounter = 0;
+    private int minecounter = 0;
+
     public bool overload = false;
 
 
     public void AddCard(Card card)
     {
-        if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Roccia" || card.CardName == "Pietre")
+        if (team.Equals("Plants"))
         {
-            deck.Add(card);
-            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
-
-        }
-
-        else
-        {
-            switch (card.CardName)
+            if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Roccia" || card.CardName == "Pietre")
             {
-                case ("Banana"):
-                   
-                    if (bananacounter < card.limit)
-                    {
-                        deck.Add(card);
-                        Debug.Log("Card Added: " + card.id + " , " + card.CardName + " Banana Counter: " + bananacounter);
-                        bananacounter++;
-                        
-                    }
-                    else
-                    {
-                        Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
-                        overload = true;
-                    }
-                    break;
-                case ("Pinapple"):
-                    
-                    if (pinapplecounter < card.limit)
-                    {
-                        deck.Add(card);
-                        Debug.Log("Card Added: " + card.id + " , " + card.CardName);
-                        pinapplecounter++;
-                        
-                    }
-                    else
-                    {
-                        Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
-                        overload = true;
-                    }
-                    break;
-                case ("Coconut"):
-                    
-                    if (coconutcounter < card.limit)
-                    {
-                        deck.Add(card);
-                        Debug.Log("Card Added: " + card.id + " , " + card.CardName);
-                        coconutcounter++;
-                        
-                    }
-                    else
-                    {
-                        Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
-                        overload = true;
-                    }
-                    break;
-                case ("Watermelon"):
-                    
-                    if (watermeloncounter < card.limit)
-                    {
-                        deck.Add(card);
-                        Debug.Log("Card Added: " + card.id + " , " + card.CardName);
-                        watermeloncounter++;
-                        
-                    }
-                    else
-                    {
-                        Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
-                        overload = true;
-                    }
-                    break;
-                case ("Sabbia Mobile"):
-                    
-                    if (sabbiacounter < card.limit)
-                    {
-                        deck.Add(card);
-                        Debug.Log("Card Added: " + card.id + " , " + card.CardName);
-                        sabbiacounter++;
-                        
-                    }
-                    else
-                    {
-                        Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
-                        overload = true;
-                    }
-                    break;
-
+                deck.Add(card);
+                Debug.Log("Card Added: " + card.id + " , " + card.CardName);
 
             }
+
+            else
+            {
+                switch (card.CardName)
+                {
+                    case ("Banana"):
+
+                        if (bananacounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName + " Banana Counter: " + bananacounter);
+                            bananacounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Pinapple"):
+
+                        if (pinapplecounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            pinapplecounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Coconut"):
+
+                        if (coconutcounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            coconutcounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Watermelon"):
+
+                        if (watermeloncounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            watermeloncounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Sabbia Mobile"):
+
+                        if (sabbiacounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            sabbiacounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+
+
+                }
+            }
+
+
         }
+        else
+        {
+            if (card.CardName == "Bomb" || card.CardName == "Knife" || card.CardName == "Barrel" || card.CardName == "Explosive Box")
+            {
+                deck.Add(card);
+                Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+
+            }
+
+            else
+            {
+                switch (card.CardName)
+                {
+                    case ("Dynamite"):
+
+                        if (dynamitecounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName + " Banana Counter: " + bananacounter);
+                            dynamitecounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Molotov"):
+
+                        if (molotovcounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            molotovcounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Rifle"):
+
+                        if (riflecounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            riflecounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Shotgun"):
+
+                        if (shotguncounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            shotguncounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
+                    case ("Mine"):
+
+                        if (minecounter < card.limit)
+                        {
+                            deck.Add(card);
+                            Debug.Log("Card Added: " + card.id + " , " + card.CardName);
+                            minecounter++;
+
+                        }
+                        else
+                        {
+                            Debug.Log("Raggiunto il limite di carte di tipo " + card.CardName + " per questo deck");
+                            overload = true;
+                        }
+                        break;
 
 
+                }
+            }
+        }
     }
+
+    
     public void setTeam (string team_scelto){
         team = team_scelto; 
     }
@@ -184,6 +288,11 @@ public class PlayerDeck : MonoBehaviour
         }
     }
     
+
+    public List<Card> getCards()
+    {
+        return deck;
+    }
     
 
 }

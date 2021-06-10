@@ -2335,7 +2335,7 @@ Transform:
   - {fileID: 584156922}
   - {fileID: 1989151588}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &290790296
 GameObject:
@@ -2532,7 +2532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -2812,7 +2812,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -3067,7 +3067,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -5373,7 +5373,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -7881,7 +7881,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -11271,7 +11271,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -13504,7 +13504,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -14705,7 +14705,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:
@@ -16663,7 +16663,7 @@ Transform:
   - {fileID: 364664270}
   - {fileID: 104475278}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2048466038
 MonoBehaviour:
@@ -16941,8 +16941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415a0b6726e782d45bac1de2f46b3331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sel_button: {fileID: 1191240540}
-  controller: {fileID: 1828386711}
+  sel_button_plants: {fileID: 1191240540}
+  sel_button_humans: {fileID: 303816871}
 --- !u!4 &2058101020
 Transform:
   m_ObjectHideFlags: 0
@@ -17656,7 +17656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
+      - m_Target: {fileID: 230198275}
         m_MethodName: AddCard
         m_Mode: 2
         m_Arguments:

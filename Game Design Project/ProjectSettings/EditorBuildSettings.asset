@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Prova_Carte/carte_codice.unity
     guid: 819f352e69c67014d89417fdf3e3290f
   - enabled: 1
-    path: Assets/Scenes/Earth/Earth.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/SampleScene.unity
+    guid: fb48afccb4aff3846b4306ecd560f603
+  - enabled: 1
+    path: Assets/Scenes/ScenaControllerManager.unity
+    guid: 89c0f21586f9f0d43947d4cfff8c0985
   m_configObjects: {}

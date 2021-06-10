@@ -11,7 +11,7 @@ public class HumanDatabase: MonoBehaviour
         cardList.Add(new Arma(0, "Bomb", 10, 25, 12, 5));
         cardList.Add(new Arma(1, "Dynamite", 2, 15, 18, 25));
         cardList.Add(new Arma(2, "Molotov", 2, 35, 8, 4));
-        cardList.Add(new Arma(3, "Rifle", 2, 30, 10, 1));
+        cardList.Add(new Arma(3, "Rifle", 1, 30, 10, 1));
         cardList.Add(new Arma(4, "Shotgun", 1, 50, 3, 9));
         cardList.Add(new Arma(5, "Knife", 10, 30, 5, 1));
         cardList.Add(new Ostruzione(6, "Barrel", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));

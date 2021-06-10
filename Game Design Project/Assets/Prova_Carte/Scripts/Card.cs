@@ -8,6 +8,11 @@ public class Card : MonoBehaviour
     public string CardName;
     public int limit;
     public int range;
+
+    public string getCardName()
+    {
+        return CardName;
+    }
     
 
     

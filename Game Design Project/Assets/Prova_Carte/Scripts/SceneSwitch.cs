@@ -6,19 +6,18 @@ using UnityEngine.UI;
 
 public class SceneSwitch : MonoBehaviour
 {
-    public Button sel_button;
-    public ControllerManager controller; 
+    public Button sel_button_plants;
+    public Button sel_button_humans;
 
     private void Start()
     {
-        sel_button.Select();
-        Debug.Log(controller.GetPlantDeck().getId());
-        Debug.Log(controller.GetHumanDeck().getId());
+        sel_button_plants.Select();
+        sel_button_humans.Select();
        
     }
     public void SceneSwitcher()
     {
-        SceneManager.LoadScene("Scena_test");
+        SceneManager.LoadScene("SampleScene");
     }
     
 }

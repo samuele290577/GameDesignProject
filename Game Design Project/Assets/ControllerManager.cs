@@ -9,6 +9,7 @@ public class ControllerManager : MonoBehaviour
     public static PlayerDeck player2;
 
 
+
     public  PlayerDeck GetPlayerData(int playerID)
     {
         switch (playerID)
@@ -31,9 +32,44 @@ public class ControllerManager : MonoBehaviour
         {
             case 1:
                 player1 = playerData;
+
                 break;
             case 2:
                 player2 = playerData;
+
+                break;
+            default:
+                UnityEngine.Debug.LogError("Invalid player ID!!!!");
+                break;
+        }
+    }
+    public void SetPlayerData(PlayerDeck playerData, string team)
+    {
+
+
+        switch (team)
+        {
+            case "Plants":
+                if (player1.team.Equals("Plants"))
+                {
+                    player1 = playerData;
+                }
+                else
+                {
+                    player2 = playerData;
+                }
+
+                break;
+            case "Humans":
+                if (player1.team.Equals("Humans"))
+                {
+                    player1 = playerData;
+                }
+                else { 
+                    player2 = playerData;
+
+                }
+
                 break;
             default:
                 UnityEngine.Debug.LogError("Invalid player ID!!!!");
@@ -57,4 +93,24 @@ public class ControllerManager : MonoBehaviour
         }
         else return player2;
     }
-}
+
+    public string getCards()
+    {
+        string stringa_pianta = "";
+        string stringa_humans = "";
+        for(int i = 0; i < player1.getSize(); i++)
+        {
+            stringa_pianta+= " " + player1.getCards()[i].getCardName();
+
+        }
+        for (int j = 0; j < player1.getSize(); j++)
+        {
+            stringa_humans += " " + player2.getCards()[j].getCardName();
+
+        }
+        return stringa_pianta +" " + stringa_humans;
+       
+        }
+
+    }
+
