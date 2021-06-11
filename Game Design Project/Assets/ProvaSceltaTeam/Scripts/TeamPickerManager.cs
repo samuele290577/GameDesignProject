@@ -44,15 +44,21 @@ public class TeamPickerManager : MonoBehaviour
         if (Input.GetKey(plants))
         {
             ChosenPlants();
+            GoToDeck.player1Ready = false;
+            GoToDeck.player2Ready = false;
         }
         if (Input.GetKey(humans))
         {
             ChosenHumans();
+            GoToDeck.player1Ready = false;
+            GoToDeck.player2Ready = false;
         }
         if (Input.GetKey(ready))
         {
             if (player.getTeam() == "unset") return; //se non è stato scelto il team, non si può confermare
             GoToDeck.teamReady(playerNumber, player.getTeam());
+            Debug.Log("Player" + playerNumber + " ha scelto " + player.getTeam() + "ed è ready");
+          
         }
     }
 }
