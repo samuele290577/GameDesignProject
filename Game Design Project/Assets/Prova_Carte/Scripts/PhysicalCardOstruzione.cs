@@ -18,6 +18,8 @@ public class PhysicalCardOstruzione : MonoBehaviour
     public Text LifeText;
     public Text LimitText;
     public Text DescrizioneText;
+    public Text Counter;
+    private int counter = 0;
 
     void Start()
     {
@@ -31,5 +33,37 @@ public class PhysicalCardOstruzione : MonoBehaviour
         VolumeText.text = "" + thisCard.volume;
         LifeText.text = "" + thisCard.vita;
         DescrizioneText.text = "" + thisCard.descrizione;
+        Counter.text = "" + counter;
+       
+    }
+    private void Update()
+    {
+        countCardId();
+        Counter.text = "" + counter; 
+    }
+    public void countCardId()
+    {
+        if (MasterController.player1.deck.Contains(cardId))
+        {
+            counter = 0;
+         for (int i = 0; i < MasterController.player1.getDeckSize(); i++)
+            {
+                if (MasterController.player1.deck[i] == cardId)
+                {
+                    counter++;
+                }
+            }
+        }
+        else
+        {
+            counter = 0;
+            for (int i = 0; i < MasterController.player2.getDeckSize(); i++)
+            {
+                if (MasterController.player2.deck[i] == cardId)
+                {
+                    counter++;
+                }
+            }
+        }
     }
 }

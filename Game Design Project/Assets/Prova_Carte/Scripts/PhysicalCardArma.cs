@@ -15,6 +15,8 @@ public class PhysicalCardArma : MonoBehaviour
     public Text RangeText;
     public Text LimitText;
     public Text explosionText;
+    public Text Counter;
+    private int counter = 0;
 
     void Start()
     {
@@ -27,5 +29,37 @@ public class PhysicalCardArma : MonoBehaviour
         LimitText.text = "" + thisCard.limit;
         PowerText.text = "" + thisCard.power;
         explosionText.text = "" + thisCard.explosion;
+        Counter.text = "" + counter;
+    }
+    private void Update()
+    {
+        countCardId();
+        Counter.text = "" + counter;
+       
+    }
+    public void countCardId()
+    {
+        if (MasterController.player1.deck.Contains(cardId))
+        {
+            counter = 0;
+            for (int i = 0; i < MasterController.player1.getDeckSize(); i++)
+            {
+                if (MasterController.player1.deck[i] == cardId)
+                {
+                    counter++;
+                }
+            }
+        }
+        else
+        {
+            counter = 0;
+            for (int i = 0; i < MasterController.player2.getDeckSize(); i++)
+            {
+                if (MasterController.player2.deck[i] == cardId)
+                {
+                    counter++;
+                }
+            }
+        }
     }
 }
