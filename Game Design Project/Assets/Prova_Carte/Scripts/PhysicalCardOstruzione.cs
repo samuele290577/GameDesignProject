@@ -4,28 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PhysicalArma : MonoBehaviour
+
+public class PhysicalCardOstruzione : MonoBehaviour
 {
     public int cardId;
 
-    private Arma thisCard;
+    private Ostruzione thisCard;
+
 
     public Text nameText;
-    public Text PowerText;
+    public Text VolumeText;
     public Text RangeText;
+    public Text LifeText;
     public Text LimitText;
-    public Text explosionText;
+    public Text DescrizioneText;
 
     void Start()
     {
         //prendo la carta dal database in base all'id
-        thisCard = (Arma) CardDatabase.getCardFromId(cardId);
+        thisCard = (Ostruzione) CardDatabase.getCardFromId(cardId);
 
         //scrivo i dati nell'interfaccia
         nameText.text = "" + thisCard.CardName;
         RangeText.text = "" + thisCard.range;
         LimitText.text = "" + thisCard.limit;
-        PowerText.text = "" + thisCard.power;
-        explosionText.text = "" + thisCard.explosion;
+        VolumeText.text = "" + thisCard.volume;
+        LifeText.text = "" + thisCard.vita;
+        DescrizioneText.text = "" + thisCard.descrizione;
     }
 }
