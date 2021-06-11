@@ -16,6 +16,5 @@ public class Arma : Card
         this.power = power;
         this.range = range;
         this.explosion = explosion;
-
     }
 }

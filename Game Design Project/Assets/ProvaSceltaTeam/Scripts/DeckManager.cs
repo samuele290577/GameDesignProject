@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
-    public PlayerDeck deck_piante;
-    public PlayerDeck deck_umani;
+    public Player deck_piante;
+    public Player deck_umani;
     
     void Start()
     {
-        Debug.Log("grandezza deck piante: " + deck_piante.getSize());
-        Debug.Log("grandezza deck umani: " + deck_umani.getSize());
+        Debug.Log("grandezza deck piante: " + deck_piante.getDeckSize());
+        Debug.Log("grandezza deck umani: " + deck_umani.getDeckSize());
     }
 
     // Update is called once per frame

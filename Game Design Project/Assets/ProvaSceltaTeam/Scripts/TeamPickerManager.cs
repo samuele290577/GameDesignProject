@@ -7,28 +7,26 @@ public class TeamPickerManager : MonoBehaviour
 {
     public Button button_plants;
     public Button button_humans;
-    public PlayerDeck player;
-    public ControllerManager controller;
     public KeyCode plants;
     public KeyCode humans;
-    public KeyCode ready; 
+    public KeyCode ready;
+    public int playerNumber;
+    public GoToDeck GoToDeck;
 
-   
+    private Player player;
 
-    //public Team team;
     public void Start()
     {
-        player.isReady = false;
+        if (playerNumber == 1) player = MasterController.player1;
+        else if (playerNumber == 2) player = MasterController.player2;
+        else Debug.LogError("Errore nell'assegnazione del giocatore!");
     }
 
     public void ChosenPlants()
     {
-
             player.setTeam("Plants");
             button_plants.image.color = Color.green;
             button_humans.image.color = Color.white;
-            controller.SetPlayerData(player, player.id);
-          //  player.setTeam(team);
             Debug.Log("Player"+ player.getId() + " ha scelto"  + player.getTeam());
 
     }
@@ -38,9 +36,7 @@ public class TeamPickerManager : MonoBehaviour
             player.setTeam("Humans");
             button_humans.image.color = Color.red;
             button_plants.image.color = Color.white;
-            controller.SetPlayerData(player, player.id);
-        // player.setTeam(team);
-        Debug.Log("Player" + player.getId() + " ha scelto" + player.getTeam());
+            Debug.Log("Player" + player.getId() + " ha scelto" + player.getTeam());
 
     }
     private void Update()
@@ -55,7 +51,8 @@ public class TeamPickerManager : MonoBehaviour
         }
         if (Input.GetKey(ready))
         {
-            player.isReady = true;
+            if (player.getTeam() == "unset") return; //se non è stato scelto il team, non si può confermare
+            GoToDeck.teamReady(playerNumber, player.getTeam());
         }
     }
 }

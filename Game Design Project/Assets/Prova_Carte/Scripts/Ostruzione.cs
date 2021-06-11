@@ -17,9 +17,5 @@ public class Ostruzione : Card
         this.vita = vita;
         this.volume = volume;
         this.descrizione = descrizione;
-
     }
-
-    
-   
 }

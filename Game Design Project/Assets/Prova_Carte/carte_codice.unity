@@ -283,13 +283,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 208244784}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -730,7 +730,6 @@ GameObject:
   - component: {fileID: 89311764}
   - component: {fileID: 89311763}
   - component: {fileID: 89311761}
-  - component: {fileID: 89311762}
   m_Layer: 5
   m_Name: Card (8)
   m_TagString: Untagged
@@ -777,35 +776,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c6cdd7f853a074388294e0decf1c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 8
-  card: {fileID: 89311762}
+  cardId: 8
   nameText: {fileID: 1353093602}
   VolumeText: {fileID: 1105265491}
   RangeText: {fileID: 1455135137}
   LifeText: {fileID: 375556601}
   LimitText: {fileID: 1172869231}
   DescrizioneText: {fileID: 561406306}
---- !u!114 &89311762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89311759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b91c4c4bc1cc74ab620713183becb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  vita: 0
-  volume: 0
-  descrizione: 
 --- !u!114 &89311763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,13 +826,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 89311762}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1234,13 +1211,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 958171944}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1676,13 +1653,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 89311762}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1970,8 +1947,6 @@ GameObject:
   - component: {fileID: 208244783}
   - component: {fileID: 208244782}
   - component: {fileID: 208244785}
-  - component: {fileID: 208244781}
-  - component: {fileID: 208244784}
   m_Layer: 5
   m_Name: Card (4)
   m_TagString: Untagged
@@ -2005,27 +1980,6 @@ RectTransform:
   m_AnchoredPosition: {x: -345.815, y: 39.98001}
   m_SizeDelta: {x: 293.56934, y: 442.29404}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &208244781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208244779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d82a13eda369b418a349af0d1c70ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 4
-  card: {fileID: 208244784}
-  nameText: {fileID: 1597698246}
-  PowerText: {fileID: 1248120590}
-  RangeText: {fileID: 96207302}
-  LimitText: {fileID: 1243710116}
-  explosionText: {fileID: 410356811}
 --- !u!114 &208244782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,24 +2017,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208244779}
   m_CullTransparentMesh: 0
---- !u!114 &208244784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208244779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &208244785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2124,13 +2060,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 208244784}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2296,7 +2232,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 230198276}
-  - component: {fileID: 230198275}
   m_Layer: 0
   m_Name: PlayerHumans
   m_TagString: Untagged
@@ -2304,23 +2239,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &230198275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230198274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7199e42eb09fd2543983395a9d158fb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck: []
-  isReady: 0
-  team: 
-  id: 0
-  overload: 0
 --- !u!4 &230198276
 Transform:
   m_ObjectHideFlags: 0
@@ -2399,13 +2317,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 314585827}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2480,8 +2398,6 @@ GameObject:
   - component: {fileID: 293464372}
   - component: {fileID: 293464370}
   - component: {fileID: 293464373}
-  - component: {fileID: 293464371}
-  - component: {fileID: 293464376}
   m_Layer: 5
   m_Name: Card (6)
   m_TagString: Untagged
@@ -2532,36 +2448,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 293464371}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 16
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &293464371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293464369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b91c4c4bc1cc74ab620713183becb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  vita: 0
-  volume: 0
-  descrizione: 
 --- !u!114 &293464372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2598,15 +2495,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293464369}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72c6cdd7f853a074388294e0decf1c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 6
-  card: {fileID: 293464371}
+  cardId: 16
   nameText: {fileID: 1235157742}
   VolumeText: {fileID: 1805381226}
   RangeText: {fileID: 1032986057}
@@ -2648,28 +2542,6 @@ RectTransform:
   m_AnchoredPosition: {x: 108.57654, y: -139.70465}
   m_SizeDelta: {x: 335.73724, y: 448.43097}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &293464376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293464369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4b033bd091fa54aad00a35667346f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 6
-  card: {fileID: 293464371}
-  nameText: {fileID: 1235157742}
-  VolumeText: {fileID: 1805381226}
-  RangeText: {fileID: 1032986057}
-  LifeText: {fileID: 295851492}
-  LimitText: {fileID: 46916926}
-  DescrizioneText: {fileID: 1454277715}
 --- !u!1 &295851491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2632,6 @@ GameObject:
   - component: {fileID: 303816875}
   - component: {fileID: 303816873}
   - component: {fileID: 303816871}
-  - component: {fileID: 303816872}
   - component: {fileID: 303816874}
   m_Layer: 5
   m_Name: Card
@@ -2812,35 +2683,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 303816872}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &303816872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303816870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &303816873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,10 +2735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 0
-  card: {fileID: 303816872}
+  cardId: 10
   nameText: {fileID: 500643180}
   PowerText: {fileID: 305829794}
   RangeText: {fileID: 1106596767}
@@ -3016,7 +2866,6 @@ GameObject:
   - component: {fileID: 314585828}
   - component: {fileID: 314585826}
   - component: {fileID: 314585827}
-  - component: {fileID: 314585832}
   m_Layer: 5
   m_Name: Card (8)
   m_TagString: Untagged
@@ -3067,13 +2916,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 314585827}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 18
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3087,16 +2936,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 314585825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b91c4c4bc1cc74ab620713183becb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 72c6cdd7f853a074388294e0decf1c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  vita: 0
-  volume: 0
-  descrizione: 
+  cardId: 18
+  nameText: {fileID: 1531327892}
+  VolumeText: {fileID: 1426458394}
+  RangeText: {fileID: 1992011889}
+  LifeText: {fileID: 1190110053}
+  LimitText: {fileID: 1569119267}
+  DescrizioneText: {fileID: 1714749231}
 --- !u!114 &314585828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,28 +3010,6 @@ RectTransform:
   m_AnchoredPosition: {x: 453.55652, y: -138.60464}
   m_SizeDelta: {x: 354.2157, y: 450.6369}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &314585832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314585825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4b033bd091fa54aad00a35667346f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 8
-  card: {fileID: 314585827}
-  nameText: {fileID: 1531327892}
-  VolumeText: {fileID: 1426458394}
-  RangeText: {fileID: 1992011889}
-  LifeText: {fileID: 1190110053}
-  LimitText: {fileID: 1569119267}
-  DescrizioneText: {fileID: 1714749231}
 --- !u!1 &324697180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,8 +3254,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 375760692}
+  - component: {fileID: 375760693}
   m_Layer: 0
-  m_Name: Cards_Human
+  m_Name: Cards_Humans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3459,6 +3287,23 @@ Transform:
   m_Father: {fileID: 815872467}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &375760693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375760691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7042887e11e6d94ba8642b79546221b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: Humans
+  sizeText: {fileID: 2061622200}
+  warButton: {fileID: 1895937387}
+  image: {fileID: 799673165}
+  idLabel: {fileID: 1791775178}
 --- !u!1 &380886742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3541,13 +3386,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 586640566}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3758,7 +3603,6 @@ GameObject:
   - component: {fileID: 398079993}
   - component: {fileID: 398079995}
   - component: {fileID: 398079992}
-  - component: {fileID: 398079996}
   m_Layer: 5
   m_Name: Card (5)
   m_TagString: Untagged
@@ -3801,13 +3645,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 398079990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d82a13eda369b418a349af0d1c70ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 5
-  card: {fileID: 398079996}
+  cardId: 5
   nameText: {fileID: 860484721}
   PowerText: {fileID: 192193682}
   RangeText: {fileID: 1132335474}
@@ -3893,35 +3734,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 398079996}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &398079996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398079990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!1 &400304722
 GameObject:
   m_ObjectHideFlags: 0
@@ -4366,12 +4189,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 303816872}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5067,7 +4890,6 @@ GameObject:
   - component: {fileID: 586640564}
   - component: {fileID: 586640567}
   - component: {fileID: 586640563}
-  - component: {fileID: 586640566}
   m_Layer: 5
   m_Name: Card (2)
   m_TagString: Untagged
@@ -5110,13 +4932,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 586640561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d82a13eda369b418a349af0d1c70ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 2
-  card: {fileID: 586640566}
+  cardId: 2
   nameText: {fileID: 1199987491}
   PowerText: {fileID: 820452222}
   RangeText: {fileID: 1549642354}
@@ -5159,24 +4978,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586640561}
   m_CullTransparentMesh: 0
---- !u!114 &586640566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586640561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &586640567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,13 +5021,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 586640566}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5321,7 +5122,6 @@ GameObject:
   - component: {fileID: 606242158}
   - component: {fileID: 606242156}
   - component: {fileID: 606242154}
-  - component: {fileID: 606242155}
   - component: {fileID: 606242157}
   m_Layer: 5
   m_Name: Card (1)
@@ -5373,35 +5173,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 606242155}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &606242155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606242153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &606242156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5443,10 +5225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 1
-  card: {fileID: 606242155}
+  cardId: 11
   nameText: {fileID: 1564847266}
   PowerText: {fileID: 62410849}
   RangeText: {fileID: 2103529807}
@@ -5548,13 +5327,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 2127778630}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6170,13 +5949,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 398079996}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6399,7 +6178,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794093718}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6408,7 +6187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85.1, y: -99}
+  m_AnchoredPosition: {x: -85.1, y: -99.000046}
   m_SizeDelta: {x: 55.868286, y: 29.323933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &794093720
@@ -7156,13 +6935,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 937748637}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7694,49 +7473,6 @@ RectTransform:
   m_AnchoredPosition: {x: 70.815, y: -146.48}
   m_SizeDelta: {x: 59.81537, y: 38.965614}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &908779776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 908779778}
-  - component: {fileID: 908779777}
-  m_Layer: 0
-  m_Name: CardHumanDatabase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &908779777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908779776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9168dda39767994c886a7253ad66ed1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &908779778
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908779776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 444.44193, y: 337.27527, z: 12.154696}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &912769995
 GameObject:
   m_ObjectHideFlags: 0
@@ -7830,7 +7566,6 @@ GameObject:
   - component: {fileID: 937748638}
   - component: {fileID: 937748636}
   - component: {fileID: 937748637}
-  - component: {fileID: 937748639}
   m_Layer: 5
   m_Name: Card (7)
   m_TagString: Untagged
@@ -7881,13 +7616,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 937748637}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7901,16 +7636,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 937748635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b91c4c4bc1cc74ab620713183becb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 72c6cdd7f853a074388294e0decf1c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  vita: 0
-  volume: 0
-  descrizione: 
+  cardId: 17
+  nameText: {fileID: 973829063}
+  VolumeText: {fileID: 809712482}
+  RangeText: {fileID: 1731764942}
+  LifeText: {fileID: 1930201103}
+  LimitText: {fileID: 99278945}
+  DescrizioneText: {fileID: 2045105747}
 --- !u!114 &937748638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7940,28 +7675,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &937748639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937748635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be4b033bd091fa54aad00a35667346f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 7
-  card: {fileID: 937748637}
-  nameText: {fileID: 973829063}
-  VolumeText: {fileID: 809712482}
-  RangeText: {fileID: 1731764942}
-  LifeText: {fileID: 1930201103}
-  LimitText: {fileID: 99278945}
-  DescrizioneText: {fileID: 2045105747}
 --- !u!222 &937748640
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8133,13 +7846,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1247835013}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8214,7 +7927,6 @@ GameObject:
   - component: {fileID: 958171942}
   - component: {fileID: 958171945}
   - component: {fileID: 958171941}
-  - component: {fileID: 958171944}
   m_Layer: 5
   m_Name: Card (3)
   m_TagString: Untagged
@@ -8257,13 +7969,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 958171939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d82a13eda369b418a349af0d1c70ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 3
-  card: {fileID: 958171944}
+  cardId: 3
   nameText: {fileID: 384229849}
   PowerText: {fileID: 1017551828}
   RangeText: {fileID: 389287104}
@@ -8306,24 +8015,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958171939}
   m_CullTransparentMesh: 0
---- !u!114 &958171944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958171939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &958171945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8367,13 +8058,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 958171944}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9010,13 +8701,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1830183669}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9541,7 +9232,6 @@ GameObject:
   - component: {fileID: 1149950047}
   - component: {fileID: 1149950046}
   - component: {fileID: 1149950044}
-  - component: {fileID: 1149950045}
   m_Layer: 5
   m_Name: Card (7)
   m_TagString: Untagged
@@ -9588,35 +9278,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c6cdd7f853a074388294e0decf1c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 7
-  card: {fileID: 1149950045}
+  cardId: 7
   nameText: {fileID: 1539764014}
   VolumeText: {fileID: 2052242216}
   RangeText: {fileID: 1847157510}
   LifeText: {fileID: 550798214}
   LimitText: {fileID: 2030135263}
   DescrizioneText: {fileID: 1520433973}
---- !u!114 &1149950045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149950042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b91c4c4bc1cc74ab620713183becb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  vita: 0
-  volume: 0
-  descrizione: 
 --- !u!114 &1149950046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9660,13 +9328,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1149950045}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9770,13 +9438,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 606242155}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10007,7 +9675,6 @@ GameObject:
   - component: {fileID: 1182607406}
   - component: {fileID: 1182607405}
   - component: {fileID: 1182607403}
-  - component: {fileID: 1182607404}
   m_Layer: 5
   m_Name: Card (6)
   m_TagString: Untagged
@@ -10054,35 +9721,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c6cdd7f853a074388294e0decf1c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 6
-  card: {fileID: 1182607404}
+  cardId: 6
   nameText: {fileID: 217799351}
   VolumeText: {fileID: 810086814}
   RangeText: {fileID: 437659180}
   LifeText: {fileID: 2136190553}
   LimitText: {fileID: 794093720}
   DescrizioneText: {fileID: 404052013}
---- !u!114 &1182607404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182607401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b91c4c4bc1cc74ab620713183becb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  vita: 0
-  volume: 0
-  descrizione: 
 --- !u!114 &1182607405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10126,13 +9771,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1182607404}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10416,7 +10061,6 @@ GameObject:
   - component: {fileID: 1191240538}
   - component: {fileID: 1191240537}
   - component: {fileID: 1191240540}
-  - component: {fileID: 1191240541}
   - component: {fileID: 1191240536}
   m_Layer: 5
   m_Name: Card
@@ -10460,15 +10104,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1191240534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
+  cardId: 0
+  nameText: {fileID: 669626551}
+  PowerText: {fileID: 1953496076}
+  RangeText: {fileID: 797843601}
+  LimitText: {fileID: 2065001570}
+  explosionText: {fileID: 1474668391}
 --- !u!114 &1191240537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10549,38 +10193,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1191240536}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1191240541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191240534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d82a13eda369b418a349af0d1c70ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 0
-  card: {fileID: 1191240536}
-  nameText: {fileID: 669626551}
-  PowerText: {fileID: 1953496076}
-  RangeText: {fileID: 797843601}
-  LimitText: {fileID: 2065001570}
-  explosionText: {fileID: 1474668391}
 --- !u!1 &1199987489
 GameObject:
   m_ObjectHideFlags: 0
@@ -10741,13 +10364,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1182607404}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10872,14 +10495,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2058101019}
-        m_MethodName: SceneSwitcher
-        m_Mode: 1
+        m_MethodName: PlayerReady
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Plants
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1224419063
@@ -11075,60 +10698,6 @@ RectTransform:
   m_AnchoredPosition: {x: 34.6, y: 159}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1235587456
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1235587458}
-  - component: {fileID: 1235587457}
-  m_Layer: 0
-  m_Name: TimerEvent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1235587457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235587456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f86fb6ecd300bb449ad21d29aef74b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck: {fileID: 2048466038}
-  cardList:
-  - {fileID: 1191240536}
-  - {fileID: 1830183669}
-  - {fileID: 958171944}
-  - {fileID: 208244784}
-  - {fileID: 398079996}
-  - {fileID: 1182607404}
-  - {fileID: 1149950045}
-  - {fileID: 586640566}
-  - {fileID: 89311762}
---- !u!4 &1235587458
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235587456}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -297, y: 24.69907, z: 3.135727}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243710114
 GameObject:
   m_ObjectHideFlags: 0
@@ -11219,7 +10788,6 @@ GameObject:
   - component: {fileID: 1247835016}
   - component: {fileID: 1247835014}
   - component: {fileID: 1247835012}
-  - component: {fileID: 1247835013}
   - component: {fileID: 1247835015}
   m_Layer: 5
   m_Name: Card (5)
@@ -11271,35 +10839,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1247835013}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1247835013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247835011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &1247835014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11341,10 +10891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 5
-  card: {fileID: 1247835013}
+  cardId: 15
   nameText: {fileID: 162073273}
   PowerText: {fileID: 822421787}
   RangeText: {fileID: 1420555960}
@@ -13156,13 +12703,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1149950045}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13452,7 +12999,6 @@ GameObject:
   - component: {fileID: 1647247618}
   - component: {fileID: 1647247616}
   - component: {fileID: 1647247614}
-  - component: {fileID: 1647247615}
   - component: {fileID: 1647247617}
   m_Layer: 5
   m_Name: Card (3)
@@ -13504,35 +13050,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1647247615}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1647247615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647247613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &1647247616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13574,10 +13102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 3
-  card: {fileID: 1647247615}
+  cardId: 13
   nameText: {fileID: 1995114287}
   PowerText: {fileID: 1227812337}
   RangeText: {fileID: 1169684008}
@@ -14233,67 +13758,6 @@ RectTransform:
   m_AnchoredPosition: {x: 59.999977, y: -99.338036}
   m_SizeDelta: {x: 58.347626, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1828386710
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1828386712}
-  - component: {fileID: 1828386711}
-  - component: {fileID: 1828386713}
-  m_Layer: 0
-  m_Name: ControllerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1828386711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828386710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1242fc1bad9fdad44bec71e9b7a8f577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1828386712
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828386710}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 550.6466, y: 489.54742, z: -261.06628}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1828386713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828386710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1390c0e5df0d0cb4daefe35026b0d7d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manager: {fileID: 1828386711}
-  playerPlants: {fileID: 2048466038}
-  playerHumans: {fileID: 230198275}
-  idPlayerPlants: {fileID: 1679605432}
-  idPlayerHumans: {fileID: 1791775178}
 --- !u!1 &1830183664
 GameObject:
   m_ObjectHideFlags: 0
@@ -14307,7 +13771,6 @@ GameObject:
   - component: {fileID: 1830183667}
   - component: {fileID: 1830183670}
   - component: {fileID: 1830183666}
-  - component: {fileID: 1830183669}
   m_Layer: 5
   m_Name: Card (1)
   m_TagString: Untagged
@@ -14350,13 +13813,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830183664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d82a13eda369b418a349af0d1c70ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 1
-  card: {fileID: 1830183669}
+  cardId: 1
   nameText: {fileID: 602652062}
   PowerText: {fileID: 1146670156}
   RangeText: {fileID: 1640875239}
@@ -14399,24 +13859,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830183664}
   m_CullTransparentMesh: 0
---- !u!114 &1830183669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830183664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &1830183670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14460,13 +13902,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1830183669}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -14653,7 +14095,6 @@ GameObject:
   - component: {fileID: 1851579613}
   - component: {fileID: 1851579611}
   - component: {fileID: 1851579609}
-  - component: {fileID: 1851579610}
   - component: {fileID: 1851579612}
   m_Layer: 5
   m_Name: Card (4)
@@ -14705,35 +14146,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1851579610}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1851579610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1851579608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &1851579611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14775,10 +14198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 4
-  card: {fileID: 1851579610}
+  cardId: 14
   nameText: {fileID: 1121543971}
   PowerText: {fileID: 1061513230}
   RangeText: {fileID: 584540585}
@@ -14880,13 +14300,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 293464371}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15031,14 +14451,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2058101019}
-        m_MethodName: SceneSwitcher
-        m_Mode: 1
+        m_MethodName: PlayerReady
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Humans
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1895937388
@@ -15165,8 +14585,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1910369592}
+  - component: {fileID: 1910369593}
   m_Layer: 5
-  m_Name: Carte_piante
+  m_Name: Carte_Plants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15202,6 +14623,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1910369593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910369591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7042887e11e6d94ba8642b79546221b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: Plants
+  sizeText: {fileID: 2126648600}
+  warButton: {fileID: 1224419062}
+  image: {fileID: 1765284050}
+  idLabel: {fileID: 1679605432}
 --- !u!1 &1911380073
 GameObject:
   m_ObjectHideFlags: 0
@@ -16081,49 +15519,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 144}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2008953619
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2008953621}
-  - component: {fileID: 2008953620}
-  m_Layer: 0
-  m_Name: CardPianteDatabase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2008953620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008953619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5539c327eea688438dc1f99eceef47e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2008953621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008953619}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 444.44193, y: 337.27527, z: 12.154696}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017379494
 GameObject:
   m_ObjectHideFlags: 0
@@ -16334,13 +15729,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1647247615}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -16641,7 +16036,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2048466037}
-  - component: {fileID: 2048466038}
   m_Layer: 0
   m_Name: PlayerPlants
   m_TagString: Untagged
@@ -16665,23 +16059,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2048466038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048466036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7199e42eb09fd2543983395a9d158fb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck: []
-  isReady: 0
-  team: 
-  id: 0
-  overload: 0
 --- !u!1 &2052242214
 GameObject:
   m_ObjectHideFlags: 0
@@ -16923,7 +16300,7 @@ GameObject:
   - component: {fileID: 2058101020}
   - component: {fileID: 2058101019}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: DeckBuilderManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16941,8 +16318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415a0b6726e782d45bac1de2f46b3331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sel_button_plants: {fileID: 1191240540}
-  sel_button_humans: {fileID: 303816871}
 --- !u!4 &2058101020
 Transform:
   m_ObjectHideFlags: 0
@@ -17019,13 +16394,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1851579610}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17098,7 +16473,6 @@ GameObject:
   - component: {fileID: 2061622198}
   - component: {fileID: 2061622201}
   - component: {fileID: 2061622200}
-  - component: {fileID: 2061622199}
   m_Layer: 5
   m_Name: Deck grandezza
   m_TagString: Untagged
@@ -17125,22 +16499,6 @@ RectTransform:
   m_AnchoredPosition: {x: 158.26648, y: -255.70465}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2061622199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061622197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342bdfdbe377f17478f830ed327d5564, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sizeText: {fileID: 2061622200}
-  deck: {fileID: 230198275}
-  warButton: {fileID: 1895937387}
-  image: {fileID: 799673165}
 --- !u!114 &2061622200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17507,7 +16865,6 @@ GameObject:
   - component: {fileID: 2126648602}
   - component: {fileID: 2126648601}
   - component: {fileID: 2126648600}
-  - component: {fileID: 2126648603}
   m_Layer: 5
   m_Name: Deck grandezza
   m_TagString: Untagged
@@ -17575,22 +16932,6 @@ RectTransform:
   m_AnchoredPosition: {x: -467.09, y: -267}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2126648603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2126648599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 342bdfdbe377f17478f830ed327d5564, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sizeText: {fileID: 2126648600}
-  deck: {fileID: 2048466038}
-  warButton: {fileID: 1224419062}
-  image: {fileID: 1765284050}
 --- !u!1 &2127778628
 GameObject:
   m_ObjectHideFlags: 0
@@ -17603,8 +16944,6 @@ GameObject:
   - component: {fileID: 2127778633}
   - component: {fileID: 2127778631}
   - component: {fileID: 2127778629}
-  - component: {fileID: 2127778632}
-  - component: {fileID: 2127778630}
   - component: {fileID: 2127778635}
   m_Layer: 5
   m_Name: Card (2)
@@ -17656,35 +16995,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 230198275}
-        m_MethodName: AddCard
-        m_Mode: 2
+      - m_Target: {fileID: 375760693}
+        m_MethodName: addCardToPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 2127778630}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2127778630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127778628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2d11e5b24bf8045b95d9d112dcf612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  CardName: 
-  limit: 0
-  range: 0
-  power: 0
-  explosion: 0
 --- !u!114 &2127778631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17714,27 +17035,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2127778632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127778628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d82a13eda369b418a349af0d1c70ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 2
-  card: {fileID: 2127778630}
-  nameText: {fileID: 17336290}
-  PowerText: {fileID: 633971084}
-  RangeText: {fileID: 676721117}
-  LimitText: {fileID: 158733835}
-  explosionText: {fileID: 903454561}
 --- !u!222 &2127778633
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17781,10 +17081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d54e539a662b3947a429bf05c30fef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCard:
-  - {fileID: 0}
-  thisId: 2
-  card: {fileID: 2127778630}
+  cardId: 12
   nameText: {fileID: 17336290}
   PowerText: {fileID: 633971084}
   RangeText: {fileID: 676721117}
@@ -17950,12 +17247,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2048466038}
-        m_MethodName: RemoveCard
-        m_Mode: 2
+      - m_Target: {fileID: 1910369593}
+        m_MethodName: removeCardFromPlayer
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 1191240536}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
