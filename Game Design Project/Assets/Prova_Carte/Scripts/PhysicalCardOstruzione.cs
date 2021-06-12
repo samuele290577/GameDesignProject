@@ -10,6 +10,7 @@ public class PhysicalCardOstruzione : MonoBehaviour
     public int cardId;
 
     private Ostruzione thisCard;
+    public DeckBuilder deckBuilder;
 
 
     public Text nameText;
@@ -39,7 +40,12 @@ public class PhysicalCardOstruzione : MonoBehaviour
     private void Update()
     {
         countCardId();
-        Counter.text = "" + counter; 
+        Counter.text = "" + counter;
+        if (deckBuilder.cardAttiva == cardId)
+        {
+            //attivare carta
+            GetComponent<Button>().Select();
+        }
     }
     public void countCardId()
     {

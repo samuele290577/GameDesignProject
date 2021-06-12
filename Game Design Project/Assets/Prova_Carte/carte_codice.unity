@@ -856,6 +856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 8
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 1353093602}
   VolumeText: {fileID: 1105265491}
   RangeText: {fileID: 1455135137}
@@ -2231,6 +2232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 4
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 1597698246}
   PowerText: {fileID: 1248120590}
   RangeText: {fileID: 96207302}
@@ -2758,6 +2760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 16
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 1235157742}
   VolumeText: {fileID: 1805381226}
   RangeText: {fileID: 1032986057}
@@ -2995,6 +2998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 10
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 500643180}
   PowerText: {fileID: 305829794}
   RangeText: {fileID: 1106596767}
@@ -3201,6 +3205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 18
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 1531327892}
   VolumeText: {fileID: 1426458394}
   RangeText: {fileID: 1992011889}
@@ -3641,6 +3646,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: Humans
+  cardAttiva: 10
+  limitUpId: 18
+  limitDownId: 10
+  up: 119
+  down: 115
+  select: 32
+  remove: 114
+  GoToWar: 101
   sizeText: {fileID: 2061622200}
   warButton: {fileID: 1895937387}
   image: {fileID: 799673165}
@@ -3991,6 +4004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 5
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 860484721}
   PowerText: {fileID: 192193682}
   RangeText: {fileID: 1132335474}
@@ -5436,6 +5450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 2
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 1199987491}
   PowerText: {fileID: 820452222}
   RangeText: {fileID: 1549642354}
@@ -5727,6 +5742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 11
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 1564847266}
   PowerText: {fileID: 62410849}
   RangeText: {fileID: 2103529807}
@@ -8455,6 +8471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 17
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 973829063}
   VolumeText: {fileID: 809712482}
   RangeText: {fileID: 1731764942}
@@ -8791,6 +8808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 3
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 384229849}
   PowerText: {fileID: 1017551828}
   RangeText: {fileID: 389287104}
@@ -10177,6 +10195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 7
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 1539764014}
   VolumeText: {fileID: 2052242216}
   RangeText: {fileID: 1847157510}
@@ -10701,6 +10720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 6
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 217799351}
   VolumeText: {fileID: 810086814}
   RangeText: {fileID: 437659180}
@@ -11089,6 +11109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 0
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 669626551}
   PowerText: {fileID: 1953496076}
   RangeText: {fileID: 797843601}
@@ -11874,6 +11895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 15
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 162073273}
   PowerText: {fileID: 822421787}
   RangeText: {fileID: 1420555960}
@@ -13627,7 +13649,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1558332872}
   - component: {fileID: 1558332871}
-  - component: {fileID: 1558332870}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -13635,25 +13656,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1558332870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558332869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1558332871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14399,6 +14401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 13
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 1995114287}
   PowerText: {fileID: 1227812337}
   RangeText: {fileID: 1169684008}
@@ -15194,6 +15197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 1
+  deckBuilder: {fileID: 1910369593}
   nameText: {fileID: 602652062}
   PowerText: {fileID: 1146670156}
   RangeText: {fileID: 1640875239}
@@ -15577,6 +15581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 14
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 1121543971}
   PowerText: {fileID: 1061513230}
   RangeText: {fileID: 584540585}
@@ -16094,6 +16099,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: Plants
+  cardAttiva: 0
+  limitUpId: 8
+  limitDownId: 0
+  up: 273
+  down: 274
+  select: 13
+  remove: 257
+  GoToWar: 258
   sizeText: {fileID: 2126648600}
   warButton: {fileID: 1224419062}
   image: {fileID: 1765284050}
@@ -18619,6 +18632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardId: 12
+  deckBuilder: {fileID: 375760693}
   nameText: {fileID: 17336290}
   PowerText: {fileID: 633971084}
   RangeText: {fileID: 676721117}

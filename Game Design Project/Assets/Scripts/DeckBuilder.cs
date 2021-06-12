@@ -8,6 +8,16 @@ public class DeckBuilder : MonoBehaviour
     public string team;
     private int playerNumber;
 
+    public int cardAttiva;
+    public int limitUpId;
+    public int limitDownId;
+    public KeyCode up;
+    public KeyCode down;
+    public KeyCode select;
+    public KeyCode remove;
+    public KeyCode GoToWar;
+
+
     public Text sizeText;
     public Button warButton;
     private int size;
@@ -19,6 +29,7 @@ public class DeckBuilder : MonoBehaviour
         playerNumber = MasterController.getPlayerNumberFromTeam(team);
         idLabel.text = "" + playerNumber;
         warButton.interactable = false;
+
     }
 
     public void addCardToPlayer(int id)
@@ -54,6 +65,7 @@ public class DeckBuilder : MonoBehaviour
         sizeText.text = "Grandezza deck: " + size;
         image.fillAmount = (float)(size * 0.1);
         isInteractable(warButton);
+        isSelected();
     }
 
     public void isInteractable(Button button)
@@ -65,6 +77,38 @@ public class DeckBuilder : MonoBehaviour
         else
         {
             button.interactable = false;
+        }
+    }
+    public void isSelected()
+    {
+        if (Input.GetKeyDown(select))
+        {
+            addCardToPlayer(cardAttiva);
+        }
+        if (Input.GetKeyDown(up))
+        {
+            if (cardAttiva >= limitUpId)
+                cardAttiva = limitDownId;
+
+            else cardAttiva++;
+        }
+        if (Input.GetKeyDown(down))
+        {
+            if (cardAttiva >= limitDownId)
+                cardAttiva = limitUpId;
+            
+            else cardAttiva--;
+        }
+        if (Input.GetKeyDown(remove))
+        {
+            removeCardFromPlayer(cardAttiva);
+        }
+        if (Input.GetKeyDown(GoToWar))
+        {
+            if (size == 10)
+            {
+                Debug.Log("Go TO War");
+            }
         }
     }
 }

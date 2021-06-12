@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class PhysicalCardArma : MonoBehaviour
 {
     public int cardId;
+    public DeckBuilder deckBuilder;
 
     private Arma thisCard;
 
@@ -35,6 +36,11 @@ public class PhysicalCardArma : MonoBehaviour
     {
         countCardId();
         Counter.text = "" + counter;
+        if(deckBuilder.cardAttiva == cardId)
+        {
+            //attivare carta
+            GetComponent<Button>().Select();
+        }
        
     }
     public void countCardId()
