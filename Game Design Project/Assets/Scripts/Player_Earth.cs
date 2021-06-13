@@ -7,7 +7,7 @@ public class Player_Earth : MonoBehaviour
 
     int id = -1; //-1 significa unset
 
-    private List<string> cards = new List<string>{ "A1", "A2", "A3", "A3", "A4", "A5", "B1", "B2", "B3", "B2"}; //sarebbe una lista delle carte, ora le carte sono stringhe. 
+    private List<int> cards = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 }; //sarebbe una lista delle carte, ora le carte sono stringhe. 
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +37,13 @@ public class Player_Earth : MonoBehaviour
         Debug.Log("Player " + this.id + " is alive!");
     }
 
-    public List<string> getCards()
+    public List<int> getCards()
     {
         return cards;
+    }
+
+    public void playCard(int cardId)
+    {
+        Debug.Log("Playing Card " + cardId + "!!");
     }
 }

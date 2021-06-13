@@ -16,6 +16,8 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject ThrowLine;
 	public GameObject ThrowTarget;
 
+	public GameObject projectile;
+
 	int maxDrag = 40;
 
 	private Player_Earth HumanLogic = null;
@@ -29,6 +31,9 @@ public class Logic_Earth: MonoBehaviour {
 	Vector3 targetSquare;
 	private int areaWidth = 0;
 	private int areaHeight = 0;
+
+	//Eventuale carta scelta
+	int cardId = -1;
 
 #if !DISABLE_AIRCONSOLE
 	void Awake()
@@ -98,19 +103,21 @@ public class Logic_Earth: MonoBehaviour {
 	{
 		//Metto in player il Game object Prefab del Giocatore
 		var Player = getPlayer(fromDeviceID);
+		var PlayerLogic = getPlayerLogic(fromDeviceID);
 
 		//Log to on-screen Console
 		//Debug.Log("Incoming message from device: " + fromDeviceID + ": " + data + " \n \n");
 
 		if (data["action"] != null && data["action"].ToString() == "confirm_card")
         {
-			Debug.Log("Carta scelta con indice: " + data["cardIndex"]);
+			cardId = (int)data["cardIndex"];
+			Debug.Log("Carta scelta con indice: " + cardId);
 			AirConsole.instance.Message(fromDeviceID, new { action = "showThrowItem" });
         }
 
 		else if (data["action"] != null && data["action"].ToString() == "skip_movement")
 		{
-			var message = new { action = "cards", content = getPlayerLogic(fromDeviceID).getCards() };
+			var message = new { action = "cards", content = PlayerLogic.getCards() };
 			AirConsole.instance.Message(fromDeviceID, message);
 			AirConsole.instance.Message(fromDeviceID, new { action = "showChooseCard" });
 		}
@@ -249,11 +256,23 @@ public class Logic_Earth: MonoBehaviour {
 			//Render del quadrato target
 			ThrowTarget.transform.position = targetSquare;
 			ThrowTarget.SetActive(true);
+
+
+			/** if (ThrowTarget.transform.position == projectile.transform.position)
+            {
+				HumanPlayer.GetComponent<ThrowSimulation>().enabled = true;
+			} **/
+			
 		}
 
-		else if (data["action"] != null && data["action"].ToString() == "touch_thorw_end")
+		else if (data["action"] != null && data["action"].ToString() == "touch_throw_end")
 		{
-			ThrowLine.SetActive(false);
+			if (ThrowTarget.activeSelf == true)
+			{
+				ThrowLine.SetActive(false);
+				ThrowTarget.SetActive(false);
+				PlayerLogic.playCard(cardId);
+			}
 			//Debug.Log("Target: " + targetPosition);
 		}
 
@@ -272,4 +291,3 @@ public class Logic_Earth: MonoBehaviour {
 	}
 #endif
 }
-
