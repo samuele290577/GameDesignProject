@@ -271,7 +271,7 @@ public class Logic_Earth: MonoBehaviour {
 			{
 				ThrowLine.SetActive(false);
 				ThrowTarget.SetActive(false);
-				PlayerLogic.playCard(cardId);
+				PlayerLogic.playCard(cardId, targetPosition);
 			}
 			//Debug.Log("Target: " + targetPosition);
 		}

@@ -5,14 +5,9 @@ public class ThrowSimulation : MonoBehaviour
 {
 
     //public GameObject gameLogic;
-    Transform Target; 
+    Vector3 Target; 
     float firingAngle = 45.0f;
     float gravity = 9.8f;
-
-
-    //oggetto lanciato
-    Transform Projectile;
-    Transform startingPoint;
 
     /*
     void Awake()
@@ -28,25 +23,39 @@ public class ThrowSimulation : MonoBehaviour
     }
     */
 
-    public void Throw(Transform projectile,  Transform from, Transform to, float firingAngle)
+    public void Throw(Vector3 to, float firingAngle)
     {
-        this.Projectile = projectile;
-        this.startingPoint = from;
         this.Target = to;
         this.firingAngle = firingAngle;
-        StartCoroutine(SimulateProjectile());
+        //StartCoroutine(SimulateProjectile());
+
+        float target_Distance = Vector3.Distance(transform.position, Target);
+        Vector3 direction = (Target - (transform.position + Vector3.zero)).normalized; // eventuale offset su Vector3.zero
+
+        // Calculate the velocity needed to throw the object to the target at specified angle.
+        float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / (Physics.gravity.y * -1));
+
+        // Extract the X Y componenent of the velocity
+        float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
+        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
+
+        Vector3 vel = new Vector3(Vx * direction.x, Vy, Vx * direction.z);
+
+        this.gameObject.GetComponent<Rigidbody>().AddForce(vel, ForceMode.Impulse);
+        //this.gameObject.GetComponent<Rigidbody>().AddTorque(torque);
     }
 
+    /*
     IEnumerator SimulateProjectile()
     {
         // Short delay added before Projectile is thrown
-        yield return new WaitForSeconds(1.5f);
-
+        yield return new WaitForSeconds(0.2f);
+        
         // Move projectile to the position of throwing object + add some offset if needed.
         Projectile.position = startingPoint.position + new Vector3(0, 0.0f, 0);
 
         // Calculate distance to target
-        float target_Distance = Vector3.Distance(Projectile.position, Target.position);
+        float target_Distance = Vector3.Distance(Projectile.position, Target);
 
         // Calculate the velocity needed to throw the object to the target at specified angle.
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
@@ -59,7 +68,7 @@ public class ThrowSimulation : MonoBehaviour
         float flightDuration = target_Distance / Vx;
 
         // Rotate projectile to face the target.
-        Projectile.rotation = Quaternion.LookRotation(Target.position - Projectile.position);
+        Projectile.rotation = Quaternion.LookRotation(Target - Projectile.position);
 
         float elapse_time = 0;
 
@@ -71,5 +80,16 @@ public class ThrowSimulation : MonoBehaviour
 
             yield return null;
         }
+
+        this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
+    }
+
+    */
+
+    void OnCollisionEnter()
+    {
+        Debug.Log("Collision");
     }
 }

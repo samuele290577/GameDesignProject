@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2865252510562565005}
   m_LocalRotation: {x: 0.707096, y: -0, z: -0, w: 0.7071176}
-  m_LocalPosition: {x: 0, y: 0.212, z: 0.583}
+  m_LocalPosition: {x: 0, y: 0.751, z: 0.583}
   m_LocalScale: {x: 0.22673999, y: 0.22673999, z: 0.22673999}
   m_Children: []
   m_Father: {fileID: 5872119851386057477}
@@ -94,7 +94,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!1 &5872119851386057484
+--- !u!1 &3781541913990707484
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,51 +102,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5872119851386057477}
-  - component: {fileID: 5872119851386057482}
-  - component: {fileID: 5872119851386057483}
-  - component: {fileID: 5872119851386057480}
-  - component: {fileID: 5872119851386057481}
-  - component: {fileID: 5872119851386057486}
-  - component: {fileID: 5872119851386057487}
-  - component: {fileID: 3865016938905174708}
+  - component: {fileID: 6507816363345240341}
+  - component: {fileID: 5319727808815188542}
+  - component: {fileID: 1404893906098902691}
   m_Layer: 0
-  m_Name: Plant_Player
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5872119851386057477
+--- !u!4 &6507816363345240341
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5872119851386057484}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 3781541913990707484}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6987985827807292156}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Children: []
+  m_Father: {fileID: 5872119851386057477}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5872119851386057482
+--- !u!33 &5319727808815188542
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5872119851386057484}
+  m_GameObject: {fileID: 3781541913990707484}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5872119851386057483
+--- !u!23 &1404893906098902691
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5872119851386057484}
+  m_GameObject: {fileID: 3781541913990707484}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -179,6 +173,43 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &5872119851386057484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5872119851386057477}
+  - component: {fileID: 5872119851386057480}
+  - component: {fileID: 5872119851386057481}
+  - component: {fileID: 5872119851386057486}
+  - component: {fileID: 5872119851386057487}
+  - component: {fileID: 3865016938905174708}
+  m_Layer: 0
+  m_Name: Plant_Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5872119851386057477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5872119851386057484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6987985827807292156}
+  - {fileID: 6507816363345240341}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5872119851386057480
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -191,7 +222,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!195 &5872119851386057481
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -206,7 +237,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -257,3 +288,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0a8ee3a01464a4a818ba4ceb3e6719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardObjects:
+  - {fileID: 5787095857490073184, guid: d9aebd65ea6a3cf4eab6e24d08799ea2, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
