@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Launcher.unity
     guid: aec6e1a7c9814e24693a499aca045dd3
   - enabled: 1
-    path: Assets/ProvaSceltaTeam/SceltaTeam.unity
+    path: Assets/Scenes/Scelta Team.unity
     guid: f28475dbd9cec6f42bc4e23212cdb1f2
   - enabled: 1
-    path: Assets/Prova_Carte/carte_codice.unity
+    path: Assets/Scenes/Scelta Carte.unity
     guid: 819f352e69c67014d89417fdf3e3290f
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Prove/SampleScene.unity
     guid: fb48afccb4aff3846b4306ecd560f603
   - enabled: 1
-    path: Assets/Scenes/ScenaControllerManager.unity
+    path: Assets/Scenes/Prove/ScenaControllerManager.unity
     guid: 89c0f21586f9f0d43947d4cfff8c0985
   m_configObjects: {}

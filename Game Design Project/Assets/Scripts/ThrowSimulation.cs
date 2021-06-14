@@ -5,9 +5,9 @@ public class ThrowSimulation : MonoBehaviour
 {
 
     //public GameObject gameLogic;
-    Vector3 Target; 
-    float firingAngle = 45.0f;
-    float gravity = 9.8f;
+
+    Vector3 Target;
+    float firingAngle = 45f;
 
     /*
     void Awake()
@@ -90,6 +90,7 @@ public class ThrowSimulation : MonoBehaviour
 
     void OnCollisionEnter()
     {
+        Destroy(this.gameObject);
         Debug.Log("Collision");
     }
 }

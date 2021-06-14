@@ -339,6 +339,11 @@
  </head>
 
 <body onload="window.app = new App()">
+    <div class="view" id="ChooseTeam">
+        <div class="button" id="button_left" ontouchstart="leftCard()">LEFT</div>
+        <div class="button" id="button_right" ontouchstart="rightCard()">RIGHT</div>
+
+    </div>
     <div class="view" id="Move">
         <div id="touch_area_move">
             <div class="circle_move" id="start_circle_move"></div>
