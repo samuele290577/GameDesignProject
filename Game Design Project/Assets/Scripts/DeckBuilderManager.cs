@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using NDream.AirConsole;
 using UnityEngine.UI;
 
 public class DeckBuilderManager : MonoBehaviour
@@ -24,6 +25,10 @@ public class DeckBuilderManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerPlantsReady && playerHumansReady) SceneManager.LoadScene("SampleScene");
+        if (playerPlantsReady && playerHumansReady)
+        {
+            AirConsole.instance.Broadcast(new { action = "showMove" });
+            SceneManager.LoadScene("Earth");
+        }
     }
 }

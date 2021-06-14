@@ -8,17 +8,17 @@ public static class MasterController
     public static Player player1;
     public static Player player2;
 
-    public static void setPlayers()
-    {
-        player1 = new Player(1);
-        player2 = new Player(2);
-        Debug.Log("Added Players!: " + player1.id + " and " + player2.id);
-    }
-
     public static Player getPlayerFromId(int id)
     {
-        if (player1.getId() == id) return player1;
-        else if (player2.getId() == id) return player2;
+        if (player1 != null && player1.getId() == id) return player1;
+        else if (player2 != null && player2.getId() == id) return player2;
+        else return null;
+    }
+
+    public static Player getPlayerFromTeam(string team)
+    {
+        if (player1.team == team) return player1;
+        else if (player2.team == team) return player2;
         else return null;
     }
 

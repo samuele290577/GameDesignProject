@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using NDream.AirConsole;
 
 public class GoToDeck : MonoBehaviour
 {
@@ -56,7 +57,8 @@ public class GoToDeck : MonoBehaviour
 
         if (player1Ready && player2Ready && diversi)
         {
-            SceneManager.LoadScene("carte_codice");
+            AirConsole.instance.Broadcast(new { action = "showBuildDeck" });
+            SceneManager.LoadScene("SceltaCarte");
         }
     }
 }

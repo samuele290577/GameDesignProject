@@ -154,7 +154,7 @@
 
       //initialize the view manager and set the first view
       ViewManager.init();
-  	  ViewManager.show("Move");
+  	  ViewManager.show("ChooseTeam");
 
       me.airconsole.onMessage = function(from, data) {
         console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
@@ -167,6 +167,12 @@
         }
         else if(data["action"]!=null && data["action"]=="showThrowItem") {
             ViewManager.show("ThrowItem");
+        }
+        else if(data["action"]!=null && data["action"]=="showBuildDeck") {
+            ViewManager.show("BuildDeck");
+        }
+        else if(data["action"]!=null && data["action"]=="showMove") {
+            ViewManager.show("Move");
         }
       };
       
@@ -333,12 +339,21 @@
     }
   </script>
   
-
-
-
  </head>
 
 <body onload="window.app = new App()">
+    <div class="view" id="ChooseTeam">
+        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_plants'})">PLANTS</div>
+        <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_humans'})">HUMANS</div>
+        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'team_ready'})">READY</div>
+    </div>
+    <div class="view" id="BuildDeck">
+        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_up'})">UP</div>
+        <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_down'})">DOWN</div>
+        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_add'})">ADD</div>
+        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_remove'})">REMOVE</div>
+        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'})">GO TO WAR</div>
+    </div>
     <div class="view" id="Move">
         <div id="touch_area_move">
             <div class="circle_move" id="start_circle_move"></div>

@@ -28,6 +28,38 @@ public class Player
         this.team = "unset";
     }
 
+    
+    public void setTeam (string team_scelto){
+        team = team_scelto; 
+    }
+
+    public string getTeam()
+    {
+        return team;
+    }
+
+    public void setId(int id_scelto)
+    {
+        id = id_scelto;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public int getDeckSize()
+    {
+        return deck.Count;
+    }
+
+
+    public List<int> getCards()
+    {
+        return deck;
+    }
+
+
     public void AddCard(int cardId)
     {
         Card card = CardDatabase.getCardFromId(cardId);
@@ -143,10 +175,10 @@ public class Player
 
                         if (dynamitecounter < card.limit)
                         {
-                            deck.Add(card.getId()); 
+                            deck.Add(card.getId());
                             dynamitecounter++;
                             Debug.Log("Card Added: " + card.id + " , " + card.CardName + " Dynamite Counter: " + dynamitecounter);
-                           
+
 
                         }
                         else
@@ -220,31 +252,6 @@ public class Player
                 }
             }
         }
-    }
-
-    
-    public void setTeam (string team_scelto){
-        team = team_scelto; 
-    }
-
-    public string getTeam()
-    {
-        return team;
-    }
-
-    public void setId(int id_scelto)
-    {
-        id = id_scelto;
-    }
-
-    public int getId()
-    {
-        return id;
-    }
-
-    public int getDeckSize()
-    {
-        return deck.Count;
     }
 
 
@@ -351,13 +358,4 @@ public class Player
             }
         }
     }
-    
-    
-
-    public List<int> getCards()
-    {
-        return deck;
-    }
-    
-
 }

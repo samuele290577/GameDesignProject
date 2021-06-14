@@ -8,20 +8,15 @@ using Newtonsoft.Json.Linq;
 
 public class Logic_Earth: MonoBehaviour {
 
-	public GameObject HumanPlayer;
-	public GameObject PlantPlayer;
-
 	public GameObject MovementLine;
 	public GameObject MovementTarget;
 	public GameObject ThrowLine;
 	public GameObject ThrowTarget;
 
-	public GameObject projectile;
-
 	int maxDrag = 40;
 
-	private Player_Earth HumanLogic = null;
-	private Player_Earth PlantLogic = null;
+	public GameObject HumanPlayer;
+	public GameObject PlantPlayer;
 
 	private int startPointX = 0;
 	private int startPointY = 0;
@@ -39,74 +34,19 @@ public class Logic_Earth: MonoBehaviour {
 	void Awake()
 	{
 		AirConsole.instance.onMessage += OnMessage;
-		AirConsole.instance.onReady += OnReady;
-		AirConsole.instance.onConnect += OnConnect;
-	}
-
-    void OnReady(string code)
-	{
-		//Since people might be coming to the game from the AirConsole store once the game is live, 
-		//I have to check for already connected devices here and cannot rely only on the OnConnect event 
-		//DA FARE, QUI è fatto ad minchiam.
-		List<int> connectedDevices = AirConsole.instance.GetControllerDeviceIds();
-		foreach (int deviceID in connectedDevices)
-		{
-			AddNewPlayer(deviceID);
-		}
-	}
-
-	void OnConnect(int device)
-	{
-		AddNewPlayer(device);
-	}
-
-	private void AddNewPlayer(int deviceID)
-	{
-
-		if (getPlayer(deviceID) != null) return; //esiste già in registro, ignora.
-
-		//Instantiate player prefab
-		if (HumanLogic == null)
-		{
-			Debug.Log("Set HumanLogic");
-			HumanLogic = HumanPlayer.GetComponent<Player_Earth>();
-			HumanLogic.setID(deviceID);
-			return;
-		}
-		if (PlantLogic == null)
-		{
-			Debug.Log("Set PlantLogic");
-			PlantLogic = PlantPlayer.GetComponent<Player_Earth>();
-			PlantLogic.setID(deviceID);
-			return;
-		}
-		return;
-	}
-
-	private GameObject getPlayer(int deviceID)
-    {
-		if (HumanLogic && HumanLogic.getID() == deviceID) return HumanPlayer;
-		if (PlantLogic && PlantLogic.getID() == deviceID) return PlantPlayer;
-		Debug.Log("No Player with this ID found");
-		return null;
-    }
-
-	private Player_Earth getPlayerLogic(int deviceID)
-    {
-		if (HumanLogic && HumanLogic.getID() == deviceID) return HumanLogic;
-		if (PlantLogic && PlantLogic.getID() == deviceID) return PlantLogic;
-		Debug.Log("No Player with this ID found");
-		return null;
+		//AirConsole.instance.onReady += OnReady;
+		//AirConsole.instance.onConnect += OnConnect;
 	}
 
 	void OnMessage(int fromDeviceID, JToken data)
 	{
-		//Metto in player il Game object Prefab del Giocatore
-		var Player = getPlayer(fromDeviceID);
-		var PlayerLogic = getPlayerLogic(fromDeviceID);
+		Player player = MasterController.getPlayerFromId(fromDeviceID);
+		PhysicalPlayer physicalPlayer;
 
-		//Log to on-screen Console
-		//Debug.Log("Incoming message from device: " + fromDeviceID + ": " + data + " \n \n");
+		if (MasterController.getPlayerFromId(fromDeviceID).team == "Plants") physicalPlayer = PlantPlayer.GetComponent<PhysicalPlayer>();
+		else if (MasterController.getPlayerFromId(fromDeviceID).team == "Humans") physicalPlayer = HumanPlayer.GetComponent<PhysicalPlayer>();
+		else physicalPlayer = null; //Va messo se no mi da errore!
+
 
 		if (data["action"] != null && data["action"].ToString() == "confirm_card")
         {
@@ -117,7 +57,7 @@ public class Logic_Earth: MonoBehaviour {
 
 		else if (data["action"] != null && data["action"].ToString() == "skip_movement")
 		{
-			var message = new { action = "cards", content = PlayerLogic.getCards() };
+			var message = new { action = "cards", content = player.getCards() };
 			AirConsole.instance.Message(fromDeviceID, message);
 			AirConsole.instance.Message(fromDeviceID, new { action = "showChooseCard" });
 		}
@@ -131,7 +71,7 @@ public class Logic_Earth: MonoBehaviour {
 		if (data["action"] != null && data["action"].ToString() == "touch_move_start")
         {
 			//Set line starting point
-			MovementLine.GetComponent<LineRenderer>().SetPosition(0, Player.transform.position);
+			MovementLine.GetComponent<LineRenderer>().SetPosition(0, physicalPlayer.gameObject.transform.position);
 
 			//set areaWidth and areaHeight, useful to calc angle and distance
 			areaWidth = (int)data["width"];
@@ -161,7 +101,7 @@ public class Logic_Earth: MonoBehaviour {
 
 			//calcolo della target position
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
-			targetPosition = Player.transform.position + q * Vector3.forward * (float)distance;
+			targetPosition = physicalPlayer.gameObject.transform.position + q * Vector3.forward * (float)distance;
 			//vincoli per non uscire dalla scacchiera
 			if (targetPosition.x < 0) targetPosition.x = 0;
 			if (targetPosition.x >= 20) targetPosition.x = 19.99F;
@@ -181,9 +121,12 @@ public class Logic_Earth: MonoBehaviour {
 
 		else if (data["action"] != null && data["action"].ToString() == "touch_move_end")
 		{
-			Player.GetComponent<Movement>().targetPosition = targetSquare;
-			MovementLine.SetActive(false);
-			MovementTarget.SetActive(false);
+			if (MovementTarget.activeSelf == true) //altrimenti capisce dei touch end random
+			{
+				physicalPlayer.gameObject.GetComponent<Movement>().targetPosition = targetSquare;
+				MovementLine.SetActive(false);
+				MovementTarget.SetActive(false);
+			}
 			//Debug.Log("Target: " + targetPosition);
 		}
 
@@ -229,7 +172,7 @@ public class Logic_Earth: MonoBehaviour {
 
 			//calcolo della target position
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
-			targetPosition = Player.transform.position + q * Vector3.forward * (float)distance;
+			targetPosition = physicalPlayer.transform.position + q * Vector3.forward * (float)distance;
 			//calcolo target square
 			targetSquare = new Vector3((float)(Math.Floor(targetPosition.x) + 0.5), (float)0.11, (float)(Math.Floor(targetPosition.z) + 0.5));
 
@@ -239,9 +182,9 @@ public class Logic_Earth: MonoBehaviour {
 			Debug.Log(tangent);
 			for (int i = 0; i <= N; i++)
             {
-				float x0 = Player.transform.position.x;
+				float x0 = physicalPlayer.transform.position.x;
 				float xN = targetSquare.x;
-				float z0 = Player.transform.position.z;
+				float z0 = physicalPlayer.transform.position.z;
 				float zN = targetSquare.z;
 				//Debug.Log(x0 + "; "+ xN + "; "+ z0 + "; " + zN);
 				double XPos = (i / N) * xN + ((N - i) / N) * x0;
@@ -267,11 +210,11 @@ public class Logic_Earth: MonoBehaviour {
 
 		else if (data["action"] != null && data["action"].ToString() == "touch_throw_end")
 		{
-			if (ThrowTarget.activeSelf == true)
+			if (ThrowTarget.activeSelf == true) //altrimenti capisce dei touch end random
 			{
 				ThrowLine.SetActive(false);
 				ThrowTarget.SetActive(false);
-				PlayerLogic.playCard(cardId, targetPosition);
+				physicalPlayer.playCard(cardId, targetSquare);
 			}
 			//Debug.Log("Target: " + targetPosition);
 		}
@@ -285,8 +228,8 @@ public class Logic_Earth: MonoBehaviour {
 		if (AirConsole.instance != null)
 		{
 			AirConsole.instance.onMessage -= OnMessage;
-			AirConsole.instance.onReady -= OnReady;
-			AirConsole.instance.onConnect -= OnConnect;
+			//AirConsole.instance.onReady -= OnReady;
+			//AirConsole.instance.onConnect -= OnConnect;
 		}
 	}
 #endif

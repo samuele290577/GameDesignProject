@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NDream.AirConsole;
+using Newtonsoft.Json.Linq;
 
 public class DeckBuilder : MonoBehaviour
 {
     public string team;
     private int playerNumber;
+    private Player player;
 
     public int cardAttiva;
     public int limitUpId;
     public int limitDownId;
+
     public KeyCode up;
     public KeyCode down;
     public KeyCode select;
     public KeyCode remove;
     public KeyCode GoToWar;
 
+    public DeckBuilderManager deckBuilderManager;
 
     public Text sizeText;
     public Button warButton;
@@ -24,12 +29,17 @@ public class DeckBuilder : MonoBehaviour
     public Image image;
     public Text idLabel;
 
+    private void Awake()
+    {
+        AirConsole.instance.onMessage += OnMessage;
+    }
+
     private void Start()
     {
+        player = MasterController.getPlayerFromTeam(team);
         playerNumber = MasterController.getPlayerNumberFromTeam(team);
         idLabel.text = "" + playerNumber;
         warButton.interactable = false;
-
     }
 
     public void addCardToPlayer(int id)
@@ -60,7 +70,6 @@ public class DeckBuilder : MonoBehaviour
 
     void Update()
     {
-        Player player = MasterController.getPlayerFromId(playerNumber);
         size = player.getDeckSize();
         sizeText.text = "Grandezza deck: " + size;
         image.fillAmount = (float)(size * 0.1);
@@ -79,6 +88,10 @@ public class DeckBuilder : MonoBehaviour
             button.interactable = false;
         }
     }
+
+    /*
+     * RIMPIAZZATO DA AIRCONSOLE, ma tenuto attivo
+     */
     public void isSelected()
     {
         if (Input.GetKeyDown(select))
@@ -107,7 +120,43 @@ public class DeckBuilder : MonoBehaviour
         {
             if (size == 10)
             {
-                Debug.Log("Go TO War");
+                Debug.Log("Go To War");
+            }
+        }
+    }
+
+    void OnMessage(int fromDeviceID, JToken data)
+    {
+        //Debug.Log("new message from " + fromDeviceID + ": " + data);
+
+        if (data["action"] != null && data["action"].ToString() == "deck_up" && fromDeviceID == player.id)
+        {
+            if (cardAttiva >= limitUpId)
+                cardAttiva = limitDownId;
+            
+            else cardAttiva++;
+        }
+        else if (data["action"] != null && data["action"].ToString() == "deck_down" && fromDeviceID == player.id)
+        {
+            if (cardAttiva <= limitDownId)
+                cardAttiva = limitUpId;
+
+            else cardAttiva--;
+        }
+        else if (data["action"] != null && data["action"].ToString() == "deck_add" && fromDeviceID == player.id)
+        {
+            addCardToPlayer(cardAttiva);
+        }
+        else if (data["action"] != null && data["action"].ToString() == "deck_remove" && fromDeviceID == player.id)
+        {
+            removeCardFromPlayer(cardAttiva);
+        }
+        else if (data["action"] != null && data["action"].ToString() == "deck_gotowar" && fromDeviceID == player.id)
+        {
+            if (size == 10)
+            {
+                deckBuilderManager.PlayerReady(player.team);
+                Debug.Log("Ready to FIGHT!");
             }
         }
     }

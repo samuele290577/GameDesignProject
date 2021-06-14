@@ -3654,6 +3654,7 @@ MonoBehaviour:
   select: 32
   remove: 114
   GoToWar: 101
+  deckBuilderManager: {fileID: 2058101019}
   sizeText: {fileID: 2061622200}
   warButton: {fileID: 1895937387}
   image: {fileID: 799673165}
@@ -16107,6 +16108,7 @@ MonoBehaviour:
   select: 13
   remove: 257
   GoToWar: 258
+  deckBuilderManager: {fileID: 2058101019}
   sizeText: {fileID: 2126648600}
   warButton: {fileID: 1224419062}
   image: {fileID: 1765284050}
