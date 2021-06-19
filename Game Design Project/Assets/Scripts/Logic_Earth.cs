@@ -57,7 +57,7 @@ public class Logic_Earth: MonoBehaviour {
 
 		if (data["action"] != null && data["action"].ToString() == "confirm_card")
         {
-			cardId = (int)data["cardIndex"];
+			cardId = (int)data["cardId"];
 			Debug.Log("Carta scelta con indice: " + cardId);
 			AirConsole.instance.Message(fromDeviceID, new { action = "showThrowItem" });
         }

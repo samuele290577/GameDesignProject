@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5511516245734562028}
   - component: {fileID: 8922489882237114185}
   - component: {fileID: 6645054720439378819}
+  - component: {fileID: -1871981538512038918}
+  - component: {fileID: -2881943192964636251}
+  - component: {fileID: -2332600633568924604}
   m_Layer: 0
   m_Name: Bomba
   m_TagString: Untagged
@@ -79,3 +82,46 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-1871981538512038918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131577445534515798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e4b0a8a8e840624db9f665c6f20f882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: Humans
+--- !u!136 &-2881943192964636251
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131577445534515798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.08262882
+  m_Height: 0.20829576
+  m_Direction: 1
+  m_Center: {x: -0.0099164285, y: 0.10414787, z: 0.00007992983}
+--- !u!54 &-2332600633568924604
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131577445534515798}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

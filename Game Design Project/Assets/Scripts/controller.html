@@ -331,7 +331,7 @@
     }
 
     function enterCard() {
-        window.app.sendMessageToScreen({"action": "confirm_card", "cardIndex": cardIndex});
+        window.app.sendMessageToScreen({"action": "confirm_card", "cardId": myCards[cardIndex]});
     }
 
     function skipMovement() {

@@ -25,6 +25,7 @@ public class PhysicalPlayer : MonoBehaviour
     {
         Card card;
         GameObject projectile;
+        Debug.Log("Playing card: " + cardId);
 
         switch (cardId)
         {
@@ -37,7 +38,17 @@ public class PhysicalPlayer : MonoBehaviour
                 player.RemoveCard(cardId);
                 card = (Arma) CardDatabase.getCardFromId(cardId);
                 projectile = Instantiate<GameObject>(cardObjects[cardId]);
-                projectile.transform.position = transform.position + new Vector3(0, 0, 0);
+                projectile.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino per non collidere subito
+                projectile.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+                break;
+            case 10: //bomba
+            case 11: //dinamite
+            case 12: //molotov
+            case 15: //pugnale
+                player.RemoveCard(cardId);
+                card = (Arma)CardDatabase.getCardFromId(cardId);
+                projectile = Instantiate<GameObject>(cardObjects[cardId]);
+                projectile.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino altrimenti collidono subito
                 projectile.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
                 break;
         }

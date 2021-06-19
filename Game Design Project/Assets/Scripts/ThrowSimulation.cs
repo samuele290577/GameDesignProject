@@ -100,6 +100,7 @@ public class ThrowSimulation : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log("Collisione di " + collision.gameObject);
+        //Destroy(this.gameObject);
     }
 }

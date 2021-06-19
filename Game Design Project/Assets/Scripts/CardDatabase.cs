@@ -25,7 +25,7 @@ public class CardDatabase
         cardDatabase.Add(12, new Arma(12, "Molotov", 2, 35, 8, 4, 45f));
         cardDatabase.Add(13, new Arma(13, "Rifle", 1, 30, 10, 1, 45f));
         cardDatabase.Add(14, new Arma(14, "Shotgun", 1, 50, 3, 9, 45f));
-        cardDatabase.Add(15, new Arma(15, "Knife", 10, 30, 5, 1, 45f));
+        cardDatabase.Add(15, new Arma(15, "Knife", 10, 30, 5, 1, 10f));
         cardDatabase.Add(16, new Ostruzione(16, "Barrel", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));
         cardDatabase.Add(17, new Ostruzione(17, "Explosive Box", 10, 10, 15, 4, "Se colpita, moltiplica di 1.5 il danno d'attacco"));
         cardDatabase.Add(18, new Ostruzione(18, "Mine", 15, 1, 10, 9, "Se colpisce l'avversario, egli salterà un turno di movimento"));
