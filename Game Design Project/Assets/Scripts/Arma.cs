@@ -7,8 +7,9 @@ public class Arma : Card
     
     public int power;
     public int explosion;
+    public float throwAngle;
 
-    public Arma(int id, string CardName, int limit, int power, int range, int explosion)
+    public Arma(int id, string CardName, int limit, int power, int range, int explosion, float throwAngle)
     {
         this.id = id;
         this.CardName = CardName;
@@ -16,5 +17,6 @@ public class Arma : Card
         this.power = power;
         this.range = range;
         this.explosion = explosion;
+        this.throwAngle = throwAngle;
     }
 }

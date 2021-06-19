@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using UnityEngine.SceneManagement;
 
 public class Logic_Earth: MonoBehaviour {
 
@@ -38,7 +39,13 @@ public class Logic_Earth: MonoBehaviour {
 		//AirConsole.instance.onConnect += OnConnect;
 	}
 
-	void OnMessage(int fromDeviceID, JToken data)
+    private void Start()
+    {
+		if (MasterController.player1 == null || MasterController.player2 == null) SceneManager.LoadScene("Launcher");
+		AirConsole.instance.Broadcast(new { action = "showMove" });
+	}
+
+    void OnMessage(int fromDeviceID, JToken data)
 	{
 		Player player = MasterController.getPlayerFromId(fromDeviceID);
 		PhysicalPlayer physicalPlayer;
@@ -179,7 +186,6 @@ public class Logic_Earth: MonoBehaviour {
 			//calcolo dei punti della linea
 			LineRenderer line = ThrowLine.GetComponent<LineRenderer>();
 			double tangent = Math.Tan(Mathf.Deg2Rad * throwAngle);
-			Debug.Log(tangent);
 			for (int i = 0; i <= N; i++)
             {
 				float x0 = physicalPlayer.transform.position.x;

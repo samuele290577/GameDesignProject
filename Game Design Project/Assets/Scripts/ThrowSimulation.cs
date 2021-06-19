@@ -6,6 +6,8 @@ public class ThrowSimulation : MonoBehaviour
 
     //public GameObject gameLogic;
 
+    public string team;
+
     Vector3 Target;
     float firingAngle = 45f;
 
@@ -88,9 +90,16 @@ public class ThrowSimulation : MonoBehaviour
 
     */
 
-    void OnCollisionEnter()
+    private void Start()
     {
-        Destroy(this.gameObject);
-        Debug.Log("Collision");
+        GameObject playerToIgnore;
+        if (team == "Plants") playerToIgnore = GameObject.FindGameObjectWithTag("Plant_Player");
+        else playerToIgnore = GameObject.FindGameObjectWithTag("Human_Player");
+        Physics.IgnoreCollision(playerToIgnore.GetComponent<BoxCollider>(), this.GetComponent<CapsuleCollider>());
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        
     }
 }

@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4b0a8a8e840624db9f665c6f20f882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: Plants
 --- !u!54 &-4271252629445765329
 Rigidbody:
   m_ObjectHideFlags: 0

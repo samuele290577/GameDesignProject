@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6987985827807292156}
   - component: {fileID: 2146749727674217831}
   - component: {fileID: 7600023275949985342}
-  - component: {fileID: 6124405667483569780}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -80,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &6124405667483569780
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2865252510562565005}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &3781541913990707484
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3781541913990707484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5872119851386057477}
@@ -222,7 +207,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.6, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!195 &5872119851386057481
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -237,12 +222,12 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0.1
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.17
-  m_BaseOffset: 0.5
+  m_Height: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &5872119851386057486
@@ -288,12 +273,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0a8ee3a01464a4a818ba4ceb3e6719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: Plants
   cardObjects:
   - {fileID: 5787095857490073184, guid: d9aebd65ea6a3cf4eab6e24d08799ea2, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 642323129269833722, guid: 6dec17b8a4d025f4287164dd82f9f946, type: 3}
+  - {fileID: 965080200955912516, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa, type: 3}
+  - {fileID: 1631250417563868217, guid: f6ed47cce01ee3449a8c989dd0cee849, type: 3}
+  - {fileID: 5396424087402333384, guid: 2f0815d1190ec384fbf520c11704fd27, type: 3}
+  - {fileID: 8553085775324001260, guid: 1ea6d47c215d6574fa001dfe7cabb32f, type: 3}
   - {fileID: 0}
   - {fileID: 0}

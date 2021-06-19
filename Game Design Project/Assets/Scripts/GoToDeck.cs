@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using NDream.AirConsole;
+using Newtonsoft.Json.Linq;
 
 public class GoToDeck : MonoBehaviour
 {
@@ -59,6 +60,25 @@ public class GoToDeck : MonoBehaviour
         {
             AirConsole.instance.Broadcast(new { action = "showBuildDeck" });
             SceneManager.LoadScene("SceltaCarte");
+        }
+    }
+
+
+    //SKIP TO EARTH with automatic team and card selection
+    void Awake()
+    {
+        AirConsole.instance.onMessage += OnMessage;
+    }
+
+    void OnMessage(int fromDeviceID, JToken data)
+    {
+        if (data["action"] != null && data["action"].ToString() == "skip_build")
+        {
+            MasterController.player1.team = "Humans";
+            MasterController.player1.deck = new List<int> { 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+            MasterController.player2.team = "Plants";
+            MasterController.player2.deck = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+            SceneManager.LoadScene("Earth");
         }
     }
 }
