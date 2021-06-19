@@ -4,12 +4,9 @@ using System.Collections;
 public class ThrowSimulation : MonoBehaviour
 {
 
-    //public GameObject gameLogic;
-
     public string team;
 
     Vector3 Target;
-    float firingAngle = 45f;
 
     /*
     void Awake()
@@ -28,7 +25,6 @@ public class ThrowSimulation : MonoBehaviour
     public void Throw(Vector3 to, float firingAngle)
     {
         this.Target = to;
-        this.firingAngle = firingAngle;
         //StartCoroutine(SimulateProjectile());
 
         float target_Distance = Vector3.Distance(transform.position, Target);
@@ -101,6 +97,6 @@ public class ThrowSimulation : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collisione di " + collision.gameObject);
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

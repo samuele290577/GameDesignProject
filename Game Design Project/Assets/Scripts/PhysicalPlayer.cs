@@ -36,7 +36,7 @@ public class PhysicalPlayer : MonoBehaviour
             case 4: //anguria
             case 5: //arancia
                 player.RemoveCard(cardId);
-                card = (Arma) CardDatabase.getCardFromId(cardId);
+                card = CardDatabase.getCardFromId(cardId);
                 projectile = Instantiate<GameObject>(cardObjects[cardId]);
                 projectile.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino per non collidere subito
                 projectile.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);

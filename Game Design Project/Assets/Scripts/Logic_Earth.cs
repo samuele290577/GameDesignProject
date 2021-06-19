@@ -30,6 +30,7 @@ public class Logic_Earth: MonoBehaviour {
 
 	//Eventuale carta scelta
 	int cardId = -1;
+	Card card;
 
 #if !DISABLE_AIRCONSOLE
 	void Awake()
@@ -57,7 +58,8 @@ public class Logic_Earth: MonoBehaviour {
 
 		if (data["action"] != null && data["action"].ToString() == "confirm_card")
         {
-			cardId = (int)data["cardId"];
+			cardId = (int)data["cardId"]; //salva l'id della carta
+			card = CardDatabase.getCardFromId(cardId); //setta la card, da cui poi prendere angolo e range
 			Debug.Log("Carta scelta con indice: " + cardId);
 			AirConsole.instance.Message(fromDeviceID, new { action = "showThrowItem" });
         }
@@ -144,8 +146,8 @@ public class Logic_Earth: MonoBehaviour {
 		 */
 
 		//Cose che poi andranno messe da qualche altra parte
-		int maxThrow = 20;
-		float throwAngle = 45F;
+		int maxThrow = card.range;
+		float throwAngle = card.throwAngle;
 		float N = 9;
 
 

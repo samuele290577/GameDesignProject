@@ -7,7 +7,6 @@ public class Arma : Card
     
     public int power;
     public int explosion;
-    public float throwAngle;
 
     public Arma(int id, string CardName, int limit, int power, int range, int explosion, float throwAngle)
     {
