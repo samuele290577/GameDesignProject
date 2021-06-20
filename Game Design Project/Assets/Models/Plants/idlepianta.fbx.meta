@@ -6,7 +6,13 @@ ModelImporter:
   - first:
       74: -9069514517108460300
     second: Armatura|ArmaturaAction
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Materiale
+    second: {fileID: -2604325502559223537, guid: c2b0c839dc6e28444b0dbe5ba9e5bf68,
+      type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -85,7 +91,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: Armatura
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -93,7 +99,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
