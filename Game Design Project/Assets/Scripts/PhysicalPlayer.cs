@@ -20,7 +20,7 @@ public class PhysicalPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void playCard(int cardId, Vector3 targetPosition)
@@ -42,6 +42,7 @@ public class PhysicalPlayer : MonoBehaviour
                 projectile = Instantiate<GameObject>(cardObjects[cardId]);
                 projectile.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino per non collidere subito
                 projectile.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+                animator.SetTrigger("isThrowing");
                 break;
             case 10: //bomba
             case 11: //dinamite
@@ -52,6 +53,9 @@ public class PhysicalPlayer : MonoBehaviour
                 projectile = Instantiate<GameObject>(cardObjects[cardId]);
                 projectile.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino altrimenti collidono subito
                 projectile.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+                animator.SetTrigger("isThrowing");
+
+
                 break;
         }
     }

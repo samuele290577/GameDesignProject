@@ -1103,6 +1103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3066440093399867574, guid: 4315811c56f43cf4d85e735ee3229160,
         type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1999632118}
+    - target: {fileID: 3066440093399867574, guid: 4315811c56f43cf4d85e735ee3229160,
+        type: 3}
       propertyPath: cardObjects.Array.size
       value: 19
       objectReference: {fileID: 0}
@@ -1252,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 5551624139265600121, guid: 4315811c56f43cf4d85e735ee3229160,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.043
       objectReference: {fileID: 0}
     - target: {fileID: 5551624139265600121, guid: 4315811c56f43cf4d85e735ee3229160,
         type: 3}
@@ -3382,7 +3387,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606817358}
   m_LocalRotation: {x: -0.13869132, y: 0.7103168, z: 0.14606684, w: 0.6744474}
-  m_LocalPosition: {x: -23.256994, y: -5.0813527, z: -7.251655}
+  m_LocalPosition: {x: -16.18716, y: -2.1036582, z: -3.9023936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1431088806}
@@ -8281,6 +8286,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3865016938905174708, guid: d73270f2c0c4967438c717612f6ec7fe,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1144086697}
     - target: {fileID: 3865016938905174708, guid: d73270f2c0c4967438c717612f6ec7fe,
         type: 3}
       propertyPath: cardObjects.Array.size

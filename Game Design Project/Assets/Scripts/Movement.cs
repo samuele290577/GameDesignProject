@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class Movement : MonoBehaviour
 {
     NavMeshAgent agent;
@@ -17,25 +18,28 @@ public class Movement : MonoBehaviour
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         targetPosition = transform.position;
+        animator.SetFloat("moves", 0);
     }
 
     void Update()
     {
         agent.SetDestination(targetPosition);
+        float moving = Mathf.Sqrt(((targetPosition.x - transform.position.x) * (targetPosition.x - transform.position.x))+((targetPosition.y - transform.position.y) * (targetPosition.y - transform.position.y)) + ((targetPosition.z - transform.position.z) * (targetPosition.z - transform.position.z)));
+        animator.SetFloat("moves", moving);
 
         if (Vector3.Distance(targetPosition, transform.position) > 1)
         {
             Quaternion rotationToLookAt = Quaternion.LookRotation(targetPosition - transform.position);
             float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * Time.deltaTime * 10);
             transform.eulerAngles = new Vector3(0, rotationY, 0);
-            animator.SetBool("isMoving", true);
+            
+            
         }
         else if (Vector3.Angle(enemy.transform.position - transform.position, transform.forward) > 1)
         {
             Quaternion rotationToLookAt = Quaternion.LookRotation(enemy.transform.position - transform.position);
             float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * Time.deltaTime * 10);
             transform.eulerAngles = new Vector3(0, rotationY, 0);
-            animator.SetBool("isMoving", false);
         }
 
         /*
