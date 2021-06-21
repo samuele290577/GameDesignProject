@@ -6,6 +6,8 @@ public class PhysicalPlayer : MonoBehaviour
 {
     public string team;
     public List<GameObject> cardObjects = new List<GameObject>();
+    public Animator animator; 
+
 
     Player player;
 

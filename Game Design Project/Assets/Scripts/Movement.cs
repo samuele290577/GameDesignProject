@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     float rotateVelocity = 0;
     public Vector3 targetPosition;
     public GameObject enemy;
+    public Animator animator; 
 
 
     void Start()
@@ -27,12 +28,14 @@ public class Movement : MonoBehaviour
             Quaternion rotationToLookAt = Quaternion.LookRotation(targetPosition - transform.position);
             float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * Time.deltaTime * 10);
             transform.eulerAngles = new Vector3(0, rotationY, 0);
+            animator.SetBool("isMoving", true);
         }
         else if (Vector3.Angle(enemy.transform.position - transform.position, transform.forward) > 1)
         {
             Quaternion rotationToLookAt = Quaternion.LookRotation(enemy.transform.position - transform.position);
             float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * Time.deltaTime * 10);
             transform.eulerAngles = new Vector3(0, rotationY, 0);
+            animator.SetBool("isMoving", false);
         }
 
         /*
