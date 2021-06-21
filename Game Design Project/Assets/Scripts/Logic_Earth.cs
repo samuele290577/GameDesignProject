@@ -146,8 +146,13 @@ public class Logic_Earth: MonoBehaviour {
 		 */
 
 		//Cose che poi andranno messe da qualche altra parte
-		int maxThrow = card.range;
-		float throwAngle = card.throwAngle;
+		int maxThrow = 10;
+		float throwAngle = 45f;
+		if (card != null)
+		{
+			maxThrow = card.range;
+			throwAngle = card.throwAngle;
+		}
 		float N = 9;
 
 
