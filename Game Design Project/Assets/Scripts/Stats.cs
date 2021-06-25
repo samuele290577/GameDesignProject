@@ -7,6 +7,8 @@ public class Stats : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
+    public Animator animator; 
+
 
 
     void Start()
@@ -26,6 +28,7 @@ public class Stats : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        animator.SetTrigger("isHurt");
         if(collision.gameObject.name == "mela" || collision.gameObject.name == "mela(Clone)")
         {
             Debug.Log("collisione ok");

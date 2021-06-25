@@ -5253,8 +5253,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893197378}
-  m_LocalRotation: {x: -0.26744384, y: 0.6136836, z: 0.23271516, w: 0.70548564}
-  m_LocalPosition: {x: 4.1806793, y: -2.9030993, z: -9.925119}
+  m_LocalRotation: {x: -0.32869303, y: 0.6260676, z: 0.32869244, w: 0.62606835}
+  m_LocalPosition: {x: -26.893484, y: -20.995455, z: -18.107126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1431088806}
@@ -10633,6 +10633,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 1439354540}
+  animator: {fileID: 1999632118}
 --- !u!4 &1999632124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5551624139265600121, guid: 4315811c56f43cf4d85e735ee3229160,
