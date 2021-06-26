@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatsHuman : MonoBehaviour
 {
-    public int maxHealth = 1000;
+    public int maxHealth = 150;
     public int currentHealth;
     public HealthBar healthBar;
     public Animator animator; 
@@ -38,31 +38,31 @@ public class StatsHuman : MonoBehaviour
         else if (collision.gameObject.name == "banane" || collision.gameObject.name == "banane(Clone)")
         {
             Debug.Log("banana collision detected");
-            TakeDamage(50);
+            TakeDamage(15);
         }
         //pineapple
         else if (collision.gameObject.name == "ananas" || collision.gameObject.name == "ananas(Clone)")
         {
             Debug.Log("ananas collision detected");
-            TakeDamage(25);
+            TakeDamage(35);
         }
         //coconut
         else if (collision.gameObject.name == "cocco" || collision.gameObject.name == "cocco(Clone)")
         {
             Debug.Log("coconut collision detected");
-            TakeDamage(25);
+            TakeDamage(20);
         }
         //watermelon
         else if (collision.gameObject.name == "anguria" || collision.gameObject.name == "anguria(Clone)")
         {
             Debug.Log("watermelon collision detected");
-            TakeDamage(25);
+            TakeDamage(20);
         }
         //arancia
         else if(collision.gameObject.name == "arancia" || collision.gameObject.name == "arancia(Clone)")
         {
             Debug.Log("orange collision detected");
-            TakeDamage(25);
+            TakeDamage(30);
         }
     }
     //function for damage

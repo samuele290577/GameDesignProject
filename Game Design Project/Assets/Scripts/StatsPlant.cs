@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatsPlant : MonoBehaviour
 {
-    public int maxHealth = 1000;
+    public int maxHealth = 150;
     public int currentHealth;
     public HealthBar healthBar;
     //public Animator animator;
@@ -23,7 +23,6 @@ public class StatsPlant : MonoBehaviour
             TakeDamagePlant(15);
         }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         //animator.SetTrigger("isHurt");
@@ -38,31 +37,31 @@ public class StatsPlant : MonoBehaviour
         else if (collision.gameObject.name == "dinamite" || collision.gameObject.name == "dinamite(Clone)")
         {
             Debug.Log("dinamite collision detected");
-            TakeDamagePlant(50);
+            TakeDamagePlant(15);
         }
         //molotov
         else if (collision.gameObject.name == "molotov" || collision.gameObject.name == "molotov(Clone)")
         {
             Debug.Log("molotov collision detected");
-            TakeDamagePlant(25);
+            TakeDamagePlant(35);
         }
         //fucile a pompa
         else if (collision.gameObject.name == "fucile a pompa" || collision.gameObject.name == "fucile a pompa(Clone)")
         {
             Debug.Log("fucile a pompa collision detected");
-            TakeDamagePlant(25);
+            TakeDamagePlant(20);
         }
         //lanciarazzi
         else if (collision.gameObject.name == "lancirazzi" || collision.gameObject.name == "lanciarazzi(Clone)")
         {
             Debug.Log("lanciarazzi collision detected");
-            TakeDamagePlant(25);
+            TakeDamagePlant(20);
         }
         //pugnale 
         else if (collision.gameObject.name == "pugnale" || collision.gameObject.name == "pugnale(Clone)")
         {
             Debug.Log("pugnale collision detected");
-            TakeDamagePlant(25);
+            TakeDamagePlant(30);
         }
     }
     //function for damage
