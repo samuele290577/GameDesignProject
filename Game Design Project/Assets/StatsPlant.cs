@@ -37,31 +37,31 @@ public class StatsPlant : MonoBehaviour
         //dinamite
         else if (collision.gameObject.name == "dinamite" || collision.gameObject.name == "dinamite(Clone)")
         {
-            Debug.Log("banana collision detected");
+            Debug.Log("dinamite collision detected");
             TakeDamagePlant(50);
         }
         //molotov
         else if (collision.gameObject.name == "molotov" || collision.gameObject.name == "molotov(Clone)")
         {
-            Debug.Log("ananas collision detected");
+            Debug.Log("molotov collision detected");
             TakeDamagePlant(25);
         }
         //fucile a pompa
         else if (collision.gameObject.name == "fucile a pompa" || collision.gameObject.name == "fucile a pompa(Clone)")
         {
-            Debug.Log("coconut collision detected");
+            Debug.Log("fucile a pompa collision detected");
             TakeDamagePlant(25);
         }
         //lanciarazzi
         else if (collision.gameObject.name == "lancirazzi" || collision.gameObject.name == "lanciarazzi(Clone)")
         {
-            Debug.Log("watermelon collision detected");
+            Debug.Log("lanciarazzi collision detected");
             TakeDamagePlant(25);
         }
-        //pugnale
+        //pugnale 
         else if (collision.gameObject.name == "pugnale" || collision.gameObject.name == "pugnale(Clone)")
         {
-            Debug.Log("orange collision detected");
+            Debug.Log("pugnale collision detected");
             TakeDamagePlant(25);
         }
     }
