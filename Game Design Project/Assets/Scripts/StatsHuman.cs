@@ -18,8 +18,20 @@ public class StatsHuman : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+
     private void Update()
     {
+        if(currentHealth <= 0)
+        {
+            Debug.Log("Game over le piante hanno vinto");
+            //qui cambio scena storia vittoria umani (???) 
+        }
+
+
+
+
+
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(15);

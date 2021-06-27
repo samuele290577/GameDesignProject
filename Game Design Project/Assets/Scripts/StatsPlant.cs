@@ -18,6 +18,15 @@ public class StatsPlant : MonoBehaviour
 
     private void Update()
     {
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("game over gli umani hanno vinto");
+
+            //here cambio scena fumetto vittoria umani conquista mondo ecc. ecc. 
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamagePlant(15);
