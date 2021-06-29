@@ -5,101 +5,7 @@
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
   <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
   
-  <style type=text/css>
-  
-      .button{
-       background: #3B3B3B;
-       color: white;
-       font-family: Arial;
-       font-size: 14px;
-       padding: 5px 10px 5px 10px;
-       border: solid #1f1f1f 2px;
-       -webkit-border-radius: 11;
-       -moz-border-radius: 11;
-       border-radius: 6px;
-       width: 100%;
-       text-align: left;
-       box-sizing: border-box;
-      }
-  
-      .card {
-        position: absolute;
-        width:150px;
-        height:200px;
-      }
-
-      .card_active {
-        border: 2px solid red;
-        left:90px;
-       }
-
-      .card_before {
-        border: 2px solid blue;
-        left:-75px;
-      }
-
-      .card_after {
-        border: 2px solid blue;
-        left:255px;
-      }
-
-      .card_content {
-        width: fit-content;
-        margin: auto;
-        font-size: 64pt;
-      }
-
-      #touch_area_move {
-        position: absolute;
-        width: 90%;
-        height: 80%;
-        margin: auto;
-        background-color: #1f1f1f;
-        border: 2px solid green;
-      }
-
-      .circle_move {
-        height: 30px;
-        width: 30px;
-        border-radius:50%;
-        background-color: green;
-        display: none;
-        position: absolute;
-      }
-
-      #line_svg_move {
-        width:100%;
-        height: 100%;
-        position: absolute;
-        display:none;
-      }
-
-      #touch_area_throw {
-        position: absolute;
-        width: 90%;
-        height: 80%;
-        margin: auto;
-        background-color: #1f1f1f;
-        border: 2px solid red;
-      }
-
-      .circle_throw {
-        height: 30px;
-        width: 30px;
-        border-radius:50%;
-        background-color: red;
-        display: none;
-        position: absolute;
-      }
-
-      #line_svg_throw {
-        width:100%;
-        height: 100%;
-        position: absolute;
-        display:none;
-      }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
  
   <script type="text/javascript" src="touch-area.js"></script>
   <script type="text/javascript" src="rate-limiter.js"></script>
@@ -142,8 +48,87 @@
    <script type="text/javascript">
 
     var airconsole;
-    var myCards;
+    var myCardsIds;
     var cardIndex = 0;
+
+    /**
+    * Database delle cards
+    */
+    var cards = {
+        0: {
+            "id": 0,
+            "name": "Apple"
+        },
+        1: {
+            "id": 1,
+            "name": "Banana"
+        },
+        2: {
+            "id": 2,
+            "name": "Pineapple"
+        },
+        3: {
+            "id": 3,
+            "name": "Coconut"
+        },
+        4: {
+            "id": 4,
+            "name": "Watermelon"
+        },
+        5: {
+            "id": 5,
+            "name": "Oranges"
+        },
+        6: {
+            "id": 6,
+            "name": "Rocks"
+        },
+        7: {
+            "id": 7,
+            "name": "Trunk"
+        },
+        8: {
+            "id": 8,
+            "name": "Quicksand"
+        },
+        10: {
+            "id": 10,
+            "name": "Bomb"
+        },
+        11: {
+            "id": 11,
+            "name": "Dynamite"
+        },
+        12: {
+            "id": 12,
+            "name": "Molotov"
+        },
+        13: {
+            "id": 13,
+            "name": "Rifle"
+        },
+        14: {
+            "id": 14,
+            "name": "Shotgun"
+        },
+        15: {
+            "id": 15,
+            "name": "Knife"
+        },
+        16: {
+            "id": 16,
+            "name": "Wall"
+        },
+        17: {
+            "id": 17,
+            "name": "Barrels"
+        },
+        18: {
+            "id": 18,
+            "name": "Mine"
+        }
+    }
+
     
     /**
      * Sets up the communication to the screen.
@@ -158,12 +143,17 @@
 
       me.airconsole.onMessage = function(from, data) {
         console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
+        
         if(data["action"]!=null && data["action"]=="cards") {
-            myCards = data.content;
+            myCardsIds = data.content;
+            console.log(myCardsIds);
             updateCardsView();
         }
         else if (data["action"]!=null && data["action"]=="showChooseCard") {
             ViewManager.show("ChooseCard");
+        }
+        else if (data["action"]!=null && data["action"]=="showWaitYourTurn") {
+            ViewManager.show("WaitYourTurn");
         }
         else if(data["action"]!=null && data["action"]=="showThrowItem") {
             ViewManager.show("ThrowItem");
@@ -317,7 +307,7 @@
     }
 
     function rightCard() {
-        if (cardIndex==9) return;
+        if (cardIndex == myCardsIds.length-1) return;
         else {
             cardIndex++;
             updateCardsView();
@@ -325,13 +315,13 @@
     }
 
     function updateCardsView() {
-        cardIndex > 0 ? document.getElementById("before_card_content").innerHTML = myCards[cardIndex-1] : document.getElementById("before_card_content").innerHTML = "";
-        document.getElementById("active_card_content").innerHTML = myCards[cardIndex];
-        cardIndex < 9 ? document.getElementById("after_card_content").innerHTML = myCards[cardIndex+1] : document.getElementById("after_card_content").innerHTML = "";
+        cardIndex > 0 ? document.getElementById("before_card_content").innerHTML = cards[myCardsIds[cardIndex-1]].name : document.getElementById("before_card_content").innerHTML = "";
+        document.getElementById("active_card_content").innerHTML = cards[myCardsIds[cardIndex]].name;
+        cardIndex < myCardsIds.length-1 ? document.getElementById("after_card_content").innerHTML = cards[myCardsIds[cardIndex+1]].name : document.getElementById("after_card_content").innerHTML = "";
     }
 
     function enterCard() {
-        window.app.sendMessageToScreen({"action": "confirm_card", "cardId": myCards[cardIndex]});
+        window.app.sendMessageToScreen({"action": "confirm_card", "cardId": myCardsIds[cardIndex]});
     }
 
     function skipMovement() {
@@ -341,13 +331,25 @@
   
  </head>
 
+
+
+
+
+
+
+
+
+
+
 <body onload="window.app = new App()">
+
     <div class="view" id="ChooseTeam">
         <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_plants'})">PLANTS</div>
         <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_humans'})">HUMANS</div>
         <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'team_ready'})">READY</div>
         <div class="button" id="button_skip_build" ontouchstart="window.app.sendMessageToScreen({'action': 'skip_build'})">(DEV) SKIP TO EARTH</div>
     </div>
+
     <div class="view" id="BuildDeck">
         <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_up'})">UP</div>
         <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_down'})">DOWN</div>
@@ -355,6 +357,11 @@
         <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_remove'})">REMOVE</div>
         <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'})">GO TO WAR</div>
     </div>
+
+    <div class="view" id="WaitYourTurn">
+        <p><br><br>It's not your turn!! WAIT! GET READY TO DESTROY YOUR ENEMYYYYY</p>
+    </div>
+
     <div class="view" id="Move">
         <div id="touch_area_move">
             <div class="circle_move" id="start_circle_move"></div>
@@ -365,6 +372,7 @@
         </div>
         <div class="button" style="position:absolute; bottom:5%" id="button_skip_movement" ontouchstart="skipMovement()">Skip movement</div>
     </div>
+
     <div class="view" id="ChooseCard">
         <div style="position: relative; height: 250px;">
             <div class="card card_before"><p class="card_content" id="before_card_content"></p></div>
@@ -377,6 +385,7 @@
             <div class="button" id="button_confirm" ontouchstart="enterCard()">PLAY CARD</div>
         </div>
     </div>
+
     <div class="view" id="ThrowItem">
         <div id="touch_area_throw">
             <div class="circle_throw" id="start_circle_throw"></div>
@@ -385,6 +394,12 @@
                 <line id="line_throw" x1="0" y1="0" x2="100" y2="100" stroke="red" />
             </svg>
         </div>
-    </div
+    </div>
+
 </body>
+
+
+
+
+
 </html>

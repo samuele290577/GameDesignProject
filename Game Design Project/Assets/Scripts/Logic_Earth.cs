@@ -28,6 +28,10 @@ public class Logic_Earth: MonoBehaviour {
 	private int areaWidth = 0;
 	private int areaHeight = 0;
 
+	//Chi gioca ora e chi giocherà il prox turno
+	public String currentTurn;
+	public String nextTurn;
+
 	//Eventuale carta scelta
 	int cardId = -1;
 	Card card;
@@ -43,7 +47,21 @@ public class Logic_Earth: MonoBehaviour {
     private void Start()
     {
 		if (MasterController.player1 == null || MasterController.player2 == null) SceneManager.LoadScene("Launcher");
-		AirConsole.instance.Broadcast(new { action = "showMove" });
+
+		//Giocatore random per iniziare
+		System.Random rand = new System.Random();
+		if (rand.Next(0, 2) == 0) //Iniziano umani
+        {
+			currentTurn = "Humans";
+			nextTurn = "Plants";
+		}
+		else //iniziano le piante
+        {
+			currentTurn = "Plants";
+			nextTurn = "Humans";
+		}
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove" });
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn" });
 	}
 
     void OnMessage(int fromDeviceID, JToken data)
@@ -228,6 +246,13 @@ public class Logic_Earth: MonoBehaviour {
 				ThrowLine.SetActive(false);
 				ThrowTarget.SetActive(false);
 				physicalPlayer.playCard(cardId, targetSquare);
+
+				//Operazioni per il cambio del turno
+				currentTurn = nextTurn;
+				if (currentTurn == "Plants") nextTurn = "Humans";
+				else nextTurn = "Plants";
+				AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove" });
+				AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn" });
 			}
 			//Debug.Log("Target: " + targetPosition);
 		}

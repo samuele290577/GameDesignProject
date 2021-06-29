@@ -54,8 +54,6 @@ public class PhysicalPlayer : MonoBehaviour
                 projectile.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino altrimenti collidono subito
                 projectile.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
                 animator.SetTrigger("isThrowing");
-
-
                 break;
         }
     }

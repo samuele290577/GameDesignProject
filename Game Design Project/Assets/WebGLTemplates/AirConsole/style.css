@@ -1,0 +1,93 @@
+﻿
+.button{
+	background: #3B3B3B;
+	color: white;
+	font-family: Arial;
+	font-size: 14px;
+	padding: 5px 10px 5px 10px;
+	border: solid #1f1f1f 2px;
+	-webkit-border-radius: 11;
+	-moz-border-radius: 11;
+	border-radius: 6px;
+	width: 100%;
+	text-align: left;
+	box-sizing: border-box;
+}
+  
+.card {
+	position: absolute;
+	width:150px;
+	height:200px;
+}
+
+.card_active {
+	border: 2px solid red;
+	left:90px;
+}
+
+.card_before {
+	border: 2px solid blue;
+	left:-75px;
+}
+
+.card_after {
+	border: 2px solid blue;
+	left:255px;
+}
+
+.card_content {
+	width: fit-content;
+	margin: auto;
+	padding-top: 30px;
+	font-size: 14pt;
+}
+
+#touch_area_move {
+	position: absolute;
+	width: 90%;
+	height: 80%;
+	margin: auto;
+	background-color: #1f1f1f;
+	border: 2px solid green;
+}
+
+.circle_move {
+	height: 30px;
+	width: 30px;
+	border-radius:50%;
+	background-color: green;
+	display: none;
+	position: absolute;
+}
+
+#line_svg_move {
+	width:100%;
+	height: 100%;
+	position: absolute;
+	display:none;
+}
+
+#touch_area_throw {
+	position: absolute;
+	width: 90%;
+	height: 80%;
+	margin: auto;
+	background-color: #1f1f1f;
+	border: 2px solid red;
+}
+
+.circle_throw {
+	height: 30px;
+	width: 30px;
+	border-radius:50%;
+	background-color: red;
+	display: none;
+	position: absolute;
+}
+
+#line_svg_throw {
+	width:100%;
+	height: 100%;
+	position: absolute;
+	display:none;
+}
