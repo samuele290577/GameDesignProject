@@ -17,5 +17,6 @@ public class Ostruzione : Card
         this.vita = vita;
         this.volume = volume;
         this.descrizione = descrizione;
+        this.throwAngle = 10f;
     }
 }

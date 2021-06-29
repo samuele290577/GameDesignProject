@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Plant_Player
   - Human_Player
+  - Terrain
+  - Ostruzione
   layers:
   - Default
   - TransparentFX

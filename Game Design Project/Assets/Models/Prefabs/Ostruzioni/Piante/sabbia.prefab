@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 1620157731996818225}
   - component: {fileID: 2437625296573879444}
   - component: {fileID: 446093871107678302}
+  - component: {fileID: 8535681641314713192}
+  - component: {fileID: 742601177210693860}
   m_Layer: 0
-  m_Name: sabbia
-  m_TagString: Untagged
+  m_Name: Sabbia
+  m_TagString: Ostruzione
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8535681641314713192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103221102681883019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8916845, y: 0.31155914, z: 2.8941092}
+  m_Center: {x: 0, y: 0.063581824, z: 0.00000029802322}
+--- !u!114 &742601177210693860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103221102681883019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ecd2417f6d34e45b5d662f711dab2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 8

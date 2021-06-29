@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 1979032055887152535}
   - component: {fileID: 3231672198872484402}
   - component: {fileID: 810018977083047672}
+  - component: {fileID: -5681193245211373672}
+  - component: {fileID: 8816413927525465437}
   m_Layer: 0
-  m_Name: tronco
-  m_TagString: Untagged
+  m_Name: Tronco
+  m_TagString: Ostruzione
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-5681193245211373672
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170161331416047405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1635194, y: 0.7738341, z: 0.72695047}
+  m_Center: {x: 0.09883118, y: 0.35394633, z: -0.02537924}
+--- !u!114 &8816413927525465437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170161331416047405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ecd2417f6d34e45b5d662f711dab2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 7

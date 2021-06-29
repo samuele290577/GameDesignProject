@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2542394655192993125}
   - component: {fileID: 1506381381887738560}
   - component: {fileID: 3675863820535772682}
+  - component: {fileID: -7254688508893400931}
   m_Layer: 0
   m_Name: Baule
-  m_TagString: Untagged
+  m_TagString: Ostruzione
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-7254688508893400931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883349239890515935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7876122, y: 0.7876122, z: 0.7876122}
+  m_Center: {x: 0.0040065795, y: 0.40473276, z: 0}

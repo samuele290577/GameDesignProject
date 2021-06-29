@@ -97,6 +97,7 @@ public class ThrowSimulation : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collisione di " + collision.gameObject);
-        Destroy(this.gameObject);
+        
+        if(collision.gameObject.tag == "Terrain") Destroy(this.gameObject);
     }
 }

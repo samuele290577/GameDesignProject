@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6512016571465847938}
   - component: {fileID: 7921988994431376167}
   - component: {fileID: 5338023732557524973}
+  - component: {fileID: -7670864144572431576}
   m_Layer: 0
-  m_Name: portale
-  m_TagString: Untagged
+  m_Name: Portale
+  m_TagString: Ostruzione
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-7670864144572431576
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842440015394475576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9908962, y: 0.40827128, z: 1.9908967}
+  m_Center: {x: 0.000000029802322, y: 0.09145917, z: -0.00000029802322}

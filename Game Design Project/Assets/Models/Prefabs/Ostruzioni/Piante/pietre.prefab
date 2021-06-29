@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 5958476921338099231}
   - component: {fileID: 7286569821418256826}
   - component: {fileID: 4826715224271195504}
+  - component: {fileID: 6023683078832756481}
+  - component: {fileID: 4677621780678314398}
   m_Layer: 0
-  m_Name: pietre
-  m_TagString: Untagged
+  m_Name: Pietre
+  m_TagString: Ostruzione
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6023683078832756481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6483797650608499877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9839605, y: 1.1179763, z: 1.4785489}
+  m_Center: {x: -0.0064424872, y: 0.46886066, z: 0.08552551}
+--- !u!114 &4677621780678314398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6483797650608499877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ecd2417f6d34e45b5d662f711dab2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 6
