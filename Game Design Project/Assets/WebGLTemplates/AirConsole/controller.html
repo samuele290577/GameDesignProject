@@ -129,17 +129,91 @@
         }
     }
 
+
+    /**
+    * Set styling rules
+    */
+
+    var UIGlobal = {
+        "humans": {
+            "background": "UI_Humans/background.jpg",
+            "up": "UI_Humans/up.png",
+            "up_pressed": "UI_Humans/up_pressed.png",
+            "down": "UI_Humans/down.png",
+            "down_pressed": "UI_Humans/down_pressed.png",
+            "right": "UI_Humans/right.png",
+            "right_pressed": "UI_Humans/right_pressed.png",
+            "left": "UI_Humans/left.png",
+            "left_pressed": "UI_Humans/left_pressed.png",
+            "add": "UI_Humans/add.png",
+            "add_pressed": "UI_Humans/add_pressed.png",
+            "remove": "UI_Humans/remove.png",
+            "remove_pressed": "UI_Humans/remove_pressed.png",
+            "confirm": "UI_Humans/confirm.png",
+            "confirm_pressed": "UI_Humans/confirm_pressed.png",
+            "select": "UI_Humans/select.png",
+            "select_pressed": "UI_Humans/select_pressed.png"
+        },
+        "plants": {
+            "background": "UI_Plants/background.jpg",
+            "up": "UI_Plants/up.png",
+            "up_pressed": "UI_Plants/up_pressed.png",
+            "down": "UI_Plants/down.png",
+            "down_pressed": "UI_Plants/down_pressed.png",
+            "right": "UI_Plants/right.png",
+            "right_pressed": "UI_Plants/right_pressed.png",
+            "left": "UI_Plants/left.png",
+            "left_pressed": "UI_Plants/left_pressed.png",
+        },
+        "common": {
+            
+        }
+    }
+
+    var matches = {
+        "team-back": "background",
+        "ui-up": "up",
+        "ui-up-p": "up_pressed",
+        "ui-down": "down",
+        "ui-down-p": "down_pressed",
+        "ui-right": "right",
+        "ui-right-p": "right_pressed",
+        "ui-left": "left",
+        "ui-left-p": "left_pressed",
+        "ui-add": "add",
+        "ui-add-p": "add_pressed",
+        "ui-remove": "remove",
+        "ui-remove-p": "remove_pressed",
+        "ui-confirm": "confirm",
+        "ui-confirm-p": "confirm_pressed",
+        "ui-select": "select",
+        "ui-select-p": "select_pressed",
+    }
+
+    var UI;
+    UI = UIGlobal["humans"];
+
+    function updateUI() {
+        for (const [key, value] of Object.entries(matches)) {
+            var els = document.getElementsByClassName(key);
+            for (i = 0; i < els.length; i++) {
+                els[i].style.backgroundImage = "url('"+ UI[value] + "')";
+            } 
+        }
+    }
+
     
     /**
      * Sets up the communication to the screen.
      */
     function App() {
       var me = this;
-      me.airconsole = new AirConsole({"orientation": "portrait", "synchronize_time" : "true"});
+      me.airconsole = new AirConsole({"orientation": "landscape", "synchronize_time" : "true"});
 
       //initialize the view manager and set the first view
       ViewManager.init();
   	  ViewManager.show("ChooseTeam");
+      updateUI();
 
       me.airconsole.onMessage = function(from, data) {
         console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
@@ -151,18 +225,23 @@
         }
         else if (data["action"]!=null && data["action"]=="showChooseCard") {
             ViewManager.show("ChooseCard");
+            updateUI();
         }
         else if (data["action"]!=null && data["action"]=="showWaitYourTurn") {
             ViewManager.show("WaitYourTurn");
+            updateUI();
         }
         else if(data["action"]!=null && data["action"]=="showThrowItem") {
             ViewManager.show("ThrowItem");
+            updateUI();
         }
         else if(data["action"]!=null && data["action"]=="showBuildDeck") {
             ViewManager.show("BuildDeck");
+            updateUI();
         }
         else if(data["action"]!=null && data["action"]=="showMove") {
             ViewManager.show("Move");
+            updateUI();
         }
       };
       
@@ -327,6 +406,10 @@
     function skipMovement() {
         window.app.sendMessageToScreen({"action": "skip_movement"});
     }
+
+    function skipCard() {
+        window.app.sendMessageToScreen({"action": "skip_card"});
+    }
   </script>
   
  </head>
@@ -346,23 +429,32 @@
     <div class="view" id="ChooseTeam">
         <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_plants'})">PLANTS</div>
         <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_humans'})">HUMANS</div>
-        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'team_ready'})">READY</div>
+        <div class="button" id="button_ready" ontouchstart="window.app.sendMessageToScreen({'action': 'team_ready'})">READY</div>
         <div class="button" id="button_skip_build" ontouchstart="window.app.sendMessageToScreen({'action': 'skip_build'})">(DEV) SKIP TO EARTH</div>
     </div>
 
     <div class="view" id="BuildDeck">
-        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_up'})">UP</div>
-        <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_down'})">DOWN</div>
-        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_add'})">ADD</div>
-        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_remove'})">REMOVE</div>
-        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'})">GO TO WAR</div>
+        <div class="team-back"></div>
+        <table id="build_deck_layout" style="border: 1px solid red">
+            <tr>
+                <td style="width: 30%"><div class="btn-a ui-up" id="button_up" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_up'}); this.classList.add('ui-up-p'); updateUI();" ontouchend="this.classList.remove('ui-up-p'); updateUI()"></div></td>
+                <td style="width: 70%"><div class="btn-b ui-add" id="button_add" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_add'}); this.classList.add('ui-add-p'); updateUI();" ontouchend="this.classList.remove('ui-add-p'); updateUI()"></div></td>
+            </tr>
+            <tr>
+                <td style="width: 30%"><div class="btn-a ui-down" id="button_down" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_down'}); this.classList.add('ui-down-p'); updateUI();" ontouchend="this.classList.remove('ui-down-p'); updateUI()"></div></td>
+                <td style="width: 70%"><div class="btn-b ui-remove" id="button_remove" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_remove'}); this.classList.add('ui-remove-p'); updateUI();" ontouchend="this.classList.remove('ui-remove-p'); updateUI()"></div></td>
+            </tr>
+            <tr><td colspan="2"><div class="btn-b ui-confirm" id="button_gotowar" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'}); this.classList.add('ui-confirm-p'); updateUI();" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td></tr>
+        </table>
     </div>
 
     <div class="view" id="WaitYourTurn">
+        <div class="team-back"></div>
         <p><br><br>It's not your turn!! WAIT! GET READY TO DESTROY YOUR ENEMYYYYY</p>
     </div>
 
     <div class="view" id="Move">
+        <div class="team-back"></div>
         <div id="touch_area_move">
             <div class="circle_move" id="start_circle_move"></div>
             <div class="circle_move" id="end_circle_move"></div>
@@ -374,19 +466,25 @@
     </div>
 
     <div class="view" id="ChooseCard">
-        <div style="position: relative; height: 250px;">
-            <div class="card card_before"><p class="card_content" id="before_card_content"></p></div>
-            <div class="card card_active"><p class="card_content" id="active_card_content"></p></div>
-            <div class="card card_after"><p class="card_content" id="after_card_content"></p></div>
-        </div>
-        <div>
-            <div class="button" id="button_left" ontouchstart="leftCard()">LEFT</div>
-            <div class="button" id="button_right" ontouchstart="rightCard()">RIGHT</div>
-            <div class="button" id="button_confirm" ontouchstart="enterCard()">PLAY CARD</div>
-        </div>
+        <div class="team-back"></div>
+        <table id="choose_card_layout">
+            <tr>
+                <td style="width: 15%; height: 80%"><div class="btn-a ui-left" id="button_left" ontouchstart="leftCard(); this.classList.add('ui-left-p'); updateUI()" ontouchend="this.classList.remove('ui-left-p'); updateUI()"></div></td>
+                <td style="width: 20%"><div class="card card_before"><p class="card_content" id="before_card_content"></p></div></td>
+                <td style="width: 30%"><div class="card card_active"><p class="card_content" id="active_card_content"></p></div></td>
+                <td style="width: 20%"><div class="card card_after"><p class="card_content" id="after_card_content"></p></div></td>
+                <td style="width: 15%"><div class="btn-a ui-right" id="button_right" ontouchstart="rightCard(); this.classList.add('ui-right-p'); updateUI()" ontouchend="this.classList.remove('ui-right-p'); updateUI()"></div></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div class="btn-b ui-right" id="button_skip_card" ontouchstart="skipCard(); this.classList.add('ui-right-p'); updateUI()" ontouchend="this.classList.remove('ui-right-p'); updateUI()"></div></td>
+                <td></td>
+                <td colspan="2"<div class="btn-b ui-confirm" id="button_confirm" ontouchstart="enterCard(); this.classList.add('ui-confirm-p'); updateUI()" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td>
+            </tr>
+        </table>
     </div>
 
     <div class="view" id="ThrowItem">
+        <div class="team-back"></div>
         <div id="touch_area_throw">
             <div class="circle_throw" id="start_circle_throw"></div>
             <div class="circle_throw" id="end_circle_throw"></div>

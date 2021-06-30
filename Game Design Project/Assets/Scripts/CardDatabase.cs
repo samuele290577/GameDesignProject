@@ -15,8 +15,8 @@ public class CardDatabase
         cardDatabase.Add(3, new Arma(3, "Coconut", 1, 20, 20, 9, 45f));
         cardDatabase.Add(4, new Arma(4, "Watermelon", 1, 20, 18, 4, 45f));
         cardDatabase.Add(5, new Arma(5, "Oranges", 10, 30, 5, 1, 45f));
-        cardDatabase.Add(6, new Ostruzione(6, "Roccia", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));
-        cardDatabase.Add(7, new Ostruzione(7, "Pietre", 10, 10, 15, 4, "Se colpita, moltiplica di 1.5 il danno d'attacco"));
+        cardDatabase.Add(6, new Ostruzione(6, "Pietre", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));
+        cardDatabase.Add(7, new Ostruzione(7, "Tronco", 10, 10, 15, 4, "Se colpita, moltiplica di 1.5 il danno d'attacco"));
         cardDatabase.Add(8, new Ostruzione(8, "Sabbia Mobile", 15, 1, 10, 9, "Se colpisce l'avversario, egli salterà un turno di movimento"));
 
         //UMANI
@@ -26,8 +26,8 @@ public class CardDatabase
         cardDatabase.Add(13, new Arma(13, "Rifle", 1, 30, 10, 1, 45f));
         cardDatabase.Add(14, new Arma(14, "Shotgun", 1, 50, 3, 9, 45f));
         cardDatabase.Add(15, new Arma(15, "Knife", 10, 30, 5, 1, 10f));
-        cardDatabase.Add(16, new Ostruzione(16, "Barrel", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));
-        cardDatabase.Add(17, new Ostruzione(17, "Explosive Box", 10, 10, 15, 4, "Se colpita, moltiplica di 1.5 il danno d'attacco"));
+        cardDatabase.Add(16, new Ostruzione(16, "Muro", 20, 10, 30, 4, "Blocca gli attacchi dell'avversario se colpita"));
+        cardDatabase.Add(17, new Ostruzione(17, "Barrels", 10, 10, 15, 4, "Se colpita, moltiplica di 1.5 il danno d'attacco"));
         cardDatabase.Add(18, new Ostruzione(18, "Mine", 15, 1, 10, 9, "Se colpisce l'avversario, egli salterà un turno di movimento"));
     }
     public static Card getCardFromId(int id)

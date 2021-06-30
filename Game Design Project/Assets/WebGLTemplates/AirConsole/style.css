@@ -1,4 +1,47 @@
-﻿
+﻿.team-back {
+	position: absolute;
+	width:100%;
+	height:100%;
+	background-size: 100% 100%;
+	z-index: -1;
+}
+
+.btn-a {
+	width: 80%;
+	height: 80%;
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: auto;
+}
+
+.btn-b {
+	width: 80%;
+	height: 80%;
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: auto;
+}
+
+table td {
+	border: 1px solid red;
+}
+
+#build_deck_layout {
+	width:90%;
+	height:80%;
+	margin: 5%;
+	position: absolute;
+}
+
+#choose_card_layout {
+	width:90%;
+	height:90%;
+	margin: 5%;
+	position: absolute;
+}
+
 .button{
 	background: #3B3B3B;
 	color: white;
@@ -15,24 +58,20 @@
 }
   
 .card {
-	position: absolute;
-	width:150px;
-	height:200px;
+	width:100%;
+	height: 100px;
 }
 
 .card_active {
 	border: 2px solid red;
-	left:90px;
 }
 
 .card_before {
 	border: 2px solid blue;
-	left:-75px;
 }
 
 .card_after {
 	border: 2px solid blue;
-	left:255px;
 }
 
 .card_content {
@@ -40,14 +79,15 @@
 	margin: auto;
 	padding-top: 30px;
 	font-size: 14pt;
+	color: white;
 }
 
 #touch_area_move {
 	position: absolute;
 	width: 90%;
 	height: 80%;
-	margin: auto;
-	background-color: #1f1f1f;
+	margin: 5%;
+	background-color: rgba(0,0,0,0.2);
 	border: 2px solid green;
 }
 

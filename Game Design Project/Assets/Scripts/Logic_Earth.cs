@@ -36,6 +36,15 @@ public class Logic_Earth: MonoBehaviour {
 	int cardId = -1;
 	Card card;
 
+	void ChangeTurn()
+    {
+		currentTurn = nextTurn;
+		if (currentTurn == "Plants") nextTurn = "Humans";
+		else nextTurn = "Plants";
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove" });
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn" });
+	}
+
 #if !DISABLE_AIRCONSOLE
 	void Awake()
 	{
@@ -89,6 +98,10 @@ public class Logic_Earth: MonoBehaviour {
 			AirConsole.instance.Message(fromDeviceID, new { action = "showChooseCard" });
 		}
 
+		else if (data["action"] != null && data["action"].ToString() == "skip_card")
+		{
+			ChangeTurn();
+		}
 
 
 		/**
@@ -153,6 +166,9 @@ public class Logic_Earth: MonoBehaviour {
 				physicalPlayer.gameObject.GetComponent<Movement>().targetPosition = targetSquare;
 				MovementLine.SetActive(false);
 				MovementTarget.SetActive(false);
+				var message = new { action = "cards", content = player.getCards() };
+				AirConsole.instance.Message(fromDeviceID, message);
+				AirConsole.instance.Message(fromDeviceID, new { action = "showChooseCard" });
 			}
 			//Debug.Log("Target: " + targetPosition);
 		}
@@ -247,12 +263,7 @@ public class Logic_Earth: MonoBehaviour {
 				ThrowTarget.SetActive(false);
 				physicalPlayer.playCard(cardId, targetSquare);
 
-				//Operazioni per il cambio del turno
-				currentTurn = nextTurn;
-				if (currentTurn == "Plants") nextTurn = "Humans";
-				else nextTurn = "Plants";
-				AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove" });
-				AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn" });
+				ChangeTurn();
 			}
 			//Debug.Log("Target: " + targetPosition);
 		}
