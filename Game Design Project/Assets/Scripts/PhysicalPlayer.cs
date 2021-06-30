@@ -54,17 +54,20 @@ public class PhysicalPlayer : MonoBehaviour
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles= new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
+                animator.SetTrigger("isThrowing");
                 break;
             case 7: //tronco
                 player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
+                animator.SetTrigger("isThrowing");
                 break;
             case 8: //sabbia mobile
                 player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
+                animator.SetTrigger("isThrowing");
                 break;
             case 10: //bomba
             case 11: //dinamite
@@ -82,18 +85,21 @@ public class PhysicalPlayer : MonoBehaviour
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
+                animator.SetTrigger("isThrowing");
                 break;
             case 17: //barili
                 player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
+                animator.SetTrigger("isThrowing");
                 break;
             case 18: //mina
                 player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
+                animator.SetTrigger("isThrowing");
                 break;
         }
     }

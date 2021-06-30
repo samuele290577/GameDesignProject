@@ -7,7 +7,7 @@ public class StatsPlant : MonoBehaviour
     public int maxHealth = 150;
     public int currentHealth;
     public HealthBar healthBar;
-    //public Animator animator;
+    public Animator animator;
 
     void Start()
     {
@@ -37,6 +37,7 @@ public class StatsPlant : MonoBehaviour
         //animator.SetTrigger("isHurt");
 
         //bomba 
+        animator.SetTrigger("isHurt");
         if (collision.gameObject.name == "Bomba" || collision.gameObject.name == "Bomba(Clone)")
         {
             Debug.Log("bomba collision detected");
