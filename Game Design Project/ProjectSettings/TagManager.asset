@@ -8,6 +8,10 @@ TagManager:
   - Human_Player
   - Terrain
   - Ostruzione
+  - Obstacle
+  - Stuff
+  - Human_Weapon
+  - Plant_Weapon
   layers:
   - Default
   - TransparentFX
