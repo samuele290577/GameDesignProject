@@ -26,8 +26,8 @@ public class Gun : MonoBehaviour
     public void Fire(Vector3 to)
     {
         projectile = Instantiate<GameObject>(projectilePrefab);
-        projectile.transform.position = transform.position;
         projectile.transform.rotation = transform.rotation;
+        projectile.transform.position = transform.position + projectile.transform.TransformDirection(new Vector3(-1,0,0));
         Vector3 direction = (to - transform.position).normalized;
         Vector3 vel = new Vector3(speed*direction.x, 0, speed*direction.z);
         projectile.GetComponent<Rigidbody>().AddForce(vel, ForceMode.Impulse);
