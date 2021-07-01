@@ -14,7 +14,7 @@ public class CollisionDetection : MonoBehaviour
     {
         Debug.Log("ok trigger area");
 
-        if (arma.tag != "Human_Weapon")
+        if (arma.tag != "Human_Weapon" && arma.tag != "Plant_Weapon")
         {
             GetComponent<CollisionDetection>().enabled = false;
         }
@@ -29,14 +29,17 @@ public class CollisionDetection : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collisione con " + collision.gameObject);
 
-        if (collision.gameObject.name == "terrain" ||
+        if (collision.gameObject.name == "Checkerboard" ||
             collision.gameObject.name == "Plant_Player" ||
-            collision.gameObject.tag == "Obstacle"
+            collision.gameObject.tag == "Obstacle" ||
+            collision.gameObject.name == "Human_Player"
             ) {
+            Debug.Log("Collisione con " + collision.gameObject);
 
-        if(this.name == "Bomba" || this.name =="Bomba(Clone)")
+            //ARMI UMANO
+
+            if (this.name == "Bomba" || this.name =="Bomba(Clone)")
         {
             Debug.Log("la bomba!");
             TakeDamage(25);
@@ -48,7 +51,7 @@ public class CollisionDetection : MonoBehaviour
         }
         else if (this.name == "Molotov" || this.name == "Molotov(Clone)")
         {
-            Debug.Log("la dinamite!");
+            Debug.Log("la molotov!");
             TakeDamage(35);
         }
         else if (this.name == "projectile" || this.name == "projectile(Clone)")
@@ -62,8 +65,45 @@ public class CollisionDetection : MonoBehaviour
             Debug.Log("il pugnale!");
             TakeDamage(30);
         }
+
+        //ARMI PIANTE
+
+        else if(this.name =="mela" || this.name == "mela(Clone)")
+            {
+                Debug.Log("mela");
+                TakeDamage(25);
+            }
+            else if (this.name == "banana" || this.name == "banana(Clone)")
+            {
+                Debug.Log("banana");
+                TakeDamage(15);
+            }
+            else if (this.name == "ananas" || this.name == "ananas(Clone)")
+            {
+                Debug.Log("ananas");
+                TakeDamage(35);
+            }
+            else if (this.name == "cocco" || this.name == "cocco(Clone)")
+            {
+                Debug.Log("cocco");
+                TakeDamage(25);
+            }
+            else if (this.name == "anguria" || this.name == "anguria(Clone)")
+            {
+                Debug.Log("anguria");  
+                TakeDamage(20);
+            }
+            else if (this.name == "arancia" || this.name == "arancia(Clone)")
+            {
+                Debug.Log("arancia");
+                TakeDamage(30);
+            }
+
+
+            Destroy(gameObject);
+
         }
-        Destroy(gameObject);
+        
     }
 
     void TakeDamage(int damage)
@@ -71,9 +111,9 @@ public class CollisionDetection : MonoBehaviour
         foreach(var t in targets)
         {
             //diventerà stats
-            t.GetComponent<StatsPlant>().currentHealth -= damage;
-            int newCurrentHealth = t.GetComponent<StatsPlant>().currentHealth;
-            t.GetComponent<StatsPlant>().healthBar.SetHealth(newCurrentHealth);
+            t.GetComponent<Stats>().currentHealth -= damage;
+            int newCurrentHealth = t.GetComponent<Stats>().currentHealth;
+            t.GetComponent<Stats>().healthBar.SetHealth(newCurrentHealth);
         }
     }
 

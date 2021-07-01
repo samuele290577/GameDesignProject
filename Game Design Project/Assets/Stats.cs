@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsHuman : MonoBehaviour
+public class Stats : MonoBehaviour
 {
-    public int maxHealth = 150;
+    public int maxHealth;
     public int currentHealth;
     public HealthBar healthBar;
     public Animator animator;
 
-
-
     void Start()
     {
+        //INIZIALIZZAZIONE SALUTE
         if (gameObject.name == "Human_Player" || gameObject.name == "Plant_Player")
         {
             maxHealth = 150;
@@ -20,13 +19,11 @@ public class StatsHuman : MonoBehaviour
             healthBar.SetMaxHealth(maxHealth);
         }
     }
-
     private void Update()
     {
         if (currentHealth <= 0)
         {
-            Debug.Log("Game over le piante hanno vinto");
-            //qui cambio scena storia vittoria umani (???) 
+            //here cambio scena fumetto vittoria umani conquista mondo ecc. ecc. 
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -34,4 +31,5 @@ public class StatsHuman : MonoBehaviour
         animator.SetTrigger("isHurt");
     }
 }
+
 
