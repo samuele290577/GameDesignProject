@@ -6,18 +6,23 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public float timeValue = 90;
-    public Text timerText;
+    public float time = 90;
 
+    public Text timerText;
+    public GameObject logic;
+    
     // Update is called once per frame
     void Update()
     {
+        bool reset = logic.GetComponent<Logic_Earth>().change;
         if (timeValue > 0)
         {
             timeValue -= Time.deltaTime;
         }
-        else
+        else if(reset==true)
         {
-            timeValue = 0;
+            timeValue = time;
+            reset = false;
         }
         DisplayTime(timeValue);
     }
