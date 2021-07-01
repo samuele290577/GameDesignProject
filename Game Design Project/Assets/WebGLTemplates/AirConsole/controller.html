@@ -135,7 +135,7 @@
     */
 
     var UIGlobal = {
-        "humans": {
+        "Humans": {
             "background": "UI_Humans/background.jpg",
             "up": "UI_Humans/up.png",
             "up_pressed": "UI_Humans/up_pressed.png",
@@ -154,8 +154,8 @@
             "select": "UI_Humans/select.png",
             "select_pressed": "UI_Humans/select_pressed.png"
         },
-        "plants": {
-            "background": "UI_Plants/background.jpg",
+        "Plants": {
+            "background": "UI_Plants/background.jpeg",
             "up": "UI_Plants/up.png",
             "up_pressed": "UI_Plants/up_pressed.png",
             "down": "UI_Plants/down.png",
@@ -164,8 +164,16 @@
             "right_pressed": "UI_Plants/right_pressed.png",
             "left": "UI_Plants/left.png",
             "left_pressed": "UI_Plants/left_pressed.png",
+            "add": "UI_Plants/add.png",
+            "add_pressed": "UI_Plants/add_pressed.png",
+            "remove": "UI_Plants/remove.png",
+            "remove_pressed": "UI_Plants/remove_pressed.png",
+            "confirm": "UI_Plants/confirm.png",
+            "confirm_pressed": "UI_Plants/confirm_pressed.png",
+            "select": "UI_Plants/select.png",
+            "select_pressed": "UI_Plants/select_pressed.png"
         },
-        "common": {
+        "Common": {
             
         }
     }
@@ -191,7 +199,6 @@
     }
 
     var UI;
-    UI = UIGlobal["humans"];
 
     function updateUI() {
         for (const [key, value] of Object.entries(matches)) {
@@ -213,7 +220,6 @@
       //initialize the view manager and set the first view
       ViewManager.init();
   	  ViewManager.show("ChooseTeam");
-      updateUI();
 
       me.airconsole.onMessage = function(from, data) {
         console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
@@ -223,25 +229,27 @@
             console.log(myCardsIds);
             updateCardsView();
         }
+        else if (data["action"]!=null && data["action"]=="gameStats") {
+            console.log(data.content);
+            var myStats;
+            data.content.p1.id == me.airconsole.getDeviceId() ? myStats = data.content.p1 : myStats = data.content.p2;
+            UI = UIGlobal[myStats.team];
+            updateUI();
+        }
         else if (data["action"]!=null && data["action"]=="showChooseCard") {
             ViewManager.show("ChooseCard");
-            updateUI();
         }
         else if (data["action"]!=null && data["action"]=="showWaitYourTurn") {
             ViewManager.show("WaitYourTurn");
-            updateUI();
         }
         else if(data["action"]!=null && data["action"]=="showThrowItem") {
             ViewManager.show("ThrowItem");
-            updateUI();
         }
         else if(data["action"]!=null && data["action"]=="showBuildDeck") {
             ViewManager.show("BuildDeck");
-            updateUI();
         }
         else if(data["action"]!=null && data["action"]=="showMove") {
             ViewManager.show("Move");
-            updateUI();
         }
       };
       

@@ -41,8 +41,8 @@ public class Logic_Earth: MonoBehaviour {
 		currentTurn = nextTurn;
 		if (currentTurn == "Plants") nextTurn = "Humans";
 		else nextTurn = "Plants";
-		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove" });
-		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn" });
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
 	}
 
 #if !DISABLE_AIRCONSOLE
@@ -69,8 +69,9 @@ public class Logic_Earth: MonoBehaviour {
 			currentTurn = "Plants";
 			nextTurn = "Humans";
 		}
-		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove" });
-		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn" });
+
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
+		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
 	}
 
     void OnMessage(int fromDeviceID, JToken data)

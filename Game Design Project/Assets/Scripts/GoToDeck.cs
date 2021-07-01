@@ -58,6 +58,7 @@ public class GoToDeck : MonoBehaviour
 
         if (player1Ready && player2Ready && diversi)
         {
+            AirConsole.instance.Broadcast(new { action = "gameStats", content = MasterController.getGameStats() });
             AirConsole.instance.Broadcast(new { action = "showBuildDeck" });
             SceneManager.LoadScene("SceltaCarte");
         }

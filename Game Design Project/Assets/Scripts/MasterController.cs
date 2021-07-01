@@ -29,6 +29,21 @@ public static class MasterController
         else return -1;
     }
 
+    public static object getGameStats()
+    {
+        var p1 = new
+        {
+            id = player1.id,
+            team = player1.team
+        };
+        var p2 = new
+        {
+            id = player2.id,
+            team = player2.team
+        };
+        return new { p1, p2 };
+    }
+
     /*
      * COSE CHE AVEVA SCRITTO BATTEGAZZORRE. Il nostro problema è che non per forza gli ID sono 1 e 2, dipende da AirConsole
     public Player GetPlayerFromId(int playerID)
