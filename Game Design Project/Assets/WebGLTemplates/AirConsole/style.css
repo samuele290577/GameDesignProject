@@ -142,3 +142,15 @@ table td {
     color: rgba(255,255,255,.5);
     font-family: Arial;
 }
+
+.splash-screen {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100%;
+	width: 100%;
+}
+
+.dimmed {
+	opacity: 0.5;
+}

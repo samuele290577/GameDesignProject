@@ -8,6 +8,7 @@ public static class MasterController
     public static Player player1;
     public static Player player2;
 
+
     public static Player getPlayerFromId(int id)
     {
         if (player1 != null && player1.getId() == id) return player1;
