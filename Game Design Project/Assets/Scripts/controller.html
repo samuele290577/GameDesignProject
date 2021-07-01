@@ -137,6 +137,7 @@
     var UIGlobal = {
         "Humans": {
             "background": "UI_Humans/background.jpg",
+            "wait": "UI_Humans/wait.png",
             "up": "UI_Humans/up.png",
             "up_pressed": "UI_Humans/up_pressed.png",
             "down": "UI_Humans/down.png",
@@ -152,10 +153,15 @@
             "confirm": "UI_Humans/confirm.png",
             "confirm_pressed": "UI_Humans/confirm_pressed.png",
             "select": "UI_Humans/select.png",
-            "select_pressed": "UI_Humans/select_pressed.png"
+            "select_pressed": "UI_Humans/select_pressed.png",
+            "skip": "UI_Humans/skip.png",
+            "skip_pressed": "UI_Humans/skip_pressed.png",
+            "gotowar": "UI_Humans/gotowar.png",
+            "gotowar_pressed": "UI_Humans/gotowar_pressed.png",
         },
         "Plants": {
             "background": "UI_Plants/background.jpeg",
+            "wait": "UI_Plants/wait.png",
             "up": "UI_Plants/up.png",
             "up_pressed": "UI_Plants/up_pressed.png",
             "down": "UI_Plants/down.png",
@@ -171,7 +177,11 @@
             "confirm": "UI_Plants/confirm.png",
             "confirm_pressed": "UI_Plants/confirm_pressed.png",
             "select": "UI_Plants/select.png",
-            "select_pressed": "UI_Plants/select_pressed.png"
+            "select_pressed": "UI_Plants/select_pressed.png",
+            "skip": "UI_Plants/skip.png",
+            "skip_pressed": "UI_Plants/skip_pressed.png",
+            "gotowar": "UI_Plants/gotowar.png",
+            "gotowar_pressed": "UI_Plants/gotowar_pressed.png",
         },
         "Common": {
             
@@ -180,6 +190,7 @@
 
     var matches = {
         "team-back": "background",
+        "ui-wait": "wait",
         "ui-up": "up",
         "ui-up-p": "up_pressed",
         "ui-down": "down",
@@ -196,6 +207,10 @@
         "ui-confirm-p": "confirm_pressed",
         "ui-select": "select",
         "ui-select-p": "select_pressed",
+        "ui-skip": "skip",
+        "ui-skip-p": "skip_pressed",
+        "ui-gotowar": "gotowar",
+        "ui-gotowar-p": "gotowar_pressed",
     }
 
     var UI = UIGlobal["Humans"];
@@ -445,24 +460,25 @@
         <div class="team-back"></div>
         <table id="build_deck_layout" style="border: 1px solid red">
             <tr>
-                <td style="width: 30%"><div class="btn-a ui-up" id="button_up" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_up'}); this.classList.add('ui-up-p'); updateUI();" ontouchend="this.classList.remove('ui-up-p'); updateUI()"></div></td>
+                <td style="width: 30%; height: 30%"><div class="btn-a ui-up" id="button_up" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_up'}); this.classList.add('ui-up-p'); updateUI();" ontouchend="this.classList.remove('ui-up-p'); updateUI()"></div></td>
                 <td style="width: 70%"><div class="btn-b ui-add" id="button_add" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_add'}); this.classList.add('ui-add-p'); updateUI();" ontouchend="this.classList.remove('ui-add-p'); updateUI()"></div></td>
             </tr>
             <tr>
-                <td style="width: 30%"><div class="btn-a ui-down" id="button_down" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_down'}); this.classList.add('ui-down-p'); updateUI();" ontouchend="this.classList.remove('ui-down-p'); updateUI()"></div></td>
+                <td style="width: 30%; height: 30%"><div class="btn-a ui-down" id="button_down" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_down'}); this.classList.add('ui-down-p'); updateUI();" ontouchend="this.classList.remove('ui-down-p'); updateUI()"></div></td>
                 <td style="width: 70%"><div class="btn-b ui-remove" id="button_remove" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_remove'}); this.classList.add('ui-remove-p'); updateUI();" ontouchend="this.classList.remove('ui-remove-p'); updateUI()"></div></td>
             </tr>
-            <tr><td colspan="2"><div class="btn-b ui-confirm" id="button_gotowar" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'}); this.classList.add('ui-confirm-p'); updateUI();" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td></tr>
+            <tr><td colspan="2" style="height: 40%"><div class="btn-b ui-confirm" id="button_gotowar" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'}); this.classList.add('ui-confirm-p'); updateUI();" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td></tr>
         </table>
     </div>
 
     <div class="view" id="WaitYourTurn">
         <div class="team-back"></div>
-        <p><br><br>It's not your turn!! WAIT! GET READY TO DESTROY YOUR ENEMYYYYY</p>
+        <p style="color: white"><br><br>It's not your turn!! WAIT! GET READY TO DESTROY YOUR ENEMYYYYY</p>
     </div>
 
     <div class="view" id="Move">
         <div class="team-back"></div>
+        <div class="area-info">Tap, Hold and Drag to Move</div>
         <div id="touch_area_move">
             <div class="circle_move" id="start_circle_move"></div>
             <div class="circle_move" id="end_circle_move"></div>
@@ -470,7 +486,7 @@
                 <line id="line_move" x1="0" y1="0" x2="100" y2="100" stroke="green" />
             </svg>
         </div>
-        <div class="button" style="position:absolute; bottom:5%" id="button_skip_movement" ontouchstart="skipMovement()">Skip movement</div>
+        <div class="btn-b ui-skip" style="position:absolute; bottom:5%; right:5%; height: 50px; width: 175px" id="button_skip_movement" ontouchstart="skipMovement(); this.classList.add('ui-skip-p'); updateUI()" ontouchend="this.classList.remove('ui-skip-p'); updateUI()"></div>
     </div>
 
     <div class="view" id="ChooseCard">
@@ -484,15 +500,16 @@
                 <td style="width: 15%"><div class="btn-a ui-right" id="button_right" ontouchstart="rightCard(); this.classList.add('ui-right-p'); updateUI()" ontouchend="this.classList.remove('ui-right-p'); updateUI()"></div></td>
             </tr>
             <tr>
-                <td colspan="2"><div class="btn-b ui-right" id="button_skip_card" ontouchstart="skipCard(); this.classList.add('ui-right-p'); updateUI()" ontouchend="this.classList.remove('ui-right-p'); updateUI()"></div></td>
+                <td colspan="2"><div class="btn-b ui-skip" id="button_skip_card" ontouchstart="skipCard(); this.classList.add('ui-skip-p'); updateUI()" ontouchend="this.classList.remove('ui-right-p'); updateUI()"></div></td>
                 <td></td>
-                <td colspan="2"<div class="btn-b ui-confirm" id="button_confirm" ontouchstart="enterCard(); this.classList.add('ui-confirm-p'); updateUI()" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td>
+                <td colspan="2"><div class="btn-b ui-confirm" id="button_confirm" ontouchstart="enterCard(); this.classList.add('ui-confirm-p'); updateUI()" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td>
             </tr>
         </table>
     </div>
 
     <div class="view" id="ThrowItem">
         <div class="team-back"></div>
+        <div class="area-info">Tap, Hold and Drag to Fire!</div>
         <div id="touch_area_throw">
             <div class="circle_throw" id="start_circle_throw"></div>
             <div class="circle_throw" id="end_circle_throw"></div>

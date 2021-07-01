@@ -90,6 +90,7 @@ public class PhysicalPlayer : MonoBehaviour
                 obj.transform.Rotate(0, 90, 0);
                 obj.transform.position = transform.position + obj.transform.TransformDirection(new Vector3(-0.2f, 1.5f, .3f));
                 obj.GetComponent<Gun>().Fire(targetPosition);
+                animator.SetTrigger("isShooting");
                 break;
             case 16: //muro
                 player.RemoveCard(cardId);
