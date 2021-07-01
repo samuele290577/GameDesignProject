@@ -11,18 +11,18 @@ public class DamageArea : MonoBehaviour
     {
         Debug.Log("ok trigger area");
 
-        if (arma.tag!= "Human_Weapon")
-        {
-            GetComponent<DamageArea>().enabled = false;
-        }
-        else
-            GetComponent<DamageArea>().enabled = true;
+        /** if (arma.tag!= "Human_Weapon" || arma.tag!= "Plant_Weapon")
+         {
+             GetComponent<DamageArea>().enabled = false;
+         }
+         else
+             GetComponent<DamageArea>().enabled = true;
+      **/
     }
-
     private void OnTriggerEnter(Collider other)
     {
         //TO DO o tag oppure tag su stats per smistare piante / umani
-        if(other.gameObject.tag == "Plant_Player" || other.gameObject.tag == "Plant_ostruzione") 
+        if(other.gameObject.name == "Plant_Player" || other.gameObject.tag == "Ostruzione" || other.gameObject.name == "Human_Player") 
         potentialTargets.Add(other.gameObject);
     }
 
@@ -35,6 +35,7 @@ public class DamageArea : MonoBehaviour
     {
         foreach(var t in potentialTargets)
         {
+            Debug.Log("POTENTIAL TARGET:  " + t);
             Debug.Log("CIAO"+ " " + t.name);
         }
     }
