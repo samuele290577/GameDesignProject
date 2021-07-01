@@ -79,6 +79,7 @@ public class GoToDeck : MonoBehaviour
             MasterController.player1.deck = new List<int> { 10, 11, 12, 13, 14, 15, 16, 17, 18 };
             MasterController.player2.team = "Plants";
             MasterController.player2.deck = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+            AirConsole.instance.Broadcast(new { action = "gameStats", content = MasterController.getGameStats() });
             SceneManager.LoadScene("Earth");
         }
     }

@@ -6,6 +6,7 @@ public class PhysicalOstruzione : MonoBehaviour
 {
 
     public int id;
+    public GameObject logic;
 
     // Start is called before the first frame update
     void Start()
