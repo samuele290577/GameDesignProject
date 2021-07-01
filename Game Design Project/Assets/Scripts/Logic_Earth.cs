@@ -44,7 +44,7 @@ public class Logic_Earth: MonoBehaviour {
 	int cardId = -1;
 	Card card;
 
-	void ChangeTurn()
+	public void ChangeTurn()
     {
 		if (timer != null) StopCoroutine(timer);
 		if (timer2 != null) StopCoroutine(timer2);

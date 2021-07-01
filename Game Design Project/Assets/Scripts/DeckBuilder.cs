@@ -53,6 +53,8 @@ public class DeckBuilder : MonoBehaviour
                 MasterController.player2.AddCard(id);
                 break;
         }
+        size = player.getDeckSize();
+        isInteractable(warButton);
     }
 
     public void removeCardFromPlayer(int id)
@@ -66,14 +68,14 @@ public class DeckBuilder : MonoBehaviour
                 MasterController.player2.RemoveCard(id);
                 break;
         }
+        size = player.getDeckSize();
+        isInteractable(warButton);
     }
 
     void Update()
     {
-        size = player.getDeckSize();
         sizeText.text = "Grandezza deck: " + size;
         image.fillAmount = (float)(size * 0.1);
-        isInteractable(warButton);
         isSelected();
     }
 
@@ -82,10 +84,32 @@ public class DeckBuilder : MonoBehaviour
         if ((size == 10))
         {
             button.interactable = true;
+            AirConsole.instance.Message(MasterController.getPlayerFromTeam(team).id, new { 
+                action = "deckBuilderUI", 
+                content = new { 
+                    goToWar = 1,
+                    up = -1,
+                    down = -1,
+                    add = -1,
+                    remove = -1
+                } 
+            });
         }
         else
         {
             button.interactable = false;
+            AirConsole.instance.Message(MasterController.getPlayerFromTeam(team).id, new
+            {
+                action = "deckBuilderUI",
+                content = new
+                {
+                    goToWar = 0,
+                    up = -1,
+                    down = -1,
+                    add = -1,
+                    remove = -1
+                }
+            });
         }
     }
 
@@ -159,5 +183,6 @@ public class DeckBuilder : MonoBehaviour
                 Debug.Log("Ready to FIGHT!");
             }
         }
+        isInteractable(warButton);
     }
 }

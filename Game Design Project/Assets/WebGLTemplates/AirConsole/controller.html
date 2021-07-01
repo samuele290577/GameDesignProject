@@ -266,6 +266,10 @@
         else if(data["action"]!=null && data["action"]=="showMove") {
             ViewManager.show("Move");
         }
+        else if(data["action"]!=null && data["action"]=="deckBuilderUI") {
+            if (data.content.goToWar==1) document.getElementById("button_gotowar").classList.remove("dimmed");
+            else if (data.content.goToWar==0) document.getElementById("button_gotowar").classList.add("dimmed");
+        }
       };
       
       var rateLimiter = new RateLimiter(me.airconsole);
@@ -458,7 +462,7 @@
 
     <div class="view" id="BuildDeck">
         <div class="team-back"></div>
-        <table id="build_deck_layout" style="border: 1px solid red">
+        <table id="build_deck_layout">
             <tr>
                 <td style="width: 30%; height: 30%"><div class="btn-a ui-up" id="button_up" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_up'}); this.classList.add('ui-up-p'); updateUI();" ontouchend="this.classList.remove('ui-up-p'); updateUI()"></div></td>
                 <td style="width: 70%"><div class="btn-b ui-add" id="button_add" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_add'}); this.classList.add('ui-add-p'); updateUI();" ontouchend="this.classList.remove('ui-add-p'); updateUI()"></div></td>
@@ -467,13 +471,13 @@
                 <td style="width: 30%; height: 30%"><div class="btn-a ui-down" id="button_down" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_down'}); this.classList.add('ui-down-p'); updateUI();" ontouchend="this.classList.remove('ui-down-p'); updateUI()"></div></td>
                 <td style="width: 70%"><div class="btn-b ui-remove" id="button_remove" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_remove'}); this.classList.add('ui-remove-p'); updateUI();" ontouchend="this.classList.remove('ui-remove-p'); updateUI()"></div></td>
             </tr>
-            <tr><td colspan="2" style="height: 40%"><div class="btn-b ui-confirm" id="button_gotowar" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'}); this.classList.add('ui-confirm-p'); updateUI();" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td></tr>
+            <tr><td colspan="2" style="height: 40%"><div class="btn-b ui-confirm dimmed" id="button_gotowar" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'}); this.classList.add('ui-confirm-p'); updateUI();" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td></tr>
         </table>
     </div>
 
     <div class="view" id="WaitYourTurn">
         <div class="team-back"></div>
-        <p style="color: white"><br><br>It's not your turn!! WAIT! GET READY TO DESTROY YOUR ENEMYYYYY</p>
+        <div class="ui-wait splash-screen"></div>
     </div>
 
     <div class="view" id="Move">
@@ -491,6 +495,7 @@
 
     <div class="view" id="ChooseCard">
         <div class="team-back"></div>
+        <div class="area-info">Choose the Card you want to play</div>
         <table id="choose_card_layout">
             <tr>
                 <td style="width: 15%; height: 80%"><div class="btn-a ui-left" id="button_left" ontouchstart="leftCard(); this.classList.add('ui-left-p'); updateUI()" ontouchend="this.classList.remove('ui-left-p'); updateUI()"></div></td>

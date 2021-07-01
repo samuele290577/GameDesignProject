@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5022652194829732076}
   m_Layer: 0
   m_Name: melograno
-  m_TagString: Untagged
+  m_TagString: Plant_Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

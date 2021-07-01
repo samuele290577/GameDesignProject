@@ -14,7 +14,7 @@ public class CollisionDetection : MonoBehaviour
     {
         Debug.Log("ok trigger area");
 
-        if (arma.tag != "Human_Weapon")
+        if (arma.tag != "Human_Weapon" && arma.tag != "Plant_Weapon")
         {
             GetComponent<CollisionDetection>().enabled = false;
         }
@@ -29,54 +29,133 @@ public class CollisionDetection : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collisione con " + collision.gameObject);
 
-        if (collision.gameObject.name == "terrain" ||
+        if (collision.gameObject.name == "Checkerboard" ||
             collision.gameObject.name == "Plant_Player" ||
-            collision.gameObject.tag == "Obstacle"
-            ) {
+            collision.gameObject.tag == "Obstacle" ||
+            collision.gameObject.name == "Human_Player"
+            ) 
+        {
+            Debug.Log("Collisione con " + collision.gameObject);
 
-        if(this.name == "Bomba" || this.name =="Bomba(Clone)")
-        {
-            Debug.Log("la bomba!");
-            TakeDamage(25);
-        }
-        else if (this.name == "Dinamite" || this.name == "Dinamite(Clone)")
-        {
-            Debug.Log("la dinamite!");
-            TakeDamage(15);
-        }
-        else if (this.name == "Molotov" || this.name == "Molotov(Clone)")
-        {
-            Debug.Log("la dinamite!");
-            TakeDamage(35);
-        }
-        else if (this.name == "projectile" || this.name == "projectile(Clone)")
-        {
-            Debug.Log("fucile a pompa o lancia razzi");
-            TakeDamage(20);
-        }
+            //ARMI UMANO
+
+            if (this.name == "Bomba" || this.name =="Bomba(Clone)")
+            {
+                Debug.Log("la bomba!");
+                if (checkObstructionPower("Humans")) TakeDamage((int)(25 * 1.5));
+                else TakeDamage(25);
+                }
+            else if (this.name == "Dinamite" || this.name == "Dinamite(Clone)")
+            {
+                Debug.Log("la dinamite!");
+                if (checkObstructionPower("Humans")) TakeDamage((int)(15 * 1.5));
+                else TakeDamage(15);
+            }
+            else if (this.name == "Molotov" || this.name == "Molotov(Clone)")
+            {
+                Debug.Log("la molotov!");
+                if (checkObstructionPower("Humans")) TakeDamage((int)(35 * 1.5));
+                else TakeDamage(35);
+            }
+            else if (this.name == "projectile" || this.name == "projectile(Clone)")
+            {
+                if (checkObstructionPower("Humans")) TakeDamage((int)(20 * 1.5));
+                else TakeDamage(20);
+            }
   
-        else if (this.name == "Pugnale" || this.name == "Pugnale(Clone)")
-        {
-            Debug.Log("il pugnale!");
-            TakeDamage(30);
+            else if (this.name == "Pugnale" || this.name == "Pugnale(Clone)")
+            {
+                Debug.Log("il pugnale!");
+                if (checkObstructionPower("Humans")) TakeDamage((int)(30 * 1.5));
+                else TakeDamage(30);
+            }
+
+            //ARMI PIANTE
+
+            else if(this.name =="mela" || this.name == "mela(Clone)")
+            {
+                Debug.Log("mela");
+                if (checkObstructionPower("Plants")) TakeDamage((int)(25 * 1.5));
+                else TakeDamage(25);
+            }
+            else if (this.name == "banana" || this.name == "banana(Clone)")
+            {
+                Debug.Log("banana");
+                if (checkObstructionPower("Plants")) TakeDamage((int)(15 * 1.5));
+                else TakeDamage(15);
+            }
+            else if (this.name == "ananas" || this.name == "ananas(Clone)")
+            {
+                Debug.Log("ananas");
+                if (checkObstructionPower("Plants")) TakeDamage((int)(35 * 1.5));
+                else TakeDamage(35);
+            }
+            else if (this.name == "cocco" || this.name == "cocco(Clone)")
+            {
+                Debug.Log("cocco");
+                if (checkObstructionPower("Plants")) TakeDamage((int)(25 * 1.5));
+                else TakeDamage(25);
+            }
+            else if (this.name == "anguria" || this.name == "anguria(Clone)")
+            {
+                Debug.Log("anguria");
+                if (checkObstructionPower("Plants")) TakeDamage((int)(20 * 1.5));
+                else TakeDamage(20);
+            }
+            else if (this.name == "arancia" || this.name == "arancia(Clone)")
+            {
+                Debug.Log("arancia");
+                if (checkObstructionPower("Plants")) TakeDamage((int)(30 * 1.5));
+                else TakeDamage(30);
+            }
+
+
+            Destroy(gameObject);
+
         }
-        }
-        Destroy(gameObject);
+        
     }
 
     void TakeDamage(int damage)
     {
+        Debug.Log("Danno inflitto: " + damage);
         foreach(var t in targets)
         {
             //diventerà stats
-            t.GetComponent<StatsPlant>().currentHealth -= damage;
-            int newCurrentHealth = t.GetComponent<StatsPlant>().currentHealth;
-            t.GetComponent<StatsPlant>().healthBar.SetHealth(newCurrentHealth);
+            t.GetComponent<Stats>().currentHealth -= damage;
+            int newCurrentHealth = t.GetComponent<Stats>().currentHealth;
+            t.GetComponent<Stats>().healthBar.SetHealth(newCurrentHealth);
         }
     }
 
+    bool checkObstructionPower(string team)
+    {
+        if (team == "Plants")
+        {
+            var ostruzioni = FindObjectsOfType<PhysicalOstruzione>();
+            foreach (var el in ostruzioni)
+            {
+                if (el.id == 7)
+                {
+                    if (Vector3.Distance(transform.position, el.gameObject.transform.position) < 5 ) return true;
+                }
+            }
 
+        }
+        else if (team == "Humans")
+        {
+            var ostruzioni = FindObjectsOfType<PhysicalOstruzione>();
+            foreach (var el in ostruzioni)
+            {
+                if (el.id == 17)
+                {
+                    if (Vector3.Distance(transform.position, el.gameObject.transform.position) < 5) return true;
+                }
+            }
+
+        }
+        return false;
+    }
 
 }

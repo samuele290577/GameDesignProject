@@ -167,6 +167,8 @@ MonoBehaviour:
   rotateSpeedMovement: 5
   targetPosition: {x: 0, y: 0, z: 0}
   enemy: {fileID: 0}
+  animator: {fileID: 0}
+  overrideRotation: 0
 --- !u!54 &8570242231090811300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -195,8 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0a8ee3a01464a4a818ba4ceb3e6719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 
+  team: Humans
   cardObjects: []
+  animator: {fileID: 0}
 --- !u!1 &8429090111602345220
 GameObject:
   m_ObjectHideFlags: 0
