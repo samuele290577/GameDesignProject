@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class Logic_Earth: MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject MovementTarget;
 	public GameObject ThrowLine;
 	public GameObject ThrowTarget;
+
+	public bool change = false;
 
 	int maxDrag = 40;
 
@@ -36,13 +39,27 @@ public class Logic_Earth: MonoBehaviour {
 	int cardId = -1;
 	Card card;
 
-	void ChangeTurn()
+	public void ChangeTurn()
     {
 		currentTurn = nextTurn;
 		if (currentTurn == "Plants") nextTurn = "Humans";
 		else nextTurn = "Plants";
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
+		StopCoroutine(TimeUpdate(45f));
+		StartCoroutine(TimeUpdate(45f));
+	}
+	//gestione tempo
+	private IEnumerator TimeUpdate(float sec)
+    {
+		float counter = sec;
+        while (counter > 0)
+        {
+			yield return new WaitForSeconds(1);
+			counter--;
+        }
+		change = true;
+		ChangeTurn();
 	}
 
 #if !DISABLE_AIRCONSOLE
@@ -69,9 +86,10 @@ public class Logic_Earth: MonoBehaviour {
 			currentTurn = "Plants";
 			nextTurn = "Humans";
 		}
-
+		Debug.Log("start");
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
+		StartCoroutine(TimeUpdate(45f));
 	}
 
     void OnMessage(int fromDeviceID, JToken data)
@@ -97,10 +115,13 @@ public class Logic_Earth: MonoBehaviour {
 			var message = new { action = "cards", content = player.getCards() };
 			AirConsole.instance.Message(fromDeviceID, message);
 			AirConsole.instance.Message(fromDeviceID, new { action = "showChooseCard" });
+			
+
 		}
 
 		else if (data["action"] != null && data["action"].ToString() == "skip_card")
 		{
+			change = true;
 			ChangeTurn();
 		}
 
@@ -263,15 +284,18 @@ public class Logic_Earth: MonoBehaviour {
 				ThrowLine.SetActive(false);
 				ThrowTarget.SetActive(false);
 				physicalPlayer.playCard(cardId, targetSquare);
-
+				change = true;
 				ChangeTurn();
 			}
 			//Debug.Log("Target: " + targetPosition);
 		}
+	
+		
 
 
 
 	}
+
 
 	void OnDestroy()
 	{

@@ -131,46 +131,5 @@ public class PhysicalPlayer : MonoBehaviour
             else newZ = newZ + 0.5f;
             GetComponent<Movement>().targetPosition = new Vector3(newX, transform.position.y, newZ);
         }
-            
-            
-            
-
-        //diversi casi a seconda del team di appartenenza
-        if (team == "Humans")
-        {
-            if (collider.gameObject.name == "Pietre" || collider.gameObject.name == "Pietre(Clone)")
-            {
-
-
-            }
-            else if (collider.gameObject.name == "Tronco" || collider.gameObject.name == "Tronco(Clone)")
-            {
-
-
-            }
-            else if (collider.gameObject.name == "Sabbia" || collider.gameObject.name == "Sabbia(Clone)")
-            {
-
-
-            }
-        }
-        if (team == "Plants")
-        {
-            if (collider.gameObject.name == "Muro" || collider.gameObject.name == "Muro(Clone)")
-            {
-
-
-            }
-            else if (collider.gameObject.name == "Barili" || collider.gameObject.name == "Barili(Clone)")
-            {
-
-
-            }
-            else if (collider.gameObject.name == "Mina" || collider.gameObject.name == "Mina(Clone)")
-            {
-
-
-            }
-        }
     }
 }
