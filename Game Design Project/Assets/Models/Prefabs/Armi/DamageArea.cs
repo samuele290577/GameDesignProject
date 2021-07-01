@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageArea : MonoBehaviour
 {
+
     public List<GameObject> potentialTargets = new List<GameObject>();
     public GameObject arma;
     void Start()
@@ -20,12 +21,14 @@ public class DamageArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //TO DO o tag oppure tag su stats per smistare piante / umani
         if(other.gameObject.tag == "Plant_Player" || other.gameObject.tag == "Plant_ostruzione") 
         potentialTargets.Add(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
+        //rimozione se fuori da trigger area
         potentialTargets.Remove(other.gameObject);
     }
     void Update()
