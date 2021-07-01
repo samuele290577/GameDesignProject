@@ -80,6 +80,17 @@ public class PhysicalPlayer : MonoBehaviour
                 obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
                 animator.SetTrigger("isThrowing");
                 break;
+            case 13: //fucile
+            case 14: //bazooka
+                player.RemoveCard(cardId);
+                GetComponent<Movement>().overrideRotation = true;
+                transform.LookAt(targetPosition);
+                obj = Instantiate<GameObject>(cardObjects[cardId]);
+                obj.transform.rotation = transform.rotation;
+                obj.transform.Rotate(0, 90, 0);
+                obj.transform.position = transform.position + obj.transform.TransformDirection(new Vector3(-0.2f, 1.5f, .3f));
+                obj.GetComponent<Gun>().Fire(targetPosition);
+                break;
             case 16: //muro
                 player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
