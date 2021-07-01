@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
 
 public class Timer : MonoBehaviour
 {
@@ -14,17 +15,27 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool reset = logic.GetComponent<Logic_Earth>().change;
-        if (timeValue > 0)
+        float reset = logic.GetComponent<Logic_Earth>().change;
+        if (reset == time)
+        {
+            timeValue = time;
+            
+        }
+        else if(timeValue>0)
         {
             timeValue -= Time.deltaTime;
         }
-        else if(reset==true)
+        Debug.Log("bool:" + reset);
+        /*if(reset == true)
         {
             timeValue = time;
             reset = false;
         }
-        DisplayTime(timeValue);
+        else if(timeValue > 0)
+        {
+            timeValue -= Time.deltaTime;
+        }*/
+        DisplayTime(reset);
     }
 
     void DisplayTime(float timeToDisplay)

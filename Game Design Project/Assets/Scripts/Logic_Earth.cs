@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
+using System.Threading;
 
 public class Logic_Earth: MonoBehaviour {
 
@@ -15,7 +15,12 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject ThrowLine;
 	public GameObject ThrowTarget;
 
-	public bool change = false;
+	public float change = 45f;
+	IEnumerator timer;
+	IEnumerator timer2;
+	IEnumerator timer3;
+	IEnumerator timer4;
+
 
 	int maxDrag = 40;
 
@@ -41,25 +46,34 @@ public class Logic_Earth: MonoBehaviour {
 
 	void ChangeTurn()
     {
+		if (timer != null) StopCoroutine(timer);
+		if (timer2 != null) StopCoroutine(timer2);
+		if (timer3 != null) StopCoroutine(timer3);
+		if (timer4 != null) StopCoroutine(timer4);
+		
 		currentTurn = nextTurn;
 		if (currentTurn == "Plants") nextTurn = "Humans";
 		else nextTurn = "Plants";
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
-		StopCoroutine(TimeUpdate(45f));
-		StartCoroutine(TimeUpdate(45f));
+		
 	}
 	//gestione tempo
 	private IEnumerator TimeUpdate(float sec)
     {
-		float counter = sec;
-        while (counter > 0)
+		 change = sec;
+		
+        while (change > 0)
         {
-			yield return new WaitForSeconds(1);
-			counter--;
-        }
-		change = true;
+			yield return new WaitForSeconds(1f);
+			change--;
+			Debug.Log("eharth:" + change);
+		}
+		
 		ChangeTurn();
+		timer4 = TimeUpdate(45f);
+		StartCoroutine(timer4);
+
 	}
 
 #if !DISABLE_AIRCONSOLE
@@ -89,7 +103,8 @@ public class Logic_Earth: MonoBehaviour {
 		Debug.Log("start");
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
-		StartCoroutine(TimeUpdate(45f));
+		timer = TimeUpdate(45f);
+		StartCoroutine(timer);
 	}
 
     void OnMessage(int fromDeviceID, JToken data)
@@ -121,8 +136,11 @@ public class Logic_Earth: MonoBehaviour {
 
 		else if (data["action"] != null && data["action"].ToString() == "skip_card")
 		{
-			change = true;
+			
 			ChangeTurn();
+			timer2 = TimeUpdate(45f);
+			StartCoroutine(timer2);
+
 		}
 
 
@@ -284,8 +302,9 @@ public class Logic_Earth: MonoBehaviour {
 				ThrowLine.SetActive(false);
 				ThrowTarget.SetActive(false);
 				physicalPlayer.playCard(cardId, targetSquare);
-				change = true;
 				ChangeTurn();
+				timer3 = TimeUpdate(45f);
+				StartCoroutine(timer3);
 			}
 			//Debug.Log("Target: " + targetPosition);
 		}
