@@ -24,9 +24,11 @@
 	margin: auto;
 }
 
+/*
 table td {
 	border: 1px solid red;
 }
+*/
 
 #build_deck_layout {
 	width:90%;
@@ -84,9 +86,9 @@ table td {
 
 #touch_area_move {
 	position: absolute;
-	width: 90%;
+	width: 80%;
 	height: 80%;
-	margin: 5%;
+	margin: 5% 10%;
 	background-color: rgba(0,0,0,0.2);
 	border: 2px solid green;
 }
@@ -109,10 +111,10 @@ table td {
 
 #touch_area_throw {
 	position: absolute;
-	width: 90%;
+	width: 80%;
 	height: 80%;
-	margin: auto;
-	background-color: #1f1f1f;
+	margin: 5% 10%;
+	background-color: rgba(0,0,0,0.2);
 	border: 2px solid red;
 }
 
@@ -130,4 +132,13 @@ table td {
 	height: 100%;
 	position: absolute;
 	display:none;
+}
+
+.area-info {
+	position: absolute;
+	width:100%;
+	top:15%;
+	text-align: center;
+    color: rgba(255,255,255,.5);
+    font-family: Arial;
 }
