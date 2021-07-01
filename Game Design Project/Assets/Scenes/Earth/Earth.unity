@@ -511,6 +511,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parete (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 8760551369919717591, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_RootOrder
@@ -595,6 +600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mela (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787095857490073184, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 6558425961491385562, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
         type: 3}
@@ -725,6 +735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ananas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 965080200955912516, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 5717399875361838726, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
         type: 3}
@@ -1040,6 +1055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: sabbia (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2103221102681883019, guid: 061550a5cdb04ec42aa317a9dfc09853,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061550a5cdb04ec42aa317a9dfc09853, type: 3}
 --- !u!4 &123828419 stripped
@@ -1219,6 +1239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Type7_1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
@@ -1572,6 +1597,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baule (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
@@ -1965,6 +1995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dinamite (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6922283634358736837, guid: 91031cf81d55c204c924407a890b17d4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 7735834950586568063, guid: 91031cf81d55c204c924407a890b17d4,
         type: 3}
       propertyPath: m_RootOrder
@@ -2109,6 +2144,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Type7_1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
@@ -2379,6 +2419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: banane (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 642323129269833722, guid: 6dec17b8a4d025f4287164dd82f9f946,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dec17b8a4d025f4287164dd82f9f946, type: 3}
 --- !u!4 &241977978 stripped
@@ -2398,6 +2443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dinamite (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922283634358736837, guid: 91031cf81d55c204c924407a890b17d4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 7735834950586568063, guid: 91031cf81d55c204c924407a890b17d4,
         type: 3}
@@ -2574,6 +2624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mela (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5787095857490073184, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 6558425961491385562, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
         type: 3}
       propertyPath: m_RootOrder
@@ -2648,7 +2703,7 @@ GameObject:
   - component: {fileID: 275110953}
   m_Layer: 0
   m_Name: HumanStuff
-  m_TagString: Untagged
+  m_TagString: Stuff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3143,6 +3198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: banane (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 642323129269833722, guid: 6dec17b8a4d025f4287164dd82f9f946,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dec17b8a4d025f4287164dd82f9f946, type: 3}
 --- !u!4 &335830238 stripped
@@ -3397,6 +3457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baule (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
@@ -3718,6 +3783,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parete (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 8760551369919717591, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3862,6 +3932,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baule (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
@@ -4013,6 +4088,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: anguria (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5396424087402333384, guid: 2f0815d1190ec384fbf520c11704fd27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0815d1190ec384fbf520c11704fd27, type: 3}
 --- !u!4 &523191707 stripped
@@ -4105,6 +4185,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -4127,6 +4212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bomba (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131577445534515798, guid: fbbcea0b1fca73240902a3d270ed8c17,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 5511516245734562028, guid: fbbcea0b1fca73240902a3d270ed8c17,
         type: 3}
@@ -4407,6 +4497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -4601,8 +4696,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606817358}
-  m_LocalRotation: {x: -0.00006822521, y: -0.7071068, z: -0.7071068, w: 0.00006822521}
-  m_LocalPosition: {x: -10.826838, y: -16.698063, z: -13.042629}
+  m_LocalRotation: {x: -0.3322293, y: 0.63870525, z: 0.3562686, w: 0.5956107}
+  m_LocalPosition: {x: -23.260038, y: -24.727507, z: -17.778183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1431088806}
@@ -5103,6 +5198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -5200,6 +5300,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baule
       objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d124060d2de5473448e840c4b5e12e66, type: 3}
 --- !u!4 &661685912 stripped
@@ -5225,6 +5330,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Parete (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 8760551369919717591, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -5454,6 +5564,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ananas (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 965080200955912516, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 5717399875361838726, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
         type: 3}
       propertyPath: m_IsKinematic
@@ -5498,6 +5613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Parete (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 8760551369919717591, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -5573,7 +5693,7 @@ GameObject:
   - component: {fileID: 776509097}
   m_Layer: 0
   m_Name: PlantsStuff
-  m_TagString: Untagged
+  m_TagString: Stuff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5911,6 +6031,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: anguria (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5396424087402333384, guid: 2f0815d1190ec384fbf520c11704fd27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0815d1190ec384fbf520c11704fd27, type: 3}
 --- !u!4 &837175454 stripped
@@ -5985,6 +6110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Barili
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452399631639856290, guid: c00053075fcef914887cc544d9cc7da2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c00053075fcef914887cc544d9cc7da2, type: 3}
@@ -6075,6 +6205,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baule (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
@@ -6297,6 +6432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Teletrasporto
+      objectReference: {fileID: 0}
+    - target: {fileID: 382588984020695995, guid: 6dcbcdb73a21f9d4bacf88489cb75e8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 1010189553651654913, guid: 6dcbcdb73a21f9d4bacf88489cb75e8f,
         type: 3}
@@ -6571,6 +6711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mela (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787095857490073184, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 6558425961491385562, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
         type: 3}
@@ -6988,6 +7133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parete (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 8760551369919717591, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_RootOrder
@@ -7271,6 +7421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -7389,6 +7544,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cocco (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1631250417563868217, guid: f6ed47cce01ee3449a8c989dd0cee849,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 2155127659869914755, guid: f6ed47cce01ee3449a8c989dd0cee849,
         type: 3}
       propertyPath: m_RootOrder
@@ -7474,6 +7634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cocco (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631250417563868217, guid: f6ed47cce01ee3449a8c989dd0cee849,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 2155127659869914755, guid: f6ed47cce01ee3449a8c989dd0cee849,
         type: 3}
@@ -7619,6 +7784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Type7_1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
@@ -7980,6 +8150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: melograno (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6824352011732265273, guid: ba33adf3ece2e2b4b8bf2f90ceffdefd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba33adf3ece2e2b4b8bf2f90ceffdefd, type: 3}
 --- !u!4 &1108439820 stripped
@@ -8069,6 +8244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baule (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
@@ -8385,6 +8565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -8686,6 +8871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -8872,6 +9062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Type7_1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
@@ -9064,6 +9259,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -9175,6 +9375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baule (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
@@ -9616,6 +9821,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ananas (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 965080200955912516, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 5717399875361838726, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
         type: 3}
       propertyPath: m_IsKinematic
@@ -9938,6 +10148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: melograno (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6824352011732265273, guid: ba33adf3ece2e2b4b8bf2f90ceffdefd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba33adf3ece2e2b4b8bf2f90ceffdefd, type: 3}
 --- !u!4 &1446991869 stripped
@@ -10189,6 +10404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -10427,6 +10647,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -10519,6 +10744,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Type7_1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
@@ -10633,6 +10863,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_Type7_1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
@@ -10892,6 +11127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2116474041062504938, guid: 2e048013984cc4a49ac12890d7eda878,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e048013984cc4a49ac12890d7eda878, type: 3}
 --- !u!4 &1645050007 stripped
@@ -10911,6 +11151,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Parete (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 8760551369919717591, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -11711,6 +11956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: arancia (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8553085775324001260, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 9077421346473011542, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
         type: 3}
       propertyPath: m_RootOrder
@@ -12035,6 +12285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baule (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
@@ -12563,6 +12818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: uva (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8709582633383342221, guid: e719d5f6d1032c84496a516872ad766d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e719d5f6d1032c84496a516872ad766d, type: 3}
 --- !u!4 &1847902437 stripped
@@ -12773,6 +13033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: arancia (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553085775324001260, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 9077421346473011542, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
         type: 3}
@@ -13033,6 +13298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cocco (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631250417563868217, guid: f6ed47cce01ee3449a8c989dd0cee849,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 2155127659869914755, guid: f6ed47cce01ee3449a8c989dd0cee849,
         type: 3}
@@ -13315,6 +13585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883349239890515935, guid: d124060d2de5473448e840c4b5e12e66,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -13348,6 +13623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: arancia (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553085775324001260, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 9077421346473011542, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
         type: 3}
@@ -13478,6 +13758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: uva (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709582633383342221, guid: e719d5f6d1032c84496a516872ad766d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e719d5f6d1032c84496a516872ad766d, type: 3}
@@ -13858,6 +14143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
         type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380210179573997565, guid: fa17da734b54f9a41b5831b9845f22a0,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -13909,6 +14199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mela
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787095857490073184, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 6558425961491385562, guid: d9aebd65ea6a3cf4eab6e24d08799ea2,
         type: 3}
@@ -13989,6 +14284,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cocco (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631250417563868217, guid: f6ed47cce01ee3449a8c989dd0cee849,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 2155127659869914755, guid: f6ed47cce01ee3449a8c989dd0cee849,
         type: 3}
@@ -14224,6 +14524,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Parete
       objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 8760551369919717591, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_RootOrder
@@ -14428,6 +14733,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: anguria (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5396424087402333384, guid: 2f0815d1190ec384fbf520c11704fd27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0815d1190ec384fbf520c11704fd27, type: 3}
 --- !u!4 &2123396516 stripped
@@ -14612,6 +14922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cocco
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631250417563868217, guid: f6ed47cce01ee3449a8c989dd0cee849,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 2155127659869914755, guid: f6ed47cce01ee3449a8c989dd0cee849,
         type: 3}
@@ -15008,6 +15323,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lanciarazzi
       objectReference: {fileID: 0}
+    - target: {fileID: 1631185865051200281, guid: cb222286079aaac4ba6d7bf21369da8e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 2155238823413645731, guid: cb222286079aaac4ba6d7bf21369da8e,
         type: 3}
       propertyPath: m_RootOrder
@@ -15143,6 +15463,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ananas
+      objectReference: {fileID: 0}
+    - target: {fileID: 965080200955912516, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 5717399875361838726, guid: 6bc5f21ffb4b1ba4c9aede4f5b1154fa,
         type: 3}
@@ -15368,6 +15693,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomba
       objectReference: {fileID: 0}
+    - target: {fileID: 5131577445534515798, guid: fbbcea0b1fca73240902a3d270ed8c17,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 5511516245734562028, guid: fbbcea0b1fca73240902a3d270ed8c17,
         type: 3}
       propertyPath: m_RootOrder
@@ -15497,6 +15827,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876081107713672608, guid: 4b2d586fd80aa124fae34df0bc63eb2c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b2d586fd80aa124fae34df0bc63eb2c, type: 3}
@@ -15770,6 +16105,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box3
       objectReference: {fileID: 0}
+    - target: {fileID: 8597879729916321142, guid: fb5c1db418c62a648bd7fc248618371b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 8942493695685543884, guid: fb5c1db418c62a648bd7fc248618371b,
         type: 3}
       propertyPath: m_RootOrder
@@ -16017,6 +16357,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dinamite
       objectReference: {fileID: 0}
+    - target: {fileID: 6922283634358736837, guid: 91031cf81d55c204c924407a890b17d4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 7735834950586568063, guid: 91031cf81d55c204c924407a890b17d4,
         type: 3}
       propertyPath: m_RootOrder
@@ -16220,6 +16565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 4171744045417884678, guid: 0f6690e507c987f438249f155ba4c892,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6690e507c987f438249f155ba4c892, type: 3}
@@ -17078,6 +17428,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box1
       objectReference: {fileID: 0}
+    - target: {fileID: 9157718334049967336, guid: fc4b9fcf32e1a8c49b9e6e49cdc64fa3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc4b9fcf32e1a8c49b9e6e49cdc64fa3, type: 3}
 --- !u!4 &4111507470264920284 stripped
@@ -17195,6 +17550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mitragliatrice
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618852532345792976, guid: 0faaf1bf55e685a42985f8b2b5a51bb6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 4139775185375867754, guid: 0faaf1bf55e685a42985f8b2b5a51bb6,
         type: 3}
@@ -17325,6 +17685,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop1
       objectReference: {fileID: 0}
+    - target: {fileID: 2116474041062504938, guid: 2e048013984cc4a49ac12890d7eda878,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e048013984cc4a49ac12890d7eda878, type: 3}
 --- !u!4 &4690337445387931856 stripped
@@ -17356,6 +17721,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pugnale
+      objectReference: {fileID: 0}
+    - target: {fileID: 171599722283050421, guid: c21e3185ca7cda847bbaab08ed054366,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 660469648244670223, guid: c21e3185ca7cda847bbaab08ed054366,
         type: 3}
@@ -17634,6 +18004,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pietre
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483797650608499877, guid: 5780ef2914682174784a22db96e1bbe9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5780ef2914682174784a22db96e1bbe9, type: 3}
@@ -18055,6 +18430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fucile a pompa
       objectReference: {fileID: 0}
+    - target: {fileID: 424708251296576080, guid: a925391d114d0584888af51ac4a6dfb1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     - target: {fileID: 1058079053648881898, guid: a925391d114d0584888af51ac4a6dfb1,
         type: 3}
       propertyPath: m_RootOrder
@@ -18191,6 +18571,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: melograno
       objectReference: {fileID: 0}
+    - target: {fileID: 6824352011732265273, guid: ba33adf3ece2e2b4b8bf2f90ceffdefd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba33adf3ece2e2b4b8bf2f90ceffdefd, type: 3}
 --- !u!1001 &6192858174620670235
@@ -18204,6 +18589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: portale
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842440015394475576, guid: 95955925aef6c7b4b9406cf724cd7c71,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 6512016571465847938, guid: 95955925aef6c7b4b9406cf724cd7c71,
         type: 3}
@@ -18328,6 +18718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: uva
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709582633383342221, guid: e719d5f6d1032c84496a516872ad766d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e719d5f6d1032c84496a516872ad766d, type: 3}
@@ -18476,6 +18871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: banane
+      objectReference: {fileID: 0}
+    - target: {fileID: 642323129269833722, guid: 6dec17b8a4d025f4287164dd82f9f946,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dec17b8a4d025f4287164dd82f9f946, type: 3}
@@ -19112,6 +19512,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: sabbia
       objectReference: {fileID: 0}
+    - target: {fileID: 2103221102681883019, guid: 061550a5cdb04ec42aa317a9dfc09853,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061550a5cdb04ec42aa317a9dfc09853, type: 3}
 --- !u!4 &7504136553262757293 stripped
@@ -19261,6 +19666,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box2
       objectReference: {fileID: 0}
+    - target: {fileID: 1830143215409568628, guid: ad793d62736e2a64e8141ea059f7f37c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad793d62736e2a64e8141ea059f7f37c, type: 3}
 --- !u!4 &7576390323743289598 stripped
@@ -19340,6 +19750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: anguria
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396424087402333384, guid: 2f0815d1190ec384fbf520c11704fd27,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0815d1190ec384fbf520c11704fd27, type: 3}
@@ -19576,6 +19991,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Molotov
       objectReference: {fileID: 0}
+    - target: {fileID: 2952120766406870870, guid: 0732eab101d757045a4ef3fa52ab362d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0732eab101d757045a4ef3fa52ab362d, type: 3}
 --- !u!4 &7841671888664295145 stripped
@@ -19766,6 +20186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: arancia
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553085775324001260, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 9077421346473011542, guid: 1ea6d47c215d6574fa001dfe7cabb32f,
         type: 3}
@@ -19989,6 +20414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tronco
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170161331416047405, guid: 100fefe6ec08b374a9cce1b143505199,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stuff
       objectReference: {fileID: 0}
     - target: {fileID: 1979032055887152535, guid: 100fefe6ec08b374a9cce1b143505199,
         type: 3}
