@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1058079053648881898}
   - component: {fileID: 4107519110727526223}
   - component: {fileID: 2225941051290030981}
+  - component: {fileID: 2322784408627971947}
   m_Layer: 0
   m_Name: Fucile a pompa
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2322784408627971947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424708251296576080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd88e56f6e17f14ca9a4404c4e65717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3279686923967944095, guid: c80f1498a98894246bfdbddcd6e3b999,
+    type: 3}

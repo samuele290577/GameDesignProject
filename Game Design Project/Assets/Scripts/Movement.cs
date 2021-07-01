@@ -11,7 +11,8 @@ public class Movement : MonoBehaviour
     float rotateVelocity = 0;
     public Vector3 targetPosition;
     public GameObject enemy;
-    public Animator animator; 
+    public Animator animator;
+    public bool overrideRotation = false;
 
 
     void Start()
@@ -35,12 +36,14 @@ public class Movement : MonoBehaviour
             
             
         }
-        else if (Vector3.Angle(enemy.transform.position - transform.position, transform.forward) > 1)
+        else if (Vector3.Angle(enemy.transform.position - transform.position, transform.forward) > 1 && !overrideRotation)
         {
             Quaternion rotationToLookAt = Quaternion.LookRotation(enemy.transform.position - transform.position);
             float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement * Time.deltaTime * 10);
             transform.eulerAngles = new Vector3(0, rotationY, 0);
         }
+
+        if (overrideRotation == true) StartCoroutine("BackToPoint");
 
         /*
 
@@ -67,5 +70,11 @@ public class Movement : MonoBehaviour
             }
         }
         */
+    }
+
+    IEnumerator BackToPoint()
+    {
+        yield return new WaitForSeconds(1);
+        overrideRotation = false;
     }
 }
