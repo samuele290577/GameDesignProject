@@ -39,7 +39,7 @@ public class Logic_Earth: MonoBehaviour {
 	int cardId = -1;
 	Card card;
 
-	void ChangeTurn()
+	public void ChangeTurn()
     {
 		currentTurn = nextTurn;
 		if (currentTurn == "Plants") nextTurn = "Humans";
