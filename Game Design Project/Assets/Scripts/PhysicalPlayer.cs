@@ -26,6 +26,15 @@ public class PhysicalPlayer : MonoBehaviour
 
     }
 
+    IEnumerator LancioOggetto( GameObject x, Vector3 targetPosition, Card card)
+    {
+        yield return new WaitForSeconds(1);
+        GameObject obj = Instantiate<GameObject>(x);
+        obj.transform.position = transform.position + new Vector3(0, .15f, 0);
+        obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+
+    }
+
     public void playCard(int cardId, Vector3 targetPosition)
     {
         Card card;
@@ -44,9 +53,10 @@ public class PhysicalPlayer : MonoBehaviour
             case 5: //arancia
                 player.RemoveCard(cardId);
                 card = CardDatabase.getCardFromId(cardId);
-                obj = Instantiate<GameObject>(cardObjects[cardId]);
-                obj.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino per non collidere subito
-                obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+                // obj = Instantiate<GameObject>(cardObjects[cardId]);
+                //obj.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino per non collidere subito
+                //obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+                StartCoroutine(LancioOggetto(cardObjects[cardId], targetPosition, (Arma)card));
                 animator.SetTrigger("isThrowing");
                 break;
             case 6: //pietre
@@ -75,9 +85,10 @@ public class PhysicalPlayer : MonoBehaviour
             case 15: //pugnale
                 player.RemoveCard(cardId);
                 card = (Arma)CardDatabase.getCardFromId(cardId);
-                obj = Instantiate<GameObject>(cardObjects[cardId]);
-                obj.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino altrimenti collidono subito
-                obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+               //   obj = Instantiate<GameObject>(cardObjects[cardId]);
+               // obj.transform.position = transform.position + new Vector3(0, .15f, 0);//spessorino altrimenti collidono subito
+              //  obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
+              StartCoroutine(LancioOggetto(cardObjects[cardId], targetPosition,(Arma)card));
                 animator.SetTrigger("isThrowing");
                 break;
             case 13: //fucile

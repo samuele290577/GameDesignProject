@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028477, g: 0.22571531, b: 0.30692452, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028474, g: 0.22571592, b: 0.3069244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -507,10 +507,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -1876830195878498146, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627012899646446520, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_Name
       value: Parete (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -3825,10 +3850,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -1876830195878498146, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627012899646446520, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_Name
       value: Parete (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -4758,8 +4808,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606817358}
-  m_LocalRotation: {x: 0.29251194, y: -0.5751889, z: -0.23092988, w: -0.72819364}
-  m_LocalPosition: {x: -27.119835, y: -14.503259, z: -15.237691}
+  m_LocalRotation: {x: -0.21044414, y: 0.37270933, z: 0.08719259, w: 0.8995546}
+  m_LocalPosition: {x: -28.863562, y: -14.252846, z: -21.201647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1431088806}
@@ -5388,10 +5438,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -1876830195878498146, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627012899646446520, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_Name
       value: Parete (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -5676,6 +5751,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -1876830195878498146, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_Name
@@ -6118,6 +6203,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -8354864782338023801, guid: c00053075fcef914887cc544d9cc7da2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -739386564688648359, guid: c00053075fcef914887cc544d9cc7da2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2639869698092899864, guid: c00053075fcef914887cc544d9cc7da2,
         type: 3}
       propertyPath: m_RootOrder
@@ -7200,10 +7295,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -1876830195878498146, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627012899646446520, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_Name
       value: Parete (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -11404,10 +11524,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -1876830195878498146, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241574157630315753, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7627012899646446520, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_Name
       value: Parete (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
@@ -14822,6 +14967,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275110953}
     m_Modifications:
+    - target: {fileID: -1876830195878498146, guid: 7a630446a2fc1c745a6a094a9d57c07e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8275482661541132909, guid: 7a630446a2fc1c745a6a094a9d57c07e,
         type: 3}
       propertyPath: m_Name
