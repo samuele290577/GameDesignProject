@@ -184,7 +184,11 @@
             "gotowar_pressed": "UI_Plants/gotowar_pressed.png",
         },
         "Common": {
-            
+            "teams": "UI_Common/teams.png",
+            "teams_humans": "UI_Common/teams_humans.png",
+            "teams_plants": "UI_Common/teams_plants.png",
+            "readytoplay": "UI_Common/readytoplay.png",
+            "readytoplay_pressed": "UI_Common/readytoplay_pressed.png"
         }
     }
 
@@ -265,6 +269,25 @@
         }
         else if(data["action"]!=null && data["action"]=="showMove") {
             ViewManager.show("Move");
+        }
+        else if(data["action"]!=null && data["action"]=="teamPickerUI") {
+
+            if (data.content.humans==1) document.getElementById("choose_team_back").style.backgroundImage = "url('" + UIGlobal["Common"]["teams_humans"] + "')";
+            else if (data.content.plants==1) document.getElementById("choose_team_back").style.backgroundImage = "url('" + UIGlobal["Common"]["teams_plants"] + "')";
+            else if (data.content.plants == 0 && data.content.humans == 0) document.getElementById("choose_team_back").style.backgroundImage = "url('" + UIGlobal["Common"]["teams"] + "')";
+            
+            if (data.content.ready == 2) {
+                document.getElementById("button_ready").style.backgroundImage = "url('" + UIGlobal["Common"]["readytoplay_pressed"] + "')";
+                document.getElementById("button_ready").classList.remove("dimmed");
+            }
+            else if (data.content.ready == 1) {
+                document.getElementById("button_ready").style.backgroundImage = "url('" + UIGlobal["Common"]["readytoplay"] + "')";
+                document.getElementById("button_ready").classList.remove("dimmed");
+            }
+            else if (data.content.ready == 0) {
+                document.getElementById("button_ready").style.backgroundImage = "url('" + UIGlobal["Common"]["readytoplay"] + "')";
+                document.getElementById("button_ready").classList.add("dimmed");
+            }
         }
         else if(data["action"]!=null && data["action"]=="deckBuilderUI") {
             if (data.content.goToWar==1) document.getElementById("button_gotowar").classList.remove("dimmed");
@@ -404,6 +427,19 @@
        this.airconsole.message(AirConsole.SCREEN, msg);
     };
 
+
+    function pickPlants() {
+        window.app.sendMessageToScreen({'action': 'pick_plants'})
+    }
+
+    function pickHumans() {
+        window.app.sendMessageToScreen({'action': 'pick_humans'})
+    }
+
+    function teamReady() {
+        window.app.sendMessageToScreen({'action': 'team_ready'})
+    }
+
     function leftCard() {
         if (cardIndex==0) return;
         else {
@@ -437,6 +473,7 @@
     function skipCard() {
         window.app.sendMessageToScreen({"action": "skip_card"});
     }
+
   </script>
   
  </head>
@@ -454,9 +491,15 @@
 <body onload="window.app = new App()">
 
     <div class="view" id="ChooseTeam">
-        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_plants'})">PLANTS</div>
-        <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_humans'})">HUMANS</div>
-        <div class="button" id="button_ready" ontouchstart="window.app.sendMessageToScreen({'action': 'team_ready'})">READY</div>
+        <div class="area-info">Choose your team!</div>
+        <div class="background" id="choose_team_back"></div>
+        <table style="width: 100%; height:100%">
+        <tr>
+            <td style="width:50%"><div id="button_plants" style="width:100%; height:100%" ontouchstart="pickPlants()"></div></td>
+            <td><div id="button_humans" style="width:100%; height:100%" ontouchstart="pickHumans()"></div></td>
+        </tr>
+        </table>
+        <div class="btn-b dimmed" id="button_ready" style="position:absolute; bottom:5%; left:calc(50% - 78px); height: 50px; width: 175px" ontouchstart="teamReady()"></div>
         <div class="button" id="button_skip_build" ontouchstart="window.app.sendMessageToScreen({'action': 'skip_build'})">(DEV) SKIP TO EARTH</div>
     </div>
 

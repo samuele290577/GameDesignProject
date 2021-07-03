@@ -35,17 +35,35 @@ public class TeamPickerManager : MonoBehaviour
         player.setTeam("Plants");
         button_plants.image.color = Color.green;
         button_humans.image.color = Color.white;
+        AirConsole.instance.Message(player.id, new
+        {
+            action = "teamPickerUI",
+            content = new
+            {
+                ready = 1,
+                humans = 1,
+                plants = 0,
+            }
+        });
         Debug.Log("Player" + player.getId() + " ha scelto" + player.getTeam());
 
     }
     public void ChosenHumans()
     {
-
         player.setTeam("Humans");
         button_humans.image.color = Color.red;
         button_plants.image.color = Color.white;
+        AirConsole.instance.Message(player.id, new
+        {
+            action = "teamPickerUI",
+            content = new
+            {
+                ready = 1,
+                humans = 0,
+                plants = 1,
+            }
+        });
         Debug.Log("Player" + player.getId() + " ha scelto" + player.getTeam());
-
     }
 
     /*
@@ -81,19 +99,29 @@ public class TeamPickerManager : MonoBehaviour
         if (data["action"] != null && data["action"].ToString() == "pick_humans" && fromDeviceID==player.id)
         {
             ChosenHumans();
-            GoToDeck.player1Ready = false;
-            GoToDeck.player2Ready = false;
+            if (playerNumber == 1) GoToDeck.player1Ready = false;
+            else if (playerNumber == 2) GoToDeck.player2Ready = false;
         }
         else if (data["action"] != null && data["action"].ToString() == "pick_plants" && fromDeviceID == player.id)
         {
             ChosenPlants();
-            GoToDeck.player1Ready = false;
-            GoToDeck.player2Ready = false;
+            if (playerNumber == 1) GoToDeck.player1Ready = false;
+            else if (playerNumber == 2) GoToDeck.player2Ready = false;
         }
         else if (data["action"] != null && data["action"].ToString() == "team_ready" && fromDeviceID == player.id)
         {
             if (player.getTeam() == "unset") return; //se non è stato scelto il team, non si può confermare
             GoToDeck.teamReady(playerNumber, player.getTeam());
+            AirConsole.instance.Message(player.id, new
+            {
+                action = "teamPickerUI",
+                content = new
+                {
+                    ready = 2,
+                    humans = -1,
+                    plants = -1,
+                }
+            });
             Debug.Log("Player" + playerNumber + " ha scelto " + player.getTeam() + " ed è ready");
         }
     }

@@ -20,6 +20,16 @@ public class GoToDeck : MonoBehaviour
     {
         ready_player_1.text = "";
         ready_player_2.text = "";
+        AirConsole.instance.Broadcast(new
+        {
+            action = "teamPickerUI",
+            content = new
+            {
+                ready = 0,
+                humans = 0,
+                plants = 0,
+            }
+        });
     }
     public void teamReady(int teamNumber, string type)
     {
