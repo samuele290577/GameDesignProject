@@ -138,6 +138,7 @@
         "Humans": {
             "background": "UI_Humans/background.jpg",
             "wait": "UI_Humans/wait.png",
+            "wait_player": "UI_Humans/wait_player.png",
             "up": "UI_Humans/up.png",
             "up_pressed": "UI_Humans/up_pressed.png",
             "down": "UI_Humans/down.png",
@@ -162,6 +163,7 @@
         "Plants": {
             "background": "UI_Plants/background.jpeg",
             "wait": "UI_Plants/wait.png",
+            "wait_player": "UI_Plants/wait_player.png",
             "up": "UI_Plants/up.png",
             "up_pressed": "UI_Plants/up_pressed.png",
             "down": "UI_Plants/down.png",
@@ -195,6 +197,7 @@
     var matches = {
         "team-back": "background",
         "ui-wait": "wait",
+        "ui-wait-player": "wait_player",
         "ui-up": "up",
         "ui-up-p": "up_pressed",
         "ui-down": "down",
@@ -290,8 +293,10 @@
             }
         }
         else if(data["action"]!=null && data["action"]=="deckBuilderUI") {
-            if (data.content.goToWar==1) document.getElementById("button_gotowar").classList.remove("dimmed");
-            else if (data.content.goToWar==0) document.getElementById("button_gotowar").classList.add("dimmed");
+            if (data.content.goToWar==0) document.getElementById("button_gotowar").classList.add("dimmed");
+            else if (data.content.goToWar==1) document.getElementById("button_gotowar").classList.remove("dimmed");
+            else if (data.content.goToWar==2) ViewManager.show("WaitOtherPlayer");
+
         }
       };
       
@@ -516,6 +521,11 @@
             </tr>
             <tr><td colspan="2" style="height: 40%"><div class="btn-b ui-confirm dimmed" id="button_gotowar" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'}); this.classList.add('ui-confirm-p'); updateUI();" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td></tr>
         </table>
+    </div>
+
+    <div class="view" id="WaitOtherPlayer">
+        <div class="team-back"></div>
+        <div class="ui-wait-player splash-screen"></div>
     </div>
 
     <div class="view" id="WaitYourTurn">

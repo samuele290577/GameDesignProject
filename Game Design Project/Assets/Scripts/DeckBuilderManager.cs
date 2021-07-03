@@ -16,9 +16,33 @@ public class DeckBuilderManager : MonoBehaviour
         {
             case "Plants":
                 playerPlantsReady = true;
+                AirConsole.instance.Message(MasterController.getPlayerFromTeam(team).id, new
+                {
+                    action = "deckBuilderUI",
+                    content = new
+                    {
+                        goToWar = 2,
+                        up = -1,
+                        down = -1,
+                        add = -1,
+                        remove = -1
+                    }
+                });
                 break;
             case "Humans":
                 playerHumansReady = true;
+                AirConsole.instance.Message(MasterController.getPlayerFromTeam(team).id, new
+                {
+                    action = "deckBuilderUI",
+                    content = new
+                    {
+                        goToWar = 2,
+                        up = -1,
+                        down = -1,
+                        add = -1,
+                        remove = -1
+                    }
+                });
                 break;
         }
     }
