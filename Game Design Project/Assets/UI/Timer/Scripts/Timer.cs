@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
         {
             timeValue -= Time.deltaTime;
         }
-        Debug.Log("bool:" + reset);
+        //Debug.Log("bool:" + reset);
         /*if(reset == true)
         {
             timeValue = time;

@@ -24,19 +24,28 @@ public class CollisionDetection : MonoBehaviour
 
     private void Update()
     {
-        targets = DamageArea.GetComponent<DamageArea>().potentialTargets;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Debug Lancio : Collisione con " + collision.gameObject.name);
+        Debug.Log("ciao"+ collision.gameObject);
+        targets = DamageArea.GetComponent<DamageArea>().potentialTargets;
 
         if (collision.gameObject.name == "Checkerboard" ||
-            collision.gameObject.name == "Plant_Player" ||
-            collision.gameObject.tag == "Obstacle" ||
-            collision.gameObject.name == "Human_Player"
-            ) 
+            collision.collider.name == "Plant_Player" ||
+            collision.collider.tag == "Obstacle" ||
+            collision.collider.name == "Human_Player"
+            )
+
+            foreach (var t in targets)
+            {
+                Debug.Log("Debug lancio:" + t);
+            }
+        
         {
-            Debug.Log("Collisione con " + collision.gameObject);
+            
 
             //ARMI UMANO
 

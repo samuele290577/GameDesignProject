@@ -67,7 +67,7 @@ public class Logic_Earth: MonoBehaviour {
         {
 			yield return new WaitForSeconds(1f);
 			change--;
-			Debug.Log("eharth:" + change);
+			//Debug.Log("eharth:" + change);
 		}
 		
 		ChangeTurn();
