@@ -39,6 +39,7 @@ public class Logic_Earth: MonoBehaviour {
 	//Chi gioca ora e chi giocherà il prox turno
 	public String currentTurn;
 	public String nextTurn;
+	public GameObject currentPlayer;
 
 	//Eventuale carta scelta
 	int cardId = -1;
@@ -52,8 +53,17 @@ public class Logic_Earth: MonoBehaviour {
 		if (timer4 != null) StopCoroutine(timer4);
 		
 		currentTurn = nextTurn;
-		if (currentTurn == "Plants") nextTurn = "Humans";
-		else nextTurn = "Plants";
+		if (currentTurn == "Plants")
+		{ 
+			nextTurn = "Humans";
+			currentPlayer = GameObject.FindWithTag("Plant_Player");
+		}
+
+		else {
+			nextTurn = "Plants";
+			currentPlayer = GameObject.FindWithTag("Human_Player");
+		}
+			
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
 		
@@ -93,11 +103,14 @@ public class Logic_Earth: MonoBehaviour {
 		if (rand.Next(0, 2) == 0) //Iniziano umani
         {
 			currentTurn = "Humans";
+			currentPlayer = GameObject.FindWithTag("Human_Player");
+
 			nextTurn = "Plants";
 		}
 		else //iniziano le piante
         {
 			currentTurn = "Plants";
+			currentPlayer = GameObject.FindWithTag("Plant_Player");
 			nextTurn = "Humans";
 		}
 		Debug.Log("start");

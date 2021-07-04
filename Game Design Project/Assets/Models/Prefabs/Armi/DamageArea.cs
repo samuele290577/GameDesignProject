@@ -35,7 +35,7 @@ public class DamageArea : MonoBehaviour
     {
         foreach(var t in potentialTargets)
         {
-            Debug.Log("Debug Lancio: potential targets  " + t);
+            Debug.Log(gameObject.name + "Debug Lancio: potential targets  " + t);
         }
     }   
 }

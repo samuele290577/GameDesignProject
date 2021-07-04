@@ -24,15 +24,13 @@ public class CollisionDetection : MonoBehaviour
 
     private void Update()
     {
-        
+        targets = DamageArea.GetComponent<DamageArea>().potentialTargets;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Debug Lancio : Collisione con " + collision.gameObject.name);
-        Debug.Log("ciao"+ collision.gameObject);
-        targets = DamageArea.GetComponent<DamageArea>().potentialTargets;
-
+        Debug.Log( gameObject.name +  "Debug Lancio : Collisione con " + collision.gameObject.name);
+   
         if (collision.gameObject.name == "Checkerboard" ||
             collision.collider.name == "Plant_Player" ||
             collision.collider.tag == "Obstacle" ||
@@ -41,7 +39,7 @@ public class CollisionDetection : MonoBehaviour
 
             foreach (var t in targets)
             {
-                Debug.Log("Debug lancio:" + t);
+                Debug.Log(gameObject + "Debug lancio:" + t);
             }
         
         {
@@ -88,7 +86,7 @@ public class CollisionDetection : MonoBehaviour
                 if (checkObstructionPower("Plants")) TakeDamage((int)(25 * 1.5));
                 else TakeDamage(25);
             }
-            else if (this.name == "banana" || this.name == "banana(Clone)")
+            else if (this.name == "banane" || this.name == "banane(Clone)")
             {
                 Debug.Log("banana");
                 if (checkObstructionPower("Plants")) TakeDamage((int)(15 * 1.5));
@@ -150,7 +148,7 @@ public class CollisionDetection : MonoBehaviour
                     if (Vector3.Distance(transform.position, el.gameObject.transform.position) < 5 ) return true;
                 }
             }
-
+                
         }
         else if (team == "Humans")
         {
