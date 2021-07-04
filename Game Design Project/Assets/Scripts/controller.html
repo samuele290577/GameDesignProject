@@ -138,6 +138,7 @@
         "Humans": {
             "background": "UI_Humans/background.jpg",
             "wait": "UI_Humans/wait.png",
+            "wait_player": "UI_Humans/wait_player.png",
             "up": "UI_Humans/up.png",
             "up_pressed": "UI_Humans/up_pressed.png",
             "down": "UI_Humans/down.png",
@@ -162,6 +163,7 @@
         "Plants": {
             "background": "UI_Plants/background.jpeg",
             "wait": "UI_Plants/wait.png",
+            "wait_player": "UI_Plants/wait_player.png",
             "up": "UI_Plants/up.png",
             "up_pressed": "UI_Plants/up_pressed.png",
             "down": "UI_Plants/down.png",
@@ -184,13 +186,18 @@
             "gotowar_pressed": "UI_Plants/gotowar_pressed.png",
         },
         "Common": {
-            
+            "teams": "UI_Common/teams.png",
+            "teams_humans": "UI_Common/teams_humans.png",
+            "teams_plants": "UI_Common/teams_plants.png",
+            "readytoplay": "UI_Common/readytoplay.png",
+            "readytoplay_pressed": "UI_Common/readytoplay_pressed.png"
         }
     }
 
     var matches = {
         "team-back": "background",
         "ui-wait": "wait",
+        "ui-wait-player": "wait_player",
         "ui-up": "up",
         "ui-up-p": "up_pressed",
         "ui-down": "down",
@@ -266,9 +273,30 @@
         else if(data["action"]!=null && data["action"]=="showMove") {
             ViewManager.show("Move");
         }
+        else if(data["action"]!=null && data["action"]=="teamPickerUI") {
+
+            if (data.content.humans==1) document.getElementById("choose_team_back").style.backgroundImage = "url('" + UIGlobal["Common"]["teams_humans"] + "')";
+            else if (data.content.plants==1) document.getElementById("choose_team_back").style.backgroundImage = "url('" + UIGlobal["Common"]["teams_plants"] + "')";
+            else if (data.content.plants == 0 && data.content.humans == 0) document.getElementById("choose_team_back").style.backgroundImage = "url('" + UIGlobal["Common"]["teams"] + "')";
+            
+            if (data.content.ready == 2) {
+                document.getElementById("button_ready").style.backgroundImage = "url('" + UIGlobal["Common"]["readytoplay_pressed"] + "')";
+                document.getElementById("button_ready").classList.remove("dimmed");
+            }
+            else if (data.content.ready == 1) {
+                document.getElementById("button_ready").style.backgroundImage = "url('" + UIGlobal["Common"]["readytoplay"] + "')";
+                document.getElementById("button_ready").classList.remove("dimmed");
+            }
+            else if (data.content.ready == 0) {
+                document.getElementById("button_ready").style.backgroundImage = "url('" + UIGlobal["Common"]["readytoplay"] + "')";
+                document.getElementById("button_ready").classList.add("dimmed");
+            }
+        }
         else if(data["action"]!=null && data["action"]=="deckBuilderUI") {
-            if (data.content.goToWar==1) document.getElementById("button_gotowar").classList.remove("dimmed");
-            else if (data.content.goToWar==0) document.getElementById("button_gotowar").classList.add("dimmed");
+            if (data.content.goToWar==0) document.getElementById("button_gotowar").classList.add("dimmed");
+            else if (data.content.goToWar==1) document.getElementById("button_gotowar").classList.remove("dimmed");
+            else if (data.content.goToWar==2) ViewManager.show("WaitOtherPlayer");
+
         }
       };
       
@@ -404,6 +432,19 @@
        this.airconsole.message(AirConsole.SCREEN, msg);
     };
 
+
+    function pickPlants() {
+        window.app.sendMessageToScreen({'action': 'pick_plants'})
+    }
+
+    function pickHumans() {
+        window.app.sendMessageToScreen({'action': 'pick_humans'})
+    }
+
+    function teamReady() {
+        window.app.sendMessageToScreen({'action': 'team_ready'})
+    }
+
     function leftCard() {
         if (cardIndex==0) return;
         else {
@@ -437,6 +478,7 @@
     function skipCard() {
         window.app.sendMessageToScreen({"action": "skip_card"});
     }
+
   </script>
   
  </head>
@@ -454,10 +496,15 @@
 <body onload="window.app = new App()">
 
     <div class="view" id="ChooseTeam">
-        <div class="button" id="button_plants" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_plants'})">PLANTS</div>
-        <div class="button" id="button_humans" ontouchstart="window.app.sendMessageToScreen({'action': 'pick_humans'})">HUMANS</div>
-        <div class="button" id="button_ready" ontouchstart="window.app.sendMessageToScreen({'action': 'team_ready'})">READY</div>
-        <div class="button" id="button_skip_build" ontouchstart="window.app.sendMessageToScreen({'action': 'skip_build'})">(DEV) SKIP TO EARTH</div>
+        <div class="area-info">Choose your team!</div>
+        <div class="background" id="choose_team_back"></div>
+        <table style="width: 100%; height:100%">
+        <tr>
+            <td style="width:50%"><div id="button_plants" style="width:100%; height:100%" ontouchstart="pickPlants()"></div></td>
+            <td><div id="button_humans" style="width:100%; height:100%" ontouchstart="pickHumans()"></div></td>
+        </tr>
+        </table>
+        <div class="btn-b dimmed" id="button_ready" style="position:absolute; bottom:5%; left:calc(50% - 78px); height: 50px; width: 175px" ontouchstart="teamReady()"></div>
     </div>
 
     <div class="view" id="BuildDeck">
@@ -473,6 +520,11 @@
             </tr>
             <tr><td colspan="2" style="height: 40%"><div class="btn-b ui-confirm dimmed" id="button_gotowar" ontouchstart="window.app.sendMessageToScreen({'action': 'deck_gotowar'}); this.classList.add('ui-confirm-p'); updateUI();" ontouchend="this.classList.remove('ui-confirm-p'); updateUI()"></div></td></tr>
         </table>
+    </div>
+
+    <div class="view" id="WaitOtherPlayer">
+        <div class="team-back"></div>
+        <div class="ui-wait-player splash-screen"></div>
     </div>
 
     <div class="view" id="WaitYourTurn">

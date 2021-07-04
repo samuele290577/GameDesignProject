@@ -20,6 +20,16 @@ public class GoToDeck : MonoBehaviour
     {
         ready_player_1.text = "";
         ready_player_2.text = "";
+        AirConsole.instance.Broadcast(new
+        {
+            action = "teamPickerUI",
+            content = new
+            {
+                ready = 0,
+                humans = 0,
+                plants = 0,
+            }
+        });
     }
     public void teamReady(int teamNumber, string type)
     {
@@ -54,6 +64,7 @@ public class GoToDeck : MonoBehaviour
         {
             ready_player_2.text = "Not Ready";
         }
+        
         diversi = !(MasterController.player1.getTeam().Equals(MasterController.player2.getTeam()));
 
         if (player1Ready && player2Ready && diversi)
@@ -61,6 +72,17 @@ public class GoToDeck : MonoBehaviour
             AirConsole.instance.Broadcast(new { action = "gameStats", content = MasterController.getGameStats() });
             AirConsole.instance.Broadcast(new { action = "showBuildDeck" });
             SceneManager.LoadScene("SceltaCarte");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Skip for Development");
+            MasterController.player1.team = "Humans";
+            MasterController.player1.deck = new List<int> { 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+            MasterController.player2.team = "Plants";
+            MasterController.player2.deck = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+            AirConsole.instance.Broadcast(new { action = "gameStats", content = MasterController.getGameStats() });
+            SceneManager.LoadScene("Earth");
         }
     }
 
