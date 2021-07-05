@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
             timeValue = time;
             
         }
-        else if(timeValue>0)
+        else if(timeValue > 0)
         {
             timeValue -= Time.deltaTime;
         }
@@ -43,9 +43,6 @@ public class Timer : MonoBehaviour
         if(timeToDisplay < 0)
         {
             timeToDisplay = 0;
-        }else if(timeToDisplay > 0)
-        {
-            timeToDisplay += 1;
         }
 
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
