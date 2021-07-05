@@ -9,7 +9,7 @@ public class DamageArea : MonoBehaviour
     public GameObject arma;
     void Start()
     {
-        Debug.Log("ok trigger area");
+        //Debug.Log("ok trigger area");
 
         /** if (arma.tag!= "Human_Weapon" || arma.tag!= "Plant_Weapon")
          {
@@ -35,7 +35,7 @@ public class DamageArea : MonoBehaviour
     {
         foreach(var t in potentialTargets)
         {
-            Debug.Log(gameObject.name + "Debug Lancio: potential targets  " + t);
+            //Debug.Log(gameObject.name + "Debug Lancio: potential targets  " + t);
         }
     }   
 }

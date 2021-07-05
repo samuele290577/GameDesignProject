@@ -117,7 +117,7 @@ public class TeamPickerManager : MonoBehaviour
 
     void OnMessage(int fromDeviceID, JToken data)
     {
-        Debug.Log("new message from " + fromDeviceID + ": " + data);
+        //Debug.Log("new message from " + fromDeviceID + ": " + data);
 
         if (data["action"] != null && data["action"].ToString() == "pick_humans" && fromDeviceID==player.id)
         {
