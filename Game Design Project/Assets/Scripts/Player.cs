@@ -20,7 +20,7 @@ public class Player
     private int molotovcounter = 0;
     private int minecounter = 0;
 
-    private bool deckOverload = false;
+    public bool deckOverload = false;
 
     public Player (int id)
     {
