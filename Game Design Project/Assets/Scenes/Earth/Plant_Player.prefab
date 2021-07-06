@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 5872119851386057486}
   - component: {fileID: 5872119851386057487}
   - component: {fileID: 3865016938905174708}
+  - component: {fileID: 7162519421312703371}
   m_Layer: 0
   m_Name: Plant_Player
   m_TagString: Untagged
@@ -247,6 +248,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   enemy: {fileID: 0}
   animator: {fileID: 0}
+  overrideRotation: 0
 --- !u!54 &5872119851386057487
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -286,6 +288,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animator: {fileID: 0}
+--- !u!95 &7162519421312703371
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5872119851386057484}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0ac9a149e12405e49b082a895bf6666c, type: 3}
+  m_Controller: {fileID: 9100000, guid: b3a19378ab6b05143829f4189fa0dbe6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2693567842450465096
 PrefabInstance:
   m_ObjectHideFlags: 0

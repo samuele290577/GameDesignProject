@@ -10,6 +10,10 @@ public class CollisionDetection : MonoBehaviour
     public List<GameObject> targets = new List<GameObject>();
     public GameObject earthLogic;
     public GameObject currentPlayer;
+    public GameObject giocatore_pianta;
+    public GameObject giocatore_umano;
+    public Animator animator_pianta;
+    public Animator animator_umano;
   
   
     void Start()
@@ -22,6 +26,11 @@ public class CollisionDetection : MonoBehaviour
         }
         else
             GetComponent<CollisionDetection>().enabled = true;
+        giocatore_pianta = GameObject.Find("Plant_Player");
+        giocatore_umano = GameObject.Find("Human_Player");
+        animator_pianta = giocatore_pianta.GetComponent<Animator>();
+        animator_umano = giocatore_umano.GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -32,6 +41,7 @@ public class CollisionDetection : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         Debug.Log( gameObject.name +  "Debug Lancio : Collisione con " + collision.gameObject.name);
    
         if (collision.gameObject.name == "Checkerboard" ||
@@ -59,6 +69,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("bomba");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(25 * 1.5));
                         else TakeDamage(t, 25);
+                        animator_pianta.SetTrigger("isHurt");
                     }
                 }
             }
@@ -72,6 +83,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("dinamite");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(15 * 1.5));
                         else TakeDamage(t, 15);
+                        animator_pianta.SetTrigger("isHurt");
                     }
                 }
             }
@@ -84,6 +96,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("molotov");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(35 * 1.5));
                         else TakeDamage(t, 35);
+                        animator_pianta.SetTrigger("isHurt");
                     }
                 }
 
@@ -100,6 +113,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("projectile");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(20 * 1.5));
                         else TakeDamage(t, 20);
+                        animator_pianta.SetTrigger("isHurt");
                     }
                 }
                 currentPlayer.GetComponent<BoxCollider>().enabled = true;
@@ -114,6 +128,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("pugnale");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(30 * 1.5));
                         else TakeDamage(t, 30);
+                        animator_pianta.SetTrigger("isHurt");
                     }
                 }
             }
@@ -129,6 +144,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("mela");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(25 * 1.5));
                         else TakeDamage(t, 25);
+                        animator_umano.SetTrigger("isHurt");
                     }
                 }
 
@@ -142,6 +158,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("banane");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(15 * 1.5));
                         else TakeDamage(t, 15);
+                        animator_umano.SetTrigger("isHurt");
                     }
                 }
             }
@@ -155,6 +172,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("ananas");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(35 * 1.5));
                         else TakeDamage(t, 35);
+                        animator_umano.SetTrigger("isHurt");
                     }
                 }
             }
@@ -168,6 +186,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("cocco");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(25 * 1.5));
                         else TakeDamage(t, 25);
+                        animator_umano.SetTrigger("isHurt");
                     }
                 }
 
@@ -182,6 +201,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("anguria");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(20 * 1.5));
                         else TakeDamage(t, 20);
+                        animator_umano.SetTrigger("isHurt");
                     }
                 }
             }
@@ -194,6 +214,7 @@ public class CollisionDetection : MonoBehaviour
                         Debug.Log("arancia");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(30 * 1.5));
                         else TakeDamage(t, 30);
+                        animator_umano.SetTrigger("isHurt");
                     }
                 }
             }

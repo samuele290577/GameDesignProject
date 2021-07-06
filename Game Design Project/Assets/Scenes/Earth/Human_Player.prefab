@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5551624139265600126}
   - component: {fileID: 8570242231090811300}
   - component: {fileID: 3066440093399867574}
+  - component: {fileID: 5916632824778828024}
   m_Layer: 0
   m_Name: Human_Player
   m_TagString: Untagged
@@ -200,6 +201,25 @@ MonoBehaviour:
   team: Humans
   cardObjects: []
   animator: {fileID: 0}
+--- !u!95 &5916632824778828024
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551624139265600116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 662d58d63f6af5c4ca317ecd72c52819, type: 3}
+  m_Controller: {fileID: 9100000, guid: 310ce594e89adba4dba45fe8bb7d6c51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8429090111602345220
 GameObject:
   m_ObjectHideFlags: 0
