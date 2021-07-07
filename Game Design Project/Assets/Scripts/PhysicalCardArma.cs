@@ -35,8 +35,15 @@ public class PhysicalCardArma : MonoBehaviour
     private void Update()
     {
         countCardId();
-        Counter.text = "" + counter;
-        if(deckBuilder.cardAttiva == cardId)
+        if (counter < thisCard.limit)
+        {
+            Counter.text = "" + counter;
+        }
+        else if (counter == thisCard.limit)
+        {
+            Counter.text = "" + counter + " MAX";
+        }
+        if (deckBuilder.cardAttiva == cardId)
         {
             //attivare carta
             GetComponent<Button>().Select();

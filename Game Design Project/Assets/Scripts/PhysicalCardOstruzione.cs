@@ -40,7 +40,14 @@ public class PhysicalCardOstruzione : MonoBehaviour
     private void Update()
     {
         countCardId();
-        Counter.text = "" + counter;
+        if (counter < thisCard.limit)
+        {
+            Counter.text = "" + counter;
+        }
+        else if (counter == thisCard.limit)
+        {
+            Counter.text = "" + counter + " MAX";
+        }
         if (deckBuilder.cardAttiva == cardId)
         {
             //attivare carta
