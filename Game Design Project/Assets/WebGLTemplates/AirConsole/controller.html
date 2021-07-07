@@ -190,7 +190,10 @@
             "teams_humans": "UI_Common/teams_humans.png",
             "teams_plants": "UI_Common/teams_plants.png",
             "readytoplay": "UI_Common/readytoplay.png",
-            "readytoplay_pressed": "UI_Common/readytoplay_pressed.png"
+            "readytoplay_pressed": "UI_Common/readytoplay_pressed.png",
+            "play": "UI_Common/play.png",
+            "quit": "UI_Common/quit.png",
+            "tutorial": "UI_Common/tutorial.png"
         }
     }
 
@@ -220,6 +223,7 @@
         "ui-gotowar-p": "gotowar_pressed",
     }
 
+
     var UI = UIGlobal["Humans"];
 
     function updateUI() {
@@ -228,6 +232,16 @@
             for (i = 0; i < els.length; i++) {
                 els[i].style.backgroundImage = "url('"+ UI[value] + "')";
             } 
+        }
+    }
+
+    function clearPressed() {
+        var pressed = ["ui-up-p", "ui-down-p", "ui-right-p", "ui-left-p", "ui-add-p", "ui-remove-p", "ui-confirm-p", "ui-select-p", "ui-skip-p", "ui-gotowar-p"];
+        for (const value of pressed) {
+            var els = document.getElementsByClassName(key);
+            for (i = 0; i < els.length; i++) {
+                els[i].classList.remove(value);
+            }
         }
     }
 
@@ -241,7 +255,8 @@
 
       //initialize the view manager and set the first view
       ViewManager.init();
-  	  ViewManager.show("ChooseTeam");
+  	  ViewManager.show("MainMenu");
+      updateUI();
 
       me.airconsole.onMessage = function(from, data) {
         console.log("Controller ", me.airconsole.getDeviceId(), "Received: ", data);
@@ -257,6 +272,9 @@
             data.content.p1.id == me.airconsole.getDeviceId() ? myStats = data.content.p1 : myStats = data.content.p2;
             UI = UIGlobal[myStats.team];
             updateUI();
+        }
+        else if (data["action"]!=null && data["action"]=="showChooseTeam") {
+            ViewManager.show("ChooseTeam");
         }
         else if (data["action"]!=null && data["action"]=="showChooseCard") {
             ViewManager.show("ChooseCard");
@@ -433,6 +451,18 @@
     };
 
 
+    function play() {
+        window.app.sendMessageToScreen({'action': 'play'})
+    }
+
+    function quit() {
+        window.app.sendMessageToScreen({'action': 'quit'})
+    }
+
+    function tutorial() {
+        window.app.sendMessageToScreen({'action': 'tutorial'})
+    }
+
     function pickPlants() {
         window.app.sendMessageToScreen({'action': 'pick_plants'})
     }
@@ -461,6 +491,17 @@
         }
     }
 
+    function enterCard() {
+        window.app.sendMessageToScreen({"action": "confirm_card", "cardId": myCardsIds[cardIndex]});
+    }
+
+    function skipMovement() {
+        window.app.sendMessageToScreen({"action": "skip_movement"});
+    }
+
+    function skipCard() {
+        window.app.sendMessageToScreen({"action": "skip_card"});
+    }
 
 
     function updateCardsView() {
@@ -491,20 +532,6 @@
         }
     }
 
-
-
-    function enterCard() {
-        window.app.sendMessageToScreen({"action": "confirm_card", "cardId": myCardsIds[cardIndex]});
-    }
-
-    function skipMovement() {
-        window.app.sendMessageToScreen({"action": "skip_movement"});
-    }
-
-    function skipCard() {
-        window.app.sendMessageToScreen({"action": "skip_card"});
-    }
-
   </script>
   
  </head>
@@ -520,6 +547,15 @@
 
 
 <body onload="window.app = new App()">
+
+    <div class="view" id="MainMenu">
+        <div class="background" style="background-color: black"></div>
+        <table style="height: 80%; width: 100%; top:10%; position:absolute">
+            <tr style="height: 35%"><td><div class="btn-b" ontouchstart="play()" style="background-image: url('UI_Common/play.png')"></div></td></tr>
+            <tr style="height: 35%"><td><div class="btn-b" ontouchstart="quit()" style="background-image: url('UI_Common/quit.png')"></div></td></tr>
+            <tr style="height: 30%"><td><div class="btn-b" ontouchstart="tutorial()" style="background-image: url('UI_Common/tutorial.png')"></div></td></tr>
+        </table>
+    </div>
 
     <div class="view" id="ChooseTeam">
         <div class="area-info">Choose your team!</div>

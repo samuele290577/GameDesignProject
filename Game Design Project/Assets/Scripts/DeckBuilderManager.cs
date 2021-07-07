@@ -51,7 +51,6 @@ public class DeckBuilderManager : MonoBehaviour
     {
         if (playerPlantsReady && playerHumansReady)
         {
-            AirConsole.instance.Broadcast(new { action = "showMove" });
             SceneManager.LoadScene("Earth");
         }
     }
