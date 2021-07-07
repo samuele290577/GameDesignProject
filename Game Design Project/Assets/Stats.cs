@@ -63,7 +63,16 @@ public class Stats : MonoBehaviour
         {
             if (gameObject.tag == "Ostruzione") Destroy(gameObject);
 
-            //here cambio scena fumetto vittoria umani conquista mondo ecc. ecc. 
+            if( gameObject.tag == "Plant_Player")
+            {
+                //piante vincitrici
+            }
+
+            if (gameObject.tag == "Human_Player")
+            {
+                //umani vincitori
+            }
+
         }
     }
     private void OnCollisionEnter(Collision collision)

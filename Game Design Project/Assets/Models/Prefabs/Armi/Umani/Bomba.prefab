@@ -42,7 +42,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.25
+  m_Radius: 2.5
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -202,3 +202,9 @@ MonoBehaviour:
   DamageArea: {fileID: 1678937814054179172}
   arma: {fileID: 5131577445534515798}
   targets: []
+  earthLogic: {fileID: 0}
+  currentPlayer: {fileID: 0}
+  giocatore_pianta: {fileID: 0}
+  giocatore_umano: {fileID: 0}
+  animator_pianta: {fileID: 0}
+  animator_umano: {fileID: 0}

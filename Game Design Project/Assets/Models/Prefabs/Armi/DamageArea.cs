@@ -7,8 +7,10 @@ public class DamageArea : MonoBehaviour
 
     public List<GameObject> potentialTargets = new List<GameObject>();
     public GameObject arma;
+   
     void Start()
     {
+        Debug.Log(gameObject.tag + "tag");
         //Debug.Log("ok trigger area");
 
         /** if (arma.tag!= "Human_Weapon" || arma.tag!= "Plant_Weapon")
@@ -21,9 +23,31 @@ public class DamageArea : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (arma.tag == "Plant_Weapon")
+        {
+            if (other.gameObject.name == "Barili(Clone)" || other.gameObject.name == "Human_Player" || other.gameObject.name == "Mina(Clone)" || other.gameObject.name == "Muro(Clone)")
+            {
+                potentialTargets.Add(other.gameObject);
+            }
+            else Debug.Log("no");
+        }
+        else if (arma.tag == "Human_Weapon")
+                {
+            if(other.gameObject.name == "Plant_Player" || other.gameObject.name == "pietre(Clone)" || other.gameObject.name == "sabbia(Clone)" || other.gameObject.name == "tronco(Clone)")
+            {
+                potentialTargets.Add(other.gameObject);
+            }
+            else Debug.Log("no");
+        }
+        else
+        {
+            Debug.Log("ok");
+        }
+
         //TO DO o tag oppure tag su stats per smistare piante / umani
-        if(other.gameObject.name == "Plant_Player" || other.gameObject.tag == "Ostruzione" || other.gameObject.name == "Human_Player") 
-        potentialTargets.Add(other.gameObject);
+        
+       //QUA MA COME ?????
+        
     }
 
     private void OnTriggerExit(Collider other)
@@ -35,7 +59,7 @@ public class DamageArea : MonoBehaviour
     {
         foreach(var t in potentialTargets)
         {
-            //Debug.Log(gameObject.name + "Debug Lancio: potential targets  " + t);
+         Debug.Log("potential targets di " + gameObject.name + " sono "  + t);
         }
     }   
 }
