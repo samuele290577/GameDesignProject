@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3190641020384676350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000000113929744}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.4995923, y: 2.4995923, z: 2.4995923}
   m_Children:
   - {fileID: 532038829169556769}
@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 7627012899646446520}
   - component: {fileID: 5241574157630315753}
   - component: {fileID: -1876830195878498146}
+  - component: {fileID: 5815668606492825092}
   m_Layer: 0
   m_Name: Muro
   m_TagString: Ostruzione
@@ -651,3 +652,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 16
+--- !u!114 &5815668606492825092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275482661541132909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edef471b06368674494353d4a20b337e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  currentHealth: 0
+  healthBar: {fileID: 268653207448133762}
+  animator: {fileID: 0}

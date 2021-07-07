@@ -18,6 +18,44 @@ public class Stats : MonoBehaviour
             currentHealth = maxHealth;
             healthBar.SetMaxHealth(maxHealth);
         }
+        else if(gameObject.name == "pietre" || gameObject.name == "pietre(Clone)")
+        {
+            maxHealth = 30;
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else if (gameObject.name == "tronco" || gameObject.name == "tronco(Clone)")
+        {
+             
+            maxHealth = 15;
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else if (gameObject.name == "sabbia" || gameObject.name == "sabbia(Clone)")
+        {
+            maxHealth = 10;
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else if (gameObject.name == "Barili" || gameObject.name == "Barili(Clone)")
+        {
+            maxHealth = 15;
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else if (gameObject.name == "Mina" || gameObject.name == "Mina(Clone)")
+        {
+            maxHealth = 10;
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else if (gameObject.name == "Muro" || gameObject.name == "Muro(Clone)")
+        {
+            maxHealth = 30;
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+
     }
     private void Update()
     {

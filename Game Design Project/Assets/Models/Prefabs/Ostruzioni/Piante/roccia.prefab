@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6592265794815166047}
   - component: {fileID: 471721914039600282}
   m_Layer: 0
-  m_Name: Roccia
+  m_Name: roccia
   m_TagString: Ostruzione
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
