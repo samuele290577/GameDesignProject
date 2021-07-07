@@ -319,13 +319,9 @@ public class Logic_Earth: MonoBehaviour {
 			//Render del quadrato target
 			//ThrowTarget.transform.position = targetSquare;
 			//ThrowTarget.SetActive(true);
-			Color col = ThrowTargetArea.GetComponent<Renderer>().material.color;
-			col.a = 1f;
-			ThrowTargetArea.GetComponent<Renderer>().material.color = col;
 			ThrowTargetArea.transform.position = targetSquare;
 			ThrowTargetArea.transform.localScale = new Vector3(explosion, 0.02f, explosion);
 			ThrowTargetArea.SetActive(true);
-
 
 			/** if (ThrowTarget.transform.position == projectile.transform.position)
             {
@@ -369,14 +365,16 @@ public class Logic_Earth: MonoBehaviour {
 
 	IEnumerator FadeOut(GameObject obj)
     {
+		Color c = obj.GetComponent<Renderer>().material.color;
 		for (float ft = 1f; ft >= 0; ft -= 0.1f)
 		{
-			Color c = obj.GetComponent<Renderer>().material.color;
 			c.a = ft;
 			obj.GetComponent<Renderer>().material.color = c;
 			yield return new WaitForSeconds(.1f);
 		}
 		obj.SetActive(false);
+		c.a = 1f;
+		obj.GetComponent<Renderer>().material.color = c;
 	}
 #endif
 }
