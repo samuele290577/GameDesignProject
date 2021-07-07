@@ -66,7 +66,7 @@ public class Launcher : MonoBehaviour
         if(MasterController.player1!=null && MasterController.player2 != null)
         {
             Debug.Log("Ready to Go!");
-            SceneManager.LoadScene("SceltaTeam");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

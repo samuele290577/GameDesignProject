@@ -25,6 +25,7 @@ public class TeamPickerManager : MonoBehaviour
 
     public void Start()
     {
+        AirConsole.instance.Broadcast(new { action = "showChooseTeam" });
         if (playerNumber == 1) player = MasterController.player1;
         else if (playerNumber == 2) player = MasterController.player2;
         else Debug.LogError("Errore nell'assegnazione del giocatore!");
