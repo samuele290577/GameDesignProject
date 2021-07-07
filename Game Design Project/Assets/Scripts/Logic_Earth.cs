@@ -14,6 +14,7 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject MovementTarget;
 	public GameObject ThrowLine;
 	public GameObject ThrowTarget;
+	public GameObject ThrowTargetArea;
 
 	public float change = 45f;
 	IEnumerator timer;
@@ -235,10 +236,16 @@ public class Logic_Earth: MonoBehaviour {
 		//Cose che poi andranno messe da qualche altra parte
 		int maxThrow = 10;
 		float throwAngle = 45f;
+		int explosion = 1;
+
 		if (card != null)
 		{
 			maxThrow = card.range;
 			throwAngle = card.throwAngle;
+			if(card is Arma)
+            {
+				explosion = ((Arma)card).explosion;
+            }
 		}
 		float N = 9;
 
@@ -274,6 +281,7 @@ public class Logic_Earth: MonoBehaviour {
 			//calcolo della target position
 			var q = Quaternion.AngleAxis(Mathf.Rad2Deg * (float)angle, Vector3.up);
 			targetPosition = physicalPlayer.transform.position + q * Vector3.forward * (float)distance;
+
 			//calcolo target square
 			targetSquare = new Vector3((float)(Math.Floor(targetPosition.x) + 0.5), (float)0.11, (float)(Math.Floor(targetPosition.z) + 0.5));
 
@@ -297,8 +305,11 @@ public class Logic_Earth: MonoBehaviour {
 			ThrowLine.SetActive(true);
 
 			//Render del quadrato target
-			ThrowTarget.transform.position = targetSquare;
-			ThrowTarget.SetActive(true);
+			//ThrowTarget.transform.position = targetSquare;
+			//ThrowTarget.SetActive(true);
+			ThrowTargetArea.transform.position = targetSquare;
+			ThrowTargetArea.transform.localScale = new Vector3(explosion, 0.02f, explosion);
+			ThrowTargetArea.SetActive(true);
 
 
 			/** if (ThrowTarget.transform.position == projectile.transform.position)
@@ -312,8 +323,9 @@ public class Logic_Earth: MonoBehaviour {
 		{
 			if (ThrowTarget.activeSelf == true) //altrimenti capisce dei touch end random
 			{
-				ThrowLine.SetActive(false);
-				ThrowTarget.SetActive(false);
+				StartCoroutine(FadeOut(ThrowLine));
+				//StartCoroutine(FadeOut(ThrowTarget));
+				StartCoroutine(FadeOut(ThrowTargetArea));
 				physicalPlayer.playCard(cardId, targetSquare);
 				ChangeTurn();
 				timer3 = TimeUpdate(45f);
@@ -337,6 +349,20 @@ public class Logic_Earth: MonoBehaviour {
 			//AirConsole.instance.onReady -= OnReady;
 			//AirConsole.instance.onConnect -= OnConnect;
 		}
+	}
+
+
+	IEnumerator FadeOut(GameObject obj)
+    {
+		for (float ft = 1f; ft >= 0; ft -= 0.1f)
+		{
+			Debug.Log(obj.GetComponent<Renderer>().material.color);
+			Color c = obj.GetComponent<Renderer>().material.color;
+			c.a = ft;
+			obj.GetComponent<Renderer>().material.color = c;
+			yield return new WaitForSeconds(.1f);
+		}
+		obj.SetActive(false);
 	}
 #endif
 }

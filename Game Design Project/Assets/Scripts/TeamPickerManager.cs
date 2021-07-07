@@ -39,8 +39,8 @@ public class TeamPickerManager : MonoBehaviour
             content = new
             {
                 ready = 0,
-                humans = 1,
-                plants = 0,
+                humans = 0,
+                plants = 1,
             }
         });
         if (MasterController.player1.getTeam() != MasterController.player2.getTeam())
@@ -69,8 +69,8 @@ public class TeamPickerManager : MonoBehaviour
             content = new
             {
                 ready = 0,
-                humans = 0,
-                plants = 1,
+                humans = 1,
+                plants = 0,
             }
         });
         if (MasterController.player1.getTeam() != MasterController.player2.getTeam())
