@@ -56,21 +56,21 @@ public class CollisionDetection : MonoBehaviour
             }
 
         {
+          
+                //ARMI UMANO
 
-
-            //ARMI UMANO
-
-            if (this.name == "Bomba" || this.name == "Bomba(Clone)")
+                if (this.name == "Bomba" || this.name == "Bomba(Clone)")
             {
                 foreach (var t in targets)
                 {
-                    if (t.gameObject.name != "Human_Player")
+                    if (t.name != "Human_Player" || t.name != "Barili(Clone)" || t.name != "Mina(Clone)" || t.name != "Muro(Clone)")
                     {
                         Debug.Log("bomba");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(25 * 1.5));
                         else TakeDamage(t, 25);
                         animator_pianta.SetTrigger("isHurt");
                     }
+                    
                 }
             }
 
@@ -78,26 +78,28 @@ public class CollisionDetection : MonoBehaviour
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Human_Player")
+                    if (t.name != "Human_Player" || t.name != "Barili(Clone)" || t.name != "Mina(Clone)" || t.name != "Muro(Clone)" )
                     {
                         Debug.Log("dinamite");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(15 * 1.5));
                         else TakeDamage(t, 15);
                         animator_pianta.SetTrigger("isHurt");
                     }
+                    
                 }
             }
             else if (this.name == "Molotov" || this.name == "Molotov(Clone)")
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Human_Player")
+                    if (t.name != "Human_Player" || t.name != "Barili(Clone)" || t.name != "Mina(Clone)" || t.name != "Muro(Clone)")
                     {
                         Debug.Log("molotov");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(35 * 1.5));
                         else TakeDamage(t, 35);
                         animator_pianta.SetTrigger("isHurt");
                     }
+                    
                 }
 
             }
@@ -108,13 +110,14 @@ public class CollisionDetection : MonoBehaviour
                  
                 foreach (var t in targets)
                 {
-                    if (t.name != "Human_Player")
+                    if (t.name != "Human_Player" || t.name != "Barili(Clone)" || t.name != "Mina(Clone)" || t.name != "Muro(Clone)")
                     {
                         Debug.Log("projectile");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(20 * 1.5));
                         else TakeDamage(t, 20);
                         animator_pianta.SetTrigger("isHurt");
                     }
+                    
                 }
                 currentPlayer.GetComponent<BoxCollider>().enabled = true;
             }
@@ -123,13 +126,14 @@ public class CollisionDetection : MonoBehaviour
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Human_Player")
+                    if (t.name != "Human_Player" || t.name != "Barili(Clone)" || t.name != "Mina(Clone)" || t.name != "Muro(Clone)")
                     {
                         Debug.Log("pugnale");
                         if (checkObstructionPower("Humans")) TakeDamage(t, (int)(30 * 1.5));
                         else TakeDamage(t, 30);
                         animator_pianta.SetTrigger("isHurt");
                     }
+                    
                 }
             }
 
@@ -139,13 +143,14 @@ public class CollisionDetection : MonoBehaviour
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Plant_Player")
+                    if (t.name != "Plant_Player" || t.name != "tronco(Clone)" || t.name != "sabbia(Clone)" || t.name != "pietre(Clone)")
                     {
                         Debug.Log("mela");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(25 * 1.5));
                         else TakeDamage(t, 25);
                         animator_umano.SetTrigger("isHurt");
                     }
+                    
                 }
 
             }
@@ -153,13 +158,14 @@ public class CollisionDetection : MonoBehaviour
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Plant_Player")
+                    if (t.name != "Plant_Player" || t.name != "tronco(Clone)" || t.name != "sabbia(Clone)" || t.name != "pietre(Clone)")
                     {
                         Debug.Log("banane");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(15 * 1.5));
                         else TakeDamage(t, 15);
                         animator_umano.SetTrigger("isHurt");
                     }
+                    
                 }
             }
 
@@ -167,13 +173,14 @@ public class CollisionDetection : MonoBehaviour
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Plant_Player")
+                    if (t.name != "Plant_Player" || t.name != "tronco(Clone)" || t.name != "sabbia(Clone)" || t.name != "pietre(Clone)")
                     {
                         Debug.Log("ananas");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(35 * 1.5));
                         else TakeDamage(t, 35);
                         animator_umano.SetTrigger("isHurt");
                     }
+                    
                 }
             }
 
@@ -181,13 +188,14 @@ public class CollisionDetection : MonoBehaviour
             {
                 foreach (var t in targets)
                 {
-                    if(t.name != "Plant_Player")
+                    if(t.name != "Plant_Player" || t.name != "tronco(Clone)" || t.name != "sabbia(Clone)" || t.name != "pietre(Clone)")
                     {
                         Debug.Log("cocco");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(25 * 1.5));
                         else TakeDamage(t, 25);
                         animator_umano.SetTrigger("isHurt");
                     }
+                    
                 }
 
        
@@ -196,26 +204,28 @@ public class CollisionDetection : MonoBehaviour
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Plant_Player")
+                    if (t.name != "Plant_Player" || t.name != "tronco(Clone)" || t.name != "sabbia(Clone)" || t.name != "pietre(Clone)")
                     {
                         Debug.Log("anguria");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(20 * 1.5));
                         else TakeDamage(t, 20);
                         animator_umano.SetTrigger("isHurt");
                     }
+                    
                 }
             }
             else if (this.name == "arancia" || this.name == "arancia(Clone)")
             {
                 foreach (var t in targets)
                 {
-                    if (t.name != "Plant_Player")
+                    if (t.name != "Plant_Player" || t.name != "tronco(Clone)" || t.name != "sabbia(Clone)" || t.name != "pietre(Clone)")
                     {
                         Debug.Log("arancia");
                         if (checkObstructionPower("Plants")) TakeDamage(t, (int)(30 * 1.5));
                         else TakeDamage(t, 30);
                         animator_umano.SetTrigger("isHurt");
                     }
+
                 }
             }
                 Destroy(gameObject);

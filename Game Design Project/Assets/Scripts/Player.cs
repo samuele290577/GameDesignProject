@@ -262,7 +262,7 @@ public class Player
         {
             if (deck.Contains(card.getId()))
             {
-                if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Roccia" || card.CardName == "Pietre")
+                if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Rocks" || card.CardName == "Trunc")
                 {
                     deck.Remove(card.getId());
                     Debug.Log("Card Removed: " + card.id + ", " + card.CardName);
@@ -294,7 +294,7 @@ public class Player
                             Debug.Log("Card Removed: " + card.id + ", " + card.CardName);
 
                             break;
-                        case ("Sabbia Mobile"):
+                        case ("Quicksand"):
                             deck.Remove(card.getId());
                             sabbiacounter--;
                             Debug.Log("Card Removed: " + card.id + ", " + card.CardName);
@@ -312,7 +312,7 @@ public class Player
             if (deck.Contains(card.getId()))
             {
                 Debug.Log("Armi Umane remove");
-                if (card.CardName == "Bomb" || card.CardName == "Knife" || card.CardName == "Barrel" || card.CardName == "Explosive Box")
+                if (card.CardName == "Bomb" || card.CardName == "Knife" || card.CardName == "Barrels" || card.CardName == "Wall")
                 {
                     deck.Remove(card.getId());
                     Debug.Log("Card Removed: " + card.id + ", " + card.CardName);

@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.25
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5686462277251733144
 MonoBehaviour:
@@ -201,3 +201,9 @@ MonoBehaviour:
   DamageArea: {fileID: 3241252283645974923}
   arma: {fileID: 5787095857490073184}
   targets: []
+  earthLogic: {fileID: 0}
+  currentPlayer: {fileID: 0}
+  giocatore_pianta: {fileID: 0}
+  giocatore_umano: {fileID: 0}
+  animator_pianta: {fileID: 0}
+  animator_umano: {fileID: 0}
