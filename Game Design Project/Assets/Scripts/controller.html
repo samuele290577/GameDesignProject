@@ -159,6 +159,7 @@
             "skip_pressed": "UI_Humans/skip_pressed.png",
             "gotowar": "UI_Humans/gotowar.png",
             "gotowar_pressed": "UI_Humans/gotowar_pressed.png",
+            "beforebattle": "UI_Humans/backgroundStory.jpeg",
         },
         "Plants": {
             "background": "UI_Plants/background.jpeg",
@@ -184,6 +185,7 @@
             "skip_pressed": "UI_Plants/skip_pressed.png",
             "gotowar": "UI_Plants/gotowar.png",
             "gotowar_pressed": "UI_Plants/gotowar_pressed.png",
+            "beforebattle": "UI_Plants/backgroundStory.jpeg",
         },
         "Common": {
             "teams": "UI_Common/teams.png",
@@ -221,6 +223,7 @@
         "ui-skip-p": "skip_pressed",
         "ui-gotowar": "gotowar",
         "ui-gotowar-p": "gotowar_pressed",
+        "ui-beforebattle": "beforebattle",
     }
 
 
@@ -278,6 +281,9 @@
         }
         else if (data["action"]!=null && data["action"]=="showChooseCard") {
             ViewManager.show("ChooseCard");
+        }
+        else if (data["action"]!=null && data["action"]=="showBackgroundStory") {
+            ViewManager.show("BackgroundStory");
         }
         else if (data["action"]!=null && data["action"]=="showWaitYourTurn") {
             ViewManager.show("WaitYourTurn");
@@ -587,6 +593,11 @@
     <div class="view" id="WaitOtherPlayer">
         <div class="team-back"></div>
         <div class="ui-wait-player splash-screen"></div>
+    </div>
+
+    <div class="view" id="BackgroundStory">
+        <div class="team-back"></div>
+        <div class="ui-beforebattle splash-screen"></div>
     </div>
 
     <div class="view" id="WaitYourTurn">

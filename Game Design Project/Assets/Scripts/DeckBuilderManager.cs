@@ -51,7 +51,7 @@ public class DeckBuilderManager : MonoBehaviour
     {
         if (playerPlantsReady && playerHumansReady)
         {
-            SceneManager.LoadScene("Earth");
+            SceneManager.LoadScene("Scena_backgroundStory");
         }
     }
 }
