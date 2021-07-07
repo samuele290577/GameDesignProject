@@ -74,7 +74,7 @@ public class DeckBuilder : MonoBehaviour
 
     void Update()
     {
-        sizeText.text = "Grandezza deck: " + size;
+        sizeText.text = "Deck Size: " + size;
         image.fillAmount = (float)(size * 0.1);
         isSelected();
     }
