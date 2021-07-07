@@ -15,6 +15,7 @@ public class Logic_Earth: MonoBehaviour {
 	public GameObject ThrowLine;
 	public GameObject ThrowTarget;
 	public GameObject ThrowTargetArea;
+	public Text whoStarts;
 
 	public float change = 45f;
 	IEnumerator timer;
@@ -69,7 +70,15 @@ public class Logic_Earth: MonoBehaviour {
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(nextTurn).id, new { action = "showWaitYourTurn"});
 		
 	}
+
+	
 	//gestione tempo
+	IEnumerator RemoveWhoStarts()
+    {
+		yield return new WaitForSeconds(3);
+		whoStarts.text = "";
+	}
+
 	private IEnumerator TimeUpdate(float sec)
     {
 		 change = sec;
@@ -105,14 +114,17 @@ public class Logic_Earth: MonoBehaviour {
         {
 			currentTurn = "Humans";
 			currentPlayer = GameObject.FindWithTag("Human_Player");
-
+			whoStarts.text = "Human Starts";
 			nextTurn = "Plants";
+			StartCoroutine(RemoveWhoStarts());
 		}
 		else //iniziano le piante
         {
 			currentTurn = "Plants";
 			currentPlayer = GameObject.FindWithTag("Plant_Player");
+			whoStarts.text = "Plant Starts";
 			nextTurn = "Humans";
+			StartCoroutine(RemoveWhoStarts());
 		}
 		Debug.Log("start");
 		AirConsole.instance.Message(MasterController.getPlayerFromTeam(currentTurn).id, new { action = "showMove"});
