@@ -307,6 +307,9 @@ public class Logic_Earth: MonoBehaviour {
 			//Render del quadrato target
 			//ThrowTarget.transform.position = targetSquare;
 			//ThrowTarget.SetActive(true);
+			Color col = ThrowTargetArea.GetComponent<Renderer>().material.color;
+			col.a = 1f;
+			ThrowTargetArea.GetComponent<Renderer>().material.color = col;
 			ThrowTargetArea.transform.position = targetSquare;
 			ThrowTargetArea.transform.localScale = new Vector3(explosion, 0.02f, explosion);
 			ThrowTargetArea.SetActive(true);
@@ -321,7 +324,7 @@ public class Logic_Earth: MonoBehaviour {
 
 		else if (data["action"] != null && data["action"].ToString() == "touch_throw_end")
 		{
-			if (ThrowTarget.activeSelf == true) //altrimenti capisce dei touch end random
+			if (ThrowTargetArea.activeSelf == true) //altrimenti capisce dei touch end random
 			{
 				StartCoroutine(FadeOut(ThrowLine));
 				//StartCoroutine(FadeOut(ThrowTarget));
@@ -356,7 +359,6 @@ public class Logic_Earth: MonoBehaviour {
     {
 		for (float ft = 1f; ft >= 0; ft -= 0.1f)
 		{
-			Debug.Log(obj.GetComponent<Renderer>().material.color);
 			Color c = obj.GetComponent<Renderer>().material.color;
 			c.a = ft;
 			obj.GetComponent<Renderer>().material.color = c;

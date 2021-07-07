@@ -22,14 +22,14 @@ public class PhysicalOstruzione : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<PhysicalPlayer>().team == "Humans")
+        if (other.gameObject.tag == "Humans_Player")
         {
             if (id == 8) //Sabbia mobile
             {
                 logicEarth.ChangeTurn();
             }
         }
-        if (other.gameObject.GetComponent<PhysicalPlayer>().team == "Plants")
+        if (other.gameObject.tag == "Plants_Player")
         {
             if (id == 18) //Mina
             {
