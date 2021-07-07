@@ -61,6 +61,8 @@ public class Stats : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            if (gameObject.tag == "Ostruzione") Destroy(gameObject);
+
             //here cambio scena fumetto vittoria umani conquista mondo ecc. ecc. 
         }
     }

@@ -30,7 +30,7 @@ public class PhysicalPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         GameObject obj = Instantiate<GameObject>(x);
-        obj.transform.position = transform.position + new Vector3(0, .15f, 0);
+        obj.transform.position = transform.position + new Vector3(0, 1, 0);
         obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
 
     }
@@ -129,7 +129,8 @@ public class PhysicalPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Collisione del Player con " + collider.gameObject);
+        //Log("Collisione del Player con " + collider.gameObject);
+
         //fermati se trovi una collisione
         if (collider.gameObject.tag == "Ostruzione")
         {

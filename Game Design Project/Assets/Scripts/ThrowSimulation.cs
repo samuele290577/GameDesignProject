@@ -35,7 +35,8 @@ public class ThrowSimulation : MonoBehaviour
 
         // Extract the X Y componenent of the velocity
         float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
-        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
+        float correttivo = .5f * target_Distance / Vx; //tentativo di valore correttivo della velocità
+        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad) - correttivo;
 
         Vector3 vel = new Vector3(Vx * direction.x, Vy, Vx * direction.z);
 
