@@ -461,11 +461,37 @@
         }
     }
 
+
+
     function updateCardsView() {
-        cardIndex > 0 ? document.getElementById("before_card_content").innerHTML = cards[myCardsIds[cardIndex-1]].name : document.getElementById("before_card_content").innerHTML = "";
+        
+        //carta prima
+        if (cardIndex > 0) {
+            document.getElementById("before_card_content").innerHTML = cards[myCardsIds[cardIndex-1]].name;
+            document.querySelector(".card_before .card-image").src = "UI_Cards/" + myCardsIds[cardIndex-1] + ".png";
+        }
+        else {
+            document.getElementById("before_card_content").innerHTML = "";
+            document.querySelector(".card_before .card-image").src = "";
+        }
+      
+        //carta centrale
+        console.log("UI_Cards/" + myCardsIds[cardIndex] + ".png");
         document.getElementById("active_card_content").innerHTML = cards[myCardsIds[cardIndex]].name;
-        cardIndex < myCardsIds.length-1 ? document.getElementById("after_card_content").innerHTML = cards[myCardsIds[cardIndex+1]].name : document.getElementById("after_card_content").innerHTML = "";
+        document.querySelector(".card_active .card-image").src = "UI_Cards/" + myCardsIds[cardIndex] + ".png";
+        
+        //carta dopo
+        if (cardIndex < myCardsIds.length-1) {
+            document.getElementById("after_card_content").innerHTML = cards[myCardsIds[cardIndex+1]].name;
+            document.querySelector(".card_after .card-image").src = "UI_Cards/" + myCardsIds[cardIndex+1] + ".png";
+        }
+        else {
+            document.getElementById("after_card_content").innerHTML = "";
+            document.querySelector(".card_after .card-image").src = "";
+        }
     }
+
+
 
     function enterCard() {
         window.app.sendMessageToScreen({"action": "confirm_card", "cardId": myCardsIds[cardIndex]});
@@ -551,9 +577,33 @@
         <table id="choose_card_layout">
             <tr>
                 <td style="width: 15%; height: 80%"><div class="btn-a ui-left" id="button_left" ontouchstart="leftCard(); this.classList.add('ui-left-p'); updateUI()" ontouchend="this.classList.remove('ui-left-p'); updateUI()"></div></td>
-                <td style="width: 20%"><div class="card card_before"><p class="card_content" id="before_card_content"></p></div></td>
-                <td style="width: 30%"><div class="card card_active"><p class="card_content" id="active_card_content"></p></div></td>
-                <td style="width: 20%"><div class="card card_after"><p class="card_content" id="after_card_content"></p></div></td>
+                <td style="width: 20%">
+                    <div class="card-wrapper">
+                        <div class="card card_before">
+                            <img class="card-image" src="UI_Cards/1.png">
+                            <p class="card_content" id="before_card_content">
+                            </p>
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 30%">
+                    <div class="card-wrapper">
+                        <div class="card card_active">
+                            <img class="card-image" src="">
+                            <p class="card_content" id="active_card_content">
+                            </p>
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 20%">
+                    <div class="card-wrapper">
+                        <div class="card card_after">
+                            <img class="card-image" src="">
+                            <p class="card_content" id="after_card_content">
+                            </p>
+                        </div>
+                    </div>
+                </td>
                 <td style="width: 15%"><div class="btn-a ui-right" id="button_right" ontouchstart="rightCard(); this.classList.add('ui-right-p'); updateUI()" ontouchend="this.classList.remove('ui-right-p'); updateUI()"></div></td>
             </tr>
             <tr>

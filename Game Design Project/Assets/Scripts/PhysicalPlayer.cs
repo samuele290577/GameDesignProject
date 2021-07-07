@@ -28,7 +28,7 @@ public class PhysicalPlayer : MonoBehaviour
 
     IEnumerator LancioOggetto( GameObject x, Vector3 targetPosition, Card card)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.8f);
         GameObject obj = Instantiate<GameObject>(x);
         obj.transform.position = transform.position + new Vector3(0, 1, 0);
         obj.GetComponent<ThrowSimulation>().Throw(targetPosition, ((Arma)card).throwAngle);
