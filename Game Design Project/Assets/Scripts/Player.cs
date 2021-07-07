@@ -66,7 +66,7 @@ public class Player
 
         if (team.Equals("Plants"))
         {
-            if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Roccia" || card.CardName == "Pietre")
+            if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Rocks" || card.CardName == "Trunc")
             {
                 deck.Add(card.getId());
                 Debug.Log("Card Added: " + card.id + " , " + card.CardName);
@@ -136,7 +136,7 @@ public class Player
                             deckOverload = true;
                         }
                         break;
-                    case ("Sabbia Mobile"):
+                    case ("Quicksand"):
 
                         if (sabbiacounter < card.limit)
                         {
@@ -160,7 +160,7 @@ public class Player
         }
         else
         {
-            if (card.CardName == "Bomb" || card.CardName == "Knife" || card.CardName == "Barrel" || card.CardName == "Explosive Box")
+            if (card.CardName == "Bomb" || card.CardName == "Knife" || card.CardName == "Barrels" || card.CardName == "Wall")
             {
                 deck.Add(card.getId());
                 Debug.Log("Card Added: " + card.id + " , " + card.CardName);
