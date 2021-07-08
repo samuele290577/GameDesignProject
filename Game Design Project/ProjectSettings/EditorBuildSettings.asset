@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: db6d9e4e2d28e1b47a6cd57c48e36a51
+  - enabled: 1
+    path: Assets/Scenes/Stories/Scena_backgroundStory.unity
+    guid: 3b5f29f6e39f57448a7b0101c1df1ffd
   m_configObjects: {}

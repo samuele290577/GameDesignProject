@@ -14,7 +14,7 @@ public class VideoScript : MonoBehaviour
 
 
         GameObject camera = GameObject.Find("Main Camera");
-        var videoPlayer = GetComponent<VideoPlayer>();
+        var videoPlayer = camera.AddComponent<VideoPlayer>();
         videoPlayer.playOnAwake = false;
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "backgroundstory.mp4");
         videoPlayer.Play();
