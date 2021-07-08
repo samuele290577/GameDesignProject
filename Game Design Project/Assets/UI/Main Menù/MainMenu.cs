@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void HelpGame()
     {
-        SceneManager.LoadScene("HelpScene");
+        SceneManager.LoadScene("Tutorial");
     }
 
     void Awake()
