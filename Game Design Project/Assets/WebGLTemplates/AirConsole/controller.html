@@ -247,11 +247,38 @@
             }
         }
     }
+    function preloadImages() {
+    /*
+    for (const [key,value] of Object.entries(UIGlobal)) {
+        for (const [k,v] of Object.entries(value)) {
+            var img = new Image();
+            img.src = v;
+            console.log("Img Loaded: " + v);
+        }
+    }
+    */
+        let str = "";
+        for (const [key,value] of Object.entries(UIGlobal["Plants"])) {
+            str += "url('" + value + "') ";
+        }
+        for (const [key,value] of Object.entries(UIGlobal["Humans"])) {
+            str += "url('" + value + "') ";
+        }
+        for (const [key,value] of Object.entries(UIGlobal["Common"])) {
+            str += "url('" + value + "') ";
+        }
+        for (const [key,value] of Object.entries(cards)) {
+            str += "url('UI_Cards/" + key + ".png') ";
+        }
+        document.getElementById("imgloader").style.content=str;
+
+    }
 
     
     /**
      * Sets up the communication to the screen.
      */
+
     function App() {
       var me = this;
       me.airconsole = new AirConsole({"orientation": "landscape", "synchronize_time" : "true"});
@@ -280,6 +307,7 @@
             ViewManager.show("ChooseTeam");
         }
         else if (data["action"]!=null && data["action"]=="showChooseCard") {
+            preloadImages();
             ViewManager.show("ChooseCard");
         }
         else if (data["action"]!=null && data["action"]=="showBackgroundStory") {
@@ -514,10 +542,12 @@
         
         //carta prima
         if (cardIndex > 0) {
+            document.getElementsByClassName("card_before")[0].style.display = "block";
             document.getElementById("before_card_content").innerHTML = cards[myCardsIds[cardIndex-1]].name;
             document.querySelector(".card_before .card-image").src = "UI_Cards/" + myCardsIds[cardIndex-1] + ".png";
         }
         else {
+            document.getElementsByClassName("card_before")[0].style.display = "none";
             document.getElementById("before_card_content").innerHTML = "";
             document.querySelector(".card_before .card-image").src = "";
         }
@@ -529,10 +559,12 @@
         
         //carta dopo
         if (cardIndex < myCardsIds.length-1) {
+            document.getElementsByClassName("card_after")[0].style.display = "block";
             document.getElementById("after_card_content").innerHTML = cards[myCardsIds[cardIndex+1]].name;
             document.querySelector(".card_after .card-image").src = "UI_Cards/" + myCardsIds[cardIndex+1] + ".png";
         }
         else {
+            document.getElementsByClassName("card_after")[0].style.display = "none";
             document.getElementById("after_card_content").innerHTML = "";
             document.querySelector(".card_after .card-image").src = "";
         }
@@ -619,6 +651,7 @@
     </div>
 
     <div class="view" id="ChooseCard">
+        <div id="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1;"></div>
         <div class="team-back"></div>
         <div class="area-info">Choose the Card you want to play</div>
         <table id="choose_card_layout">
