@@ -82,7 +82,6 @@ public class PhysicalPlayer_Tutorial: MonoBehaviour
             case 3: //cocco
             case 4: //anguria
             case 5: //arancia
-                player.RemoveCard(cardId);
                 card = CardDatabase.getCardFromId(cardId);
                 // obj = Instantiate<GameObject>(cardObjects[cardId]);
                 //obj.transform.position = transform.position + new Vector3(0, .15f, 0); //spessorino per non collidere subito
@@ -91,21 +90,18 @@ public class PhysicalPlayer_Tutorial: MonoBehaviour
                 animator.SetTrigger("isThrowing");
                 break;
             case 6: //pietre
-                player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles= new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
                 animator.SetTrigger("isThrowing");
                 break;
             case 7: //tronco
-                player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
                 animator.SetTrigger("isThrowing");
                 break;
             case 8: //sabbia mobile
-                player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 animator.SetTrigger("isThrowing");
@@ -114,7 +110,6 @@ public class PhysicalPlayer_Tutorial: MonoBehaviour
             case 11: //dinamite
             case 12: //molotov
             case 15: //pugnale
-                player.RemoveCard(cardId);
                 card = (Arma)CardDatabase.getCardFromId(cardId);
                //   obj = Instantiate<GameObject>(cardObjects[cardId]);
                // obj.transform.position = transform.position + new Vector3(0, .15f, 0);//spessorino altrimenti collidono subito
@@ -124,7 +119,6 @@ public class PhysicalPlayer_Tutorial: MonoBehaviour
                 break;
             case 13: //fucile
             case 14: //bazooka
-                player.RemoveCard(cardId);
                 GetComponent<Movement>().overrideRotation = true;
                 transform.LookAt(targetPosition);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
@@ -135,21 +129,18 @@ public class PhysicalPlayer_Tutorial: MonoBehaviour
                 animator.SetTrigger("isShooting");
                 break;
             case 16: //muro
-                player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
                 animator.SetTrigger("isThrowing");
                 break;
             case 17: //barili
-                player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
                 animator.SetTrigger("isThrowing");
                 break;
             case 18: //mina
-                player.RemoveCard(cardId);
                 obj = Instantiate<GameObject>(cardObjects[cardId]);
                 obj.transform.position = targetPosition;
                 obj.transform.eulerAngles = new Vector3(0, rotationToLookAt.eulerAngles.y, 0);
@@ -369,9 +360,9 @@ public class PhysicalPlayer_Tutorial: MonoBehaviour
 				if (ThrowTargetArea.activeSelf == true) //altrimenti capisce dei touch end random
 				{
 					StartCoroutine(FadeOut(ThrowLine));
-					//StartCoroutine(FadeOut(ThrowTarget));
 					StartCoroutine(FadeOut(ThrowTargetArea));
 					playCard(cardId, targetSquare);
+					AirConsole.instance.Message(fromDeviceID, new { action = "showMove" });
 				}
 				//Debug.Log("Target: " + targetPosition);
 			}
@@ -384,8 +375,6 @@ public class PhysicalPlayer_Tutorial: MonoBehaviour
 		if (AirConsole.instance != null)
 		{
 			AirConsole.instance.onMessage -= OnMessage;
-			//AirConsole.instance.onReady -= OnReady;
-			//AirConsole.instance.onConnect -= OnConnect;
 		}
 	}
 
