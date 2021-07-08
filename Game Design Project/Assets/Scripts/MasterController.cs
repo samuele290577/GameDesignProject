@@ -23,6 +23,13 @@ public static class MasterController
         else return null;
     }
 
+    public static int getPlayerNumberFromId(int id)
+    {
+        if (player1.id == id) return 1;
+        else if (player2.id == id) return 2;
+        else return 0;
+    }
+
     public static int getPlayerNumberFromTeam(string team)
     {
         if (player1.team == team) return 1;

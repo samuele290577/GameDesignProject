@@ -41,7 +41,7 @@ public class DamageArea : MonoBehaviour
         }
         else
         {
-            Debug.Log("ok");
+            //Debug.Log("ok");
         }
 
         //TO DO o tag oppure tag su stats per smistare piante / umani
