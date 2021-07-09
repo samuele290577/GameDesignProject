@@ -14,6 +14,10 @@ public class CollisionDetection : MonoBehaviour
     public GameObject giocatore_umano;
     public Animator animator_pianta;
     public Animator animator_umano;
+
+
+    //damage text prova
+    public GameObject damageText;
   
   
     void Start()
@@ -228,7 +232,7 @@ public class CollisionDetection : MonoBehaviour
 
                 }
             }
-                Destroy(gameObject);
+               Destroy(gameObject);
 
             }
         
@@ -240,6 +244,15 @@ public class CollisionDetection : MonoBehaviour
             t.GetComponent<Stats>().currentHealth -= damage;
             int newCurrentHealth = t.GetComponent<Stats>().currentHealth;
             t.GetComponent<Stats>().healthBar.SetHealth(newCurrentHealth);
+
+        //damage text prova
+
+        DamageIndicator indicator = Instantiate(damageText, transform.position, Quaternion.identity).GetComponent<DamageIndicator>();
+        indicator.SetDamageText(damage);
+
+        
+
+
     }
 
     bool checkObstructionPower(string team)
