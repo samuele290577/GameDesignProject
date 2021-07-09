@@ -225,7 +225,10 @@
             "skip_pressed": "UI_Humans/skip_pressed.png",
             "gotowar": "UI_Humans/gotowar.png",
             "gotowar_pressed": "UI_Humans/gotowar_pressed.png",
-            "beforebattle": "UI_Humans/backgroundStory.jpeg",
+            "beforebattle": "UI_Humans/beforebattle.png",
+            "win": "UI_Humans/win.png",
+            "lose": "UI_Humans/lose.png",
+            "draw": "UI_Humans/draw.png"
         },
         "Plants": {
             "background": "UI_Plants/background.jpeg",
@@ -251,7 +254,10 @@
             "skip_pressed": "UI_Plants/skip_pressed.png",
             "gotowar": "UI_Plants/gotowar.png",
             "gotowar_pressed": "UI_Plants/gotowar_pressed.png",
-            "beforebattle": "UI_Plants/backgroundStory.jpeg",
+            "beforebattle": "UI_Plants/beforebattle.png",
+            "win": "UI_Plants/win.png",
+            "lose": "UI_Plants/lose.png",
+            "draw": "UI_Plants/draw.png"
         },
         "Common": {
             "teams": "UI_Common/teams.png",
@@ -290,6 +296,9 @@
         "ui-gotowar": "gotowar",
         "ui-gotowar-p": "gotowar_pressed",
         "ui-beforebattle": "beforebattle",
+        "ui-win": "win",
+        "ui-lose": "lose",
+        "ui-draw": "draw"
     }
 
 
@@ -349,6 +358,7 @@
 
     function App() {
       var me = this;
+      var myStats;
       me.airconsole = new AirConsole({"orientation": "landscape", "synchronize_time" : "true"});
 
       //initialize the view manager and set the first view
@@ -367,7 +377,6 @@
         }
         else if (data["action"]!=null && data["action"]=="gameStats") {
             console.log(data.content);
-            var myStats;
             data.content.p1.id == me.airconsole.getDeviceId() ? myStats = data.content.p1 : myStats = data.content.p2;
             UI = UIGlobal[myStats.team];
             updateUI();
@@ -383,6 +392,9 @@
         else if (data["action"]!=null && data["action"]=="showBackgroundStory") {
             ViewManager.show("BackgroundStory");
         }
+        else if (data["action"]!=null && data["action"]=="showTeaser") {
+            ViewManager.show("Trailer");
+        }
         else if (data["action"]!=null && data["action"]=="showWaitYourTurn") {
             ViewManager.show("WaitYourTurn");
         }
@@ -395,6 +407,21 @@
         else if(data["action"]!=null && data["action"]=="showMove") {
             ViewManager.show("Move");
         }
+        else if(data["action"]!=null && data["action"]=="showPareggio") {
+            ViewManager.show("Draw");
+        }
+        else if (data["action"]!=null && data["action"]=="showHumanwin") {
+            if (myStats.team == "Plants") ViewManager.show("Lose");
+            if (myStats.team == "Humans") ViewManager.show("Win");
+        }
+        else if (data["action"]!=null && data["action"]=="showPlantswin") {
+            if (myStats.team == "Plants") ViewManager.show("Win");
+            if (myStats.team == "Humans") ViewManager.show("Lose");
+        }
+        else if (data["action"]!=null && data["action"]=="showCredits") {
+            ViewManager.show("Credits");
+        }
+
         else if(data["action"]!=null && data["action"]=="teamPickerUI") {
 
             if (data.content.humans==1) document.getElementById("choose_team_back").style.backgroundImage = "url('" + UIGlobal["Common"]["teams_humans"] + "')";
@@ -729,6 +756,10 @@
         <div class="ui-beforebattle splash-screen"></div>
     </div>
 
+    <div class="view" id="Trailer">
+        <div class="background" style="background-image: url('UI_Common/trailer.jpeg')"></div>
+    </div>
+
     <div class="view" id="WaitYourTurn">
         <div class="team-back"></div>
         <div class="ui-wait splash-screen"></div>
@@ -820,6 +851,26 @@
             </svg>
         </div>
     </div>
+
+    <div class="view" id="Win">
+        <div class="team-back"></div>
+        <div class="ui-win splash-screen"></div>
+    </div>
+
+    <div class="view" id="Lose">
+        <div class="team-back"></div>
+        <div class="ui-lose splash-screen"></div>
+    </div>
+
+    <div class="view" id="Draw">
+        <div class="team-back"></div>
+        <div class="ui-draw splash-screen"></div>
+    </div>
+
+    <div class="view" id="Credits">
+        <div class="background" style="background-color: black"></div>
+    </div>
+
 
 </body>
 
