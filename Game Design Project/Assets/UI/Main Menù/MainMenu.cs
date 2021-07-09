@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void HelpGame()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("HelpScene");
     }
 
     void Awake()
@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (data["action"] != null && data["action"].ToString() == "tutorial")
         {
-            SceneManager.LoadScene("Tutorial");
+            SceneManager.LoadScene("HelpScene");
         }
     }
 }
