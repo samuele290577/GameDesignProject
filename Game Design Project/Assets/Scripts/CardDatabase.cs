@@ -16,7 +16,7 @@ public class CardDatabase
         cardDatabase.Add(4, new Arma(4, "Watermelon", 1, 20, 18, 4, 45f));
         cardDatabase.Add(5, new Arma(5, "Oranges", 10, 30, 5, 1, 45f));
         cardDatabase.Add(6, new Ostruzione(6, "Rocks", 20, 10, 30, 4, "If hit, it blocks the opponent's attacks"));
-        cardDatabase.Add(7, new Ostruzione(7, "Trunc", 10, 10, 15, 4, "If hit, multiplies attack damage by 1.5"));
+        cardDatabase.Add(7, new Ostruzione(7, "Trunk", 10, 10, 15, 4, "If hit, multiplies attack damage by 1.5"));
         cardDatabase.Add(8, new Ostruzione(8, "Quicksand", 15, 1, 10, 9, "If it hits the opponent, he will miss the movement's turn"));
 
         //UMANI

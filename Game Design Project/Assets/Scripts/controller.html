@@ -57,75 +57,141 @@
     var cards = {
         0: {
             "id": 0,
-            "name": "Apple"
+            "type":"W",
+            "name": "Apple",
+            "power": 25,
+            "range": 12,
+            "explosion": 5
         },
         1: {
             "id": 1,
-            "name": "Banana"
+            "type":"W",
+            "name": "Banana",
+            "power": 15,
+            "range": 18,
+            "explosion": 25
         },
         2: {
             "id": 2,
-            "name": "Pineapple"
+            "type":"W",
+            "name": "Pineapple",
+            "power": 35,
+            "range": 8,
+            "explosion": 4
         },
         3: {
             "id": 3,
-            "name": "Coconut"
+            "type":"W",
+            "name": "Coconut",
+            "power": 20,
+            "range": 20,
+            "explosion": 9
         },
         4: {
             "id": 4,
-            "name": "Watermelon"
+            "type":"W",
+            "name": "Watermelon",
+            "power": 20,
+            "range": 18,
+            "explosion": 4
         },
         5: {
             "id": 5,
-            "name": "Oranges"
+            "type":"W",
+            "name": "Oranges",
+            "power": 30,
+            "range": 5,
+            "explosion": 1
         },
         6: {
             "id": 6,
-            "name": "Rocks"
+            "type":"O",
+            "name": "Rocks",
+            "range": 20,
+            "life": 30
         },
         7: {
             "id": 7,
-            "name": "Trunk"
+            "type":"O",
+            "name": "Trunk",
+            "range": 10,
+            "life": 15
         },
         8: {
             "id": 8,
-            "name": "Quicksand"
+            "type":"O",
+            "name": "Quicksand",
+            "range": 15,
+            "life": 10
         },
         10: {
             "id": 10,
-            "name": "Bomb"
+            "type":"W",
+            "name": "Bomb",
+            "power": 25,
+            "range": 12,
+            "explosion": 5
         },
         11: {
             "id": 11,
-            "name": "Dynamite"
+            "type":"W",
+            "name": "Dynamite",
+            "power": 15,
+            "range": 18,
+            "explosion": 25
         },
         12: {
             "id": 12,
-            "name": "Molotov"
+            "type":"W",
+            "name": "Molotov",
+            "power": 35,
+            "range": 8,
+            "explosion": 4
         },
         13: {
             "id": 13,
-            "name": "Rifle"
+            "type":"W",
+            "name": "Rifle",
+            "power": 30,
+            "range": 10,
+            "explosion": 1
         },
         14: {
             "id": 14,
-            "name": "Shotgun"
+            "type":"W",
+            "name": "Shotgun",
+            "power": 50,
+            "range": 3,
+            "explosion": 9
         },
         15: {
             "id": 15,
-            "name": "Knife"
+            "type":"W",
+            "name": "Knife",
+            "power": 30,
+            "range": 5,
+            "explosion": 1
         },
         16: {
             "id": 16,
-            "name": "Wall"
+            "type":"O",
+            "name": "Wall",
+            "range": 20,
+            "life": 30
         },
         17: {
             "id": 17,
-            "name": "Barrels"
+            "type":"O",
+            "name": "Barrels",
+            "range": 10,
+            "life": 15
         },
         18: {
             "id": 18,
-            "name": "Mine"
+            "type":"O",
+            "name": "Mine",
+            "range": 15,
+            "life": 10
         }
     }
 
@@ -270,7 +336,9 @@
         for (const [key,value] of Object.entries(cards)) {
             str += "url('UI_Cards/" + key + ".png') ";
         }
-        document.getElementById("imgloader").style.content=str;
+        for (const el of document.getElementsByClassName("imgloader")) {
+            el.style.content=str;
+        }
 
     }
 
@@ -286,6 +354,7 @@
       //initialize the view manager and set the first view
       ViewManager.init();
   	  ViewManager.show("MainMenu");
+      preloadImages();
       updateUI();
 
       me.airconsole.onMessage = function(from, data) {
@@ -307,8 +376,9 @@
             ViewManager.show("ChooseTeam");
         }
         else if (data["action"]!=null && data["action"]=="showChooseCard") {
-            preloadImages();
+            cardIndex = 0;
             ViewManager.show("ChooseCard");
+            updateCardsView();
         }
         else if (data["action"]!=null && data["action"]=="showBackgroundStory") {
             ViewManager.show("BackgroundStory");
@@ -544,6 +614,8 @@
         if (cardIndex > 0) {
             document.getElementsByClassName("card_before")[0].style.display = "block";
             document.getElementById("before_card_content").innerHTML = cards[myCardsIds[cardIndex-1]].name;
+            if (cards[myCardsIds[cardIndex-1]].type == "O") document.getElementsByClassName("card_before")[0].style.backgroundColor = "forestgreen";
+            if (cards[myCardsIds[cardIndex-1]].type == "W") document.getElementsByClassName("card_before")[0].style.backgroundColor = "darkorange";
             document.querySelector(".card_before .card-image").src = "UI_Cards/" + myCardsIds[cardIndex-1] + ".png";
         }
         else {
@@ -553,14 +625,36 @@
         }
       
         //carta centrale
+        var card = cards[myCardsIds[cardIndex]];
         console.log("UI_Cards/" + myCardsIds[cardIndex] + ".png");
-        document.getElementById("active_card_content").innerHTML = cards[myCardsIds[cardIndex]].name;
-        document.querySelector(".card_active .card-image").src = "UI_Cards/" + myCardsIds[cardIndex] + ".png";
-        
+        document.getElementById("active_card_content").innerHTML = card.name;
+        document.querySelector(".card_active .card-image").src = "UI_Cards/" + card.id + ".png";
+        if (card.type == "W") {
+            document.getElementsByClassName("card_active")[0].style.backgroundColor = "darkorange";
+            document.getElementById("card_cell1_h").innerHTML = "Power";
+            document.getElementById("card_cell1").innerHTML = card.power;
+            document.getElementById("card_cell2_h").innerHTML = "Range";
+            document.getElementById("card_cell2").innerHTML = card.range;
+            document.getElementById("card_cell3_h").innerHTML = "Expl.";
+            document.getElementById("card_cell3").innerHTML = card.explosion;
+        }
+        else if (card.type == "O") {
+            document.getElementsByClassName("card_active")[0].style.backgroundColor = "forestgreen";
+            document.getElementById("card_cell1_h").innerHTML = "Range";
+            document.getElementById("card_cell1").innerHTML = card.range;
+            document.getElementById("card_cell2_h").innerHTML = "Life";
+            document.getElementById("card_cell2").innerHTML = card.life;
+            document.getElementById("card_cell3_h").innerHTML = "";
+            document.getElementById("card_cell3").innerHTML = "";
+        }
+
+
         //carta dopo
         if (cardIndex < myCardsIds.length-1) {
             document.getElementsByClassName("card_after")[0].style.display = "block";
             document.getElementById("after_card_content").innerHTML = cards[myCardsIds[cardIndex+1]].name;
+            if (cards[myCardsIds[cardIndex+1]].type == "O") document.getElementsByClassName("card_after")[0].style.backgroundColor = "forestgreen";
+            if (cards[myCardsIds[cardIndex+1]].type == "W") document.getElementsByClassName("card_after")[0].style.backgroundColor = "darkorange";
             document.querySelector(".card_after .card-image").src = "UI_Cards/" + myCardsIds[cardIndex+1] + ".png";
         }
         else {
@@ -587,6 +681,7 @@
 <body onload="window.app = new App()">
 
     <div class="view" id="MainMenu">
+        <div class="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1; display: block !important"></div>
         <div class="background" style="background-color: black"></div>
         <table style="height: 80%; width: 100%; top:10%; position:absolute">
             <tr style="height: 35%"><td><div class="btn-b" ontouchstart="play()" style="background-image: url('UI_Common/play.png')"></div></td></tr>
@@ -596,6 +691,7 @@
     </div>
 
     <div class="view" id="ChooseTeam">
+        <div class="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1; display: block !important"></div>
         <div class="area-info">Choose your team!</div>
         <div class="background" id="choose_team_back"></div>
         <table style="width: 100%; height:100%">
@@ -608,6 +704,7 @@
     </div>
 
     <div class="view" id="BuildDeck">
+        <div class="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1; display: block !important"></div>
         <div class="team-back"></div>
         <table id="build_deck_layout">
             <tr>
@@ -638,6 +735,7 @@
     </div>
 
     <div class="view" id="Move">
+        <div class="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1; display: block !important"></div>
         <div class="team-back"></div>
         <div class="area-info">Tap, Hold and Drag to Move</div>
         <div id="touch_area_move">
@@ -651,7 +749,7 @@
     </div>
 
     <div class="view" id="ChooseCard">
-        <div id="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1;"></div>
+        <div class="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1; display: block !important"></div>
         <div class="team-back"></div>
         <div class="area-info">Choose the Card you want to play</div>
         <table id="choose_card_layout">
@@ -672,6 +770,22 @@
                             <img class="card-image" src="">
                             <p class="card_content" id="active_card_content">
                             </p>
+                            <table style="width:90%; height:2pt; margin:auto">
+                                <tr>
+                                    <td style="width:33%">
+                                        <p class="card-stats" id="card_cell1_h" style="font-size:8pt"></p>
+                                        <p class="card-stats" id="card_cell1"></p>
+                                    </td>
+                                    <td>
+                                        <p class="card-stats" id="card_cell2_h" style="font-size:8pt"></p>
+                                        <p class="card-stats" id="card_cell2"></p>
+                                    </td>
+                                    <td style="width: 33%">
+                                        <p class="card-stats" id="card_cell3_h" style="font-size:8pt"></p>
+                                        <p class="card-stats" id="card_cell3"></p>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </td>
@@ -695,6 +809,7 @@
     </div>
 
     <div class="view" id="ThrowItem">
+        <div class="imgloader" style="position:absolute; width:0; height:0; overflow:hidden; z-index:-1; display: block !important"></div>
         <div class="team-back"></div>
         <div class="area-info">Tap, Hold and Drag to Fire!</div>
         <div id="touch_area_throw">

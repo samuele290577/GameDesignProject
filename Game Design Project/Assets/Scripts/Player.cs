@@ -262,7 +262,7 @@ public class Player
         {
             if (deck.Contains(card.getId()))
             {
-                if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Rocks" || card.CardName == "Trunc")
+                if (card.CardName == "Apple" || card.CardName == "Oranges" || card.CardName == "Rocks" || card.CardName == "Trunk")
                 {
                     deck.Remove(card.getId());
                     Debug.Log("Card Removed: " + card.id + ", " + card.CardName);

@@ -71,7 +71,7 @@ table td {
   
 
 .card-wrapper {
-	border: 1px solid green;
+
 }
 
 .card {
@@ -81,19 +81,17 @@ table td {
 .card_active {
 	height: 48vh;
 	width: 36vh;
-	border: 2px solid red;
+	border: 2px solid white;
 }
 
 .card_before {
 	height: 40vh;
 	width: 30vh;
-	border: 2px solid blue;
 }
 
 .card_after {
 	height: 40vh;
 	width: 30vh;
-	border: 2px solid blue;
 }
 
 .card_content {
@@ -108,6 +106,12 @@ table td {
 	width: 80%;
 	position: relative;
 	left: calc(50% - 40%);
+}
+
+.card-stats {
+	font-family: Arial;
+	color: white;
+	text-align: center;
 }
 
 #touch_area_move {
