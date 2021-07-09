@@ -26,4 +26,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial.unity
     guid: 75c082aa67a8e5f4e9dc7349b4f82547
+  - enabled: 1
+    path: Assets/Scenes/Stories/Scena_teaser.unity
+    guid: 16a0e4213480fe1488f3a381b626cfbe
+  - enabled: 1
+    path: Assets/Scenes/Stories/Scena_credits.unity
+    guid: 47de9dfcb5200884d9d34f5f0c02f109
+  - enabled: 1
+    path: Assets/Scenes/Stories/Scena_pareggio.unity
+    guid: 777649c7cb978404f86449a62e495dc8
+  - enabled: 1
+    path: Assets/Scenes/Stories/Scena_piantewin.unity
+    guid: 3bdac3378d91eb34c85478de2d27e35b
+  - enabled: 1
+    path: Assets/Scenes/Stories/Scena_humanswin.unity
+    guid: 74cdfa18ff483bc4f9dd7c9243ebcd8f
   m_configObjects: {}
