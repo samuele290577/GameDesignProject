@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("SceltaTeam");
+        SceneManager.LoadScene("Scena_teaser");
     }
 
     public void QuitGame()
@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour
     {
         if (data["action"]!=null && data["action"].ToString() == "play")
         {
-            SceneManager.LoadScene("SceltaTeam");
+            SceneManager.LoadScene("Scena_teaser");
         }
         else if (data["action"] != null && data["action"].ToString() == "quit")
         {

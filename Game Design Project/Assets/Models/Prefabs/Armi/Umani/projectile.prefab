@@ -142,6 +142,14 @@ MonoBehaviour:
   DamageArea: {fileID: 8957542385792188944}
   arma: {fileID: 3279686923967944095}
   targets: []
+  earthLogic: {fileID: 0}
+  currentPlayer: {fileID: 0}
+  giocatore_pianta: {fileID: 0}
+  giocatore_umano: {fileID: 0}
+  animator_pianta: {fileID: 0}
+  animator_umano: {fileID: 0}
+  damageText: {fileID: 700788260456227538, guid: a5dda10ebb373314bb7ae36f70f56082,
+    type: 3}
 --- !u!1 &8957542385792188944
 GameObject:
   m_ObjectHideFlags: 0
