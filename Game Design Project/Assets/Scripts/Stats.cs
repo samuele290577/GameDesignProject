@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
@@ -65,14 +66,21 @@ public class Stats : MonoBehaviour
 
             if( gameObject.tag == "Plant_Player")
             {
-                //piante vincitrici
+                //umani vincitrici
+                SceneManager.LoadScene("Scena_humanswin");
             }
 
             if (gameObject.tag == "Human_Player")
             {
-                //umani vincitori
+                //piante vincitori
+                SceneManager.LoadScene("Scena_piantewin");
             }
 
+        }
+        if (MasterController.player1.deck.Count == 0 && MasterController.player2.deck.Count == 0)
+        {
+            //pareggio
+            SceneManager.LoadScene("Scena_pareggio");
         }
     }
     private void OnCollisionEnter(Collision collision)
